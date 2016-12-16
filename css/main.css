@@ -312,8 +312,7 @@ figure img {
   transition: transform 400ms;
 }
 figure:hover img {
-  -webkit-transform: scale3d(1.2, 1.2, 1);
-  transform: scale3d(1.2, 1.2, 1);
+    -webkit-filter: contrast(185%);
 }
 figure:hover .overlay {
   opacity: 1;
