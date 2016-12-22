@@ -856,16 +856,22 @@ ul.social-icons li {
   padding: 4px 12px;
 }
 .about-feature {
-  margin-top: 50px;
+
 }
 .about-feature .block {
   color: #fff;
   width: 33.33%;
   padding: 5%;
   float: left;
+  height: 300px;
 }
 .about-feature .block p {
+    font-weight: 300;
+}
+.about-feature .block ul li a {
   font-weight: 300;
+  color: #ffffff;
+   line-height: 1.7;
 }
 .about-feature .about-feature-1 {
   background: #02bdd5;
