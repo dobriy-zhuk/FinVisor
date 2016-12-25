@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js">
     <head>
-        <!-- Basic Page Needs
-        ================================================== -->
+
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <link rel="icon" type="image/png" href="images/favicon.png">
@@ -33,8 +32,56 @@
         <script src="js/slider.js"></script>
         <script src="js/jquery.fancybox.js"></script>
         <script src="js/main.js"></script>
+
+        <script async type="text/javascript">
+           function get_cash_services(){
+
+               var id = location.search.split('id=')[1];
+               var subscription_fee = location.search.split('subscription_fee=')[1];
+
+               var myData={
+                   id: id,
+                   subscription_fee: subscription_fee
+               };
+
+               jQuery.ajax({
+                   type: "GET",
+                   url: "scripts/get_cash_services.php",
+                   dataType:"text",
+                   data: myData,
+                   success:function(response){
+                       var result = JSON.parse(response);
+
+                       result.forEach(function(element){
+
+                           document.getElementById('result').innerHTML += '<tr style=\'height: 100px\'>' +
+                               '<th scope="row">' + element.id + '</th>' +
+                               '<td>'+ element.name_bank + '<br>' +
+                               '<a data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">' +
+                               'Button with data-target' +
+                               '</button><div class="collapse" id="collapseExample">' +
+                               '<div class="card card-block">' +
+                               'Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.' +
+                               '</div>' +
+                               '</td>' +
+                               '<td>' + element.name_tariff + '</td>' +
+                               '<td>' + element.subscription_fee + '</td>' +
+                               '</tr>';
+
+                       });
+
+                   },
+                   error:function (xhr, ajaxOptions, thrownError){
+                       document.getElementById('result').innerHTML = '<b>Ошибка!</b>';
+                   }
+               });
+
+            }
+
+        </script>
+
     </head>
-    <body>
+    <body onload="get_cash_services();">
         <header id="top-bar" class="navbar-fixed-top animated-header">
             <div class="container">
                 <div class="navbar-header">
@@ -84,7 +131,6 @@
                                 </div>
                             </li>
                             <li><a href="contact.html">Contact</a></li>
-                            
                         </ul>
                     </div>
                 </nav>
@@ -110,6 +156,36 @@
                 </div>
             </div>
             </section>
+
+            <div class="container">
+                <div class="row">
+                    <table class="table table-sm">
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Банк</th>
+                            <th>Тариф</th>
+                            <th>Абонентская плата</th>
+                        </tr>
+                        </thead>
+                        <tbody id="result">
+
+                        <?php
+
+                            /*include_once('scripts/Finvision.php');
+
+                            if(!empty($_GET["param"])) echo $_GET["param"];
+
+                            $obj = new CashServices();
+                            $obj->displayParam();
+*/
+                        ?>
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
             <section id="blog-full-width">
                 <div class="container">
                     <div class="row">
@@ -120,15 +196,9 @@
                                 </div>
                                 <div class="blog-content">
                                     <h2 class="blogpost-title">
-                                    <a href="post-fullwidth.html">Space shouldn’t be the final frontier</a>
-                                        <?php
+                                    <a href="post-fullwidth.html">
 
-                                        include_once('scripts/Finvision.php');
-
-                                        $obj = new CashServices();
-                                        $obj->showAll();
-
-                                     ?>
+                                            Space shouldn’t be the final frontier</a>
                                  </h2>
 
                                  <div class="blog-meta">
