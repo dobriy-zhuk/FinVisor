@@ -55,17 +55,17 @@
                        result.forEach(function(element){
 
                            document.getElementById('result').innerHTML += '<tr style=\'height: 100px\'>' +
-                               '<th scope="row">' + element.id + '</th>' +
                                '<td>'+ element.name_bank + '<br>' +
-                               '<a data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">' +
-                               'Button with data-target' +
-                               '</button><div class="collapse" id="collapseExample">' +
+                               '<a style="cursor: pointer" data-toggle="collapse" data-target="#collapseExample' + element.id + '" aria-expanded="false" aria-controls="collapseExample">' +
+                               'Подробности' +
+                               '</a><div class="collapse"  id="collapseExample' + element.id + '">' +
                                '<div class="card card-block">' +
-                               'Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.' +
+                               'Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus <br> terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes <br>anderson cred nesciunt sapiente ea proident.' +
                                '</div>' +
                                '</td>' +
-                               '<td>' + element.name_tariff + '</td>' +
                                '<td>' + element.subscription_fee + '</td>' +
+                               '<td>' + element.transfer_price + '</td>' +
+                               '<td>' + '0 руб.' + '<br><button class=\"btn btn-success\"> Подать заявку </button>' + '</td>' +
                                '</tr>';
 
                        });
@@ -75,14 +75,13 @@
                        document.getElementById('result').innerHTML = '<b>Ошибка!</b>';
                    }
                });
-
             }
 
         </script>
 
     </head>
     <body onload="get_cash_services();">
-        <header id="top-bar" class="navbar-fixed-top animated-header">
+        <header id="top-bar" class="navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <!-- responsive nav button -->
@@ -92,17 +91,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <!-- /responsive nav button -->
-                    
-                    <!-- logo -->
                     <div class="navbar-brand">
                         <a href="index.html" >
                             <img src="images/logo.png" alt="">
                         </a>
                     </div>
-                    <!-- /logo -->
                 </div>
-                <!-- main menu -->
                 <nav class="collapse navbar-collapse navbar-right" role="navigation">
                     <div class="main-menu">
                         <ul class="nav navbar-nav navbar-right">
@@ -141,48 +135,55 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="block">
-                            <h2>Full Width Blog</h2>
-                            <ol class="breadcrumb">
-                                <li>
-                                    <a href="index.html">
-                                        <i class="ion-ios-home"></i>
-                                        Home
-                                    </a>
-                                </li>
-                                <li class="active">Blog</li>
-                            </ol>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <a href="#" class="fill">РКО для бизнеса</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="">Эквайринг</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="">Зарплатный проект</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="">Депозиты для бизнеса</a>
+                                </div>
+                            </div>
+                            <h2>Рассчетно-кассовое обслуживание для бизнеса</h2>
+                            <p>Теперь стало гораздо проще подобрать качественное и надежное рассчетно-кассовое обслуживание для вашего бизнеса</p>
                         </div>
                     </div>
                 </div>
             </div>
             </section>
-
-            <div class="container">
+            <div class="container col-lg-offset-1 col-lg-10">
                 <div class="row">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label>
+                                Город
+                            </label>
+                            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Введите город">
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Абонентская плата
+                            </label>
+                                <select class="form-control">
+                                    <option>Выбор</option>
+                                </select>
+                        </div>
+                    </form>
                     <table class="table table-sm">
                         <thead>
                         <tr>
-                            <th>id</th>
-                            <th>Банк</th>
-                            <th>Тариф</th>
-                            <th>Абонентская плата</th>
+                            <th class="col-sm-3"><a href="?bank_name=1">Банк</a></th>
+                            <th class="col-sm-3"><a href="?subscription_fee=1">Абонентская плата</a></th>
+                            <th class="col-sm-3"><a href="?transfer_price=1">Плата за перевод</a></th>
+                            <th class="col-sm-3"><a href="?transfer_price=1">Стоимость открытия</a></th>
                         </tr>
                         </thead>
-                        <tbody id="result">
-
-                        <?php
-
-                            /*include_once('scripts/Finvision.php');
-
-                            if(!empty($_GET["param"])) echo $_GET["param"];
-
-                            $obj = new CashServices();
-                            $obj->displayParam();
-*/
-                        ?>
-
-                        </tbody>
-
+                        <tbody id="result" class="table-bordered"></tbody>
                     </table>
                 </div>
             </div>
@@ -190,99 +191,18 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <article class="wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
-                                <div class="blog-post-image">
-                                    <a href="post-fullwidth.html"><img class="img-responsive" src="images/blog/post-1.jpg" alt="" /></a>
-                                </div>
-                                <div class="blog-content">
-                                    <h2 class="blogpost-title">
-                                    <a href="post-fullwidth.html">
 
-                                            Space shouldn’t be the final frontier</a>
-                                 </h2>
-
-                                 <div class="blog-meta">
-                                     <span>Dec 11, 2020</span>
-                                     <span>by <a href="">Admin</a></span>
-                                     <span><a href="">business</a>,<a href="">people</a></span>
-                                 </div>
-                                 <p>Ultrices posuere cubilia curae curabitur sit amet tortor ut massa commodo. Vestibulum consectetur euismod malesuada tincidunt cum. Sed ullamcorper dignissim consectetur ut tincidunt eros sed sapien consectetur dictum. Pellentesques sed volutpat ante, cursus port. Praesent mi magna, penatibus et magniseget dis parturient montes sed quia consequuntur magni dolores eos qui ratione.
-                                 </p>
-                                 <a href="single-post.html" class="btn btn-dafault btn-details">Continue Reading</a>
-                             </div>
-
-                         </article>
-                         <article class="wow fadeInDown" data-wow-delay=".5s" data-wow-duration="500ms">
-                             <div class="blog-post-image">
-                                 <a href="post-fullwidth.html"><img class="img-responsive" src="images/blog/post-2.jpg" alt="" /></a>
-                             </div>
-                             <div class="blog-content">
-                                 <h2 class="blogpost-title">
-                                 <a href="post-fullwidth.html">Space shouldn’t be the final frontier</a>
-                                 </h2>
-                                 <div class="blog-meta">
-                                     <span>Dec 11, 2020</span>
-                                     <span>by <a href="">Admin</a></span>
-                                     <span><a href="">business</a>,<a href="">people</a></span>
-                                 </div>
-                                 <p>Ultrices posuere cubilia curae curabitur sit amet tortor ut massa commodo. Vestibulum consectetur euismod malesuada tincidunt cum. Sed ullamcorper dignissim consectetur ut tincidunt eros sed sapien consectetur dictum. Pellentesques sed volutpat ante, cursus port. Praesent mi magna, penatibus et magniseget dis parturient montes sed quia consequuntur magni dolores eos qui ratione.
-                                 </p>
-                                 <a href="single-post.html" class="btn btn-dafault btn-details">Continue Reading</a>
-                             </div>
-
-                         </article>
-                         <article class="wow fadeInDown" data-wow-delay=".7s" data-wow-duration="500ms">
-                             <div class="blog-post-image">
-                                 <a href="post-fullwidth.html"><img class="img-responsive" src="images/blog/post-3.jpg" alt="" /></a>
-                             </div>
-                             <div class="blog-content">
-                                 <h2 class="blogpost-title">
-                                 <a href="post-fullwidth.html">Space shouldn’t be the final frontier</a>
-                                 </h2>
-                                 <div class="blog-meta">
-                                     <span>Dec 11, 2020</span>
-                                     <span>by <a href="">Admin</a></span>
-                                     <span><a href="">business</a>,<a href="">people</a></span>
-                                 </div>
-                                 <p>Ultrices posuere cubilia curae curabitur sit amet tortor ut massa commodo. Vestibulum consectetur euismod malesuada tincidunt cum. Sed ullamcorper dignissim consectetur ut tincidunt eros sed sapien consectetur dictum. Pellentesques sed volutpat ante, cursus port. Praesent mi magna, penatibus et magniseget dis parturient montes sed quia consequuntur magni dolores eos qui ratione.
-                                 </p>
-                                 <a href="single-post.html" class="btn btn-dafault btn-details">Continue Reading</a>
-                             </div>
-
-                         </article>
                      </div>
                  </div>
              </div>
          </section>
-         <!--
-         ==================================================
-         Call To Action Section Start
-         ================================================== -->
-         <section id="call-to-action">
-             <div class="container">
-                 <div class="row">
-                     <div class="col-md-12">
-                         <div class="block">
-                             <h2 class="title wow fadeInDown" data-wow-delay=".3s" data-wow-duration="300ms">SO WHAT YOU THINK ?</h2>
-                             <p class="wow fadeInDown" data-wow-delay=".5s" data-wow-duration="300ms">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis,<br>possimus commodi, fugiat magnam temporibus vero magni recusandae? Dolore, maxime praesentium.</p>
-                             <a href="contact.html" class="btn btn-default btn-contact wow fadeInDown" data-wow-delay=".7s" data-wow-duration="300ms">Contact With Me</a>
-                         </div>
-                     </div>
 
-                 </div>
-             </div>
-         </section>
-         <!--
-         ==================================================
-         Footer Section Start
-         ================================================== -->
          <footer id="footer">
              <div class="container">
                  <div class="col-md-8">
                      <p class="copyright">Copyright: <span>2015</span> . Design and Developed by <a href="http://www.Themefisher.com">Themefisher</a></p>
                  </div>
                  <div class="col-md-4">
-                     <!-- Social Media -->
                      <ul class="social">
                          <li>
                              <a href="#" class="Facebook">

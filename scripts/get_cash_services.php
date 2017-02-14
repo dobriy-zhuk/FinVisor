@@ -4,10 +4,10 @@ $id = $_GET["id"];
 $subscription_fee = $_GET["subscription_fee"];
 
 
-include_once('Finvision.php');
+include_once('Finvisor.php');
 
 $obj = new CashServices();
-$obj->displayParam();
+$obj->displayParam($subscription_fee);
 
 
 ?>
