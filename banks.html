@@ -34,6 +34,36 @@
         <script src="js/jquery.fancybox.js"></script>
         <script src="js/main.js"></script>
 
+        <script type="text/javascript">
+            function insert_cash_services(){
+
+                var name_bank = document.Products.name_bank.value;
+                var name_tariff = document.Products.name_tariff.value;
+                var transfer_price = document.Products.transfer_price.value;
+                var subscription_fee = document.Products.subscription_fee.value;
+
+                var myData={
+                    name_bank: name_bank,
+                    name_tariff: name_tariff,
+                    transfer_price: transfer_price,
+                    subscription_fee: subscription_fee
+                };
+
+                jQuery.ajax({
+                    type: "POST",
+                    url: "scripts/insert_cash_services.php",
+                    dataType:"text",
+                    data: myData,
+                    success:function(response){
+                        alert(response);
+                    },
+                    error:function (xhr, ajaxOptions, thrownError){
+                        alert("NO");
+                    }
+                });
+            }
+
+        </script>
     </head>
     <body>
         <header id="top-bar" class="navbar-fixed-top">
@@ -101,208 +131,74 @@
                 </nav>
             </div>
         </header>
-        <section id="hero-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="block">
-                            <section class="cd-intro text-center">
-                                <h1 class=" cd-headline slide">
-                                <span>Лучший расчетный счет для бизнеса</span><br>
-                                </h1>
-                                </section>
-                                <h2 class=" text-center">
-                                   Более 500 предложений от Российских банков.<br>Менее чем за минуту поможем подобрать идеальное решение!
-                                </h2>
-                            <div class="row form-group-lg">
-                                <div class="col-md-4 col-md-offset-1">
-                                    <select class="custom-select" data-style="btn-primary" data-width="auto">
-                                        <option selected disabled>Вид деятельности</option>
-                                        <option value="1">Торговля</option>
-                                        <option value="2">Услуги</option>
-                                        <option value="3">Производство</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4 btn-group">
-                                    <select class="custom-select" data-style="btn-primary">
-                                        <option disabled selected>Для меня важно</option>
-                                        <option value="1">Отсутствие абонентской платы</option>
-                                        <option value="2">Скорость обслуживания</option>
-                                        <option value="3">Пониженная комиссия</option>
-                                        <option value="4">Удобство обслуживания</option>
-                                        <option value="5">Стабильность работы</option>
-                                        <option value="6">Качественная техподдержка</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-2">
-                                    <a href="cash_service.php"><button class="btn btn-success btn-lg" style="width: 100%">Найти</button></a>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        <section class="about-feature clearfix">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="block about-feature-1">
-                        <h2>
-                            Обзор
-                        </h2>
-                        <ul>
-                            <li><a href="#">Лучшие РКО 2016 года</a></li>
-                            <li><a href="#">Лучшие РКО по скорости обслуживания</a></li>
-                            <li><a href="#">Лучшие РКО по уровню комиссий</a></li>
-                            <li><a href="#">Лучшие РКО по удобству</a></li>
-                            <li><a href="#">Лучшие РКО без абонентской платы</a></li>
-                            <li><a href="#">Лучшие РКО по качеству техподдержки</a></li>
-                        </ul>
-                    </div>
-                    <div class="block about-feature-2">
-                        <h2 class="item_title">
-                            Сравнение
-                        </h2>
-                        <ul>
-                            <li><a href="#">По абонентской плате</a></li>
-                            <li><a href="#">По скорости обслуживания</a></li>
-                            <li><a href="#">По уровню коммиссий</a></li>
-                            <li><a href="#">По удобству обслуживания</a></li>
-                            <li><a href="#">По стабильности работы</a></li>
-                            <li><a href="#">По качеству техподдержки</a></li>
-                        </ul>
-                    </div>
-                    <div class="block about-feature-3">
-                        <h2 class="item_title">
-                            Лайфхаки
-                        </h2>
-                        <ul>
-                            <li><a href="#">Как выбрать правильное РКО</a></li>
-                            <li><a href="#">На что обращать внимание?</a></li>
-                            <li><a href="#">Как идет начисление CashBack</a></li>
-                            <li><a href="#">Уменьшаем налогооблагаемую базу</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
             <section id="works" class="works">
-                <div class="container col-md-10 col-md-offset-1">
+                <div class="container">
                     <div class="section-heading">
-                        <h1 class="title">Расчетно-кассовое обслуживание по категориям</h1>
+                        <h1 class="title">Добавление организации</h1>
                         <p>
-                            Выбирайте расчетно-кассовое обслуживание, подходящее вам, и подавайте заявку
+                            Добавьте информацию о ваших услуг на нашу финансовую площадку совершенно бесплатно
                         </p>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-4 col-xs-12">
-                            <figure class="portfolio-item">
-                                <a href="#">
-                                <div class="img-wrapper">
-                                    <img src="images/icons/money_pig.png" class="img-responsive" alt="this is a title" >
-                                </div>
-                                <figcaption>
-                                <h4>
-                                    Без абонентской платы
-                                </h4>
-                                <p>
-                                    by Artem Kvasov
-                                </p>
-                                </figcaption>
-                                </a>
-                            </figure>
+                    <form class="col-md-8 col-md-offset-2" name="Products">
+                        <div class="form-group">
+                            <select class="custom-select mb-2 mr-sm-2 mb-sm-0 form-control" id="inlineFormCustomSelect">
+                                <option selected>Город</option>
+                                <option value="1">Москва</option>
+                                <option value="2">Ярославль</option>
+                                <option value="3">Тула</option>
+                            </select>
                         </div>
-                        <div class="col-sm-4 col-xs-12">
-                            <figure class="portfolio-item">
-                                <a href="#">
-                                    <div class="img-wrapper">
-                                        <img src="images/icons/rocket.png" class="img-responsive" alt="this is a title" >
-                                    </div>
-                                    <figcaption>
-                                        <h4>
-                                            Скорость обслуживания
-                                        </h4>
-                                        <p>
-                                            by Artem Kvasov
-                                        </p>
-                                    </figcaption>
-                                </a>
-                            </figure>
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="Наименование организации" id="name_bank" name="name_bank">
                         </div>
-                        <div class="col-sm-4 col-xs-12">
-                            <figure class="portfolio-item">
-                                <a href="#">
-                                    <div class="img-wrapper">
-                                        <img src="images/icons/percent.png" class="img-responsive" alt="this is a title" >
-                                    </div>
-                                    <figcaption>
-                                        <h4>
-                                            Пониженная комиссия
-                                        </h4>
-                                        <p>
-                                            by Artem Kvasov
-                                        </p>
-                                    </figcaption>
-                                </a>
-                            </figure>
+                        <div class="form-group">
+                            <select class="custom-select mb-2 mr-sm-2 mb-sm-0 form-control" id="inlineFormCustomSelect1">
+                                <option selected>Сфера деятельности</option>
+                                <option value="1">Банковская деятельность</option>
+                                <option value="2">Страхование</option>
+                                <option value="3">Инвестирование</option>
+                            </select>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4 col-xs-12">
-                            <figure class="portfolio-item">
-                                <a href="#">
-                                    <div class="img-wrapper">
-                                        <img src="images/icons/comfort.png" class="img-responsive" alt="this is a title" >
-                                    </div>
-                                    <figcaption>
-                                        <h4>
-                                            Удобство обслуживания
-                                        </h4>
-                                        <p>
-                                            by Artem Kvasov
-                                        </p>
-                                    </figcaption>
-                                </a>
-                            </figure>
-                        </div>
-                        <div class="col-sm-4 col-xs-12">
-                            <figure class="portfolio-item">
-                                <a href="#">
-                                    <div class="img-wrapper">
-                                        <img src="images/icons/stability.png" class="img-responsive" alt="this is a title" >
-                                    </div>
-                                    <figcaption>
-                                        <h4>
-                                            Стабильность работы
-                                        </h4>
-                                        <p>
-                                            by Artem Kvasov
-                                        </p>
-                                    </figcaption>
-                                </a>
-                            </figure>
-                        </div>
-                        <div class="col-sm-4 col-xs-12">
-                            <figure class="portfolio-item">
-                                <a href="#">
-                                    <div class="img-wrapper">
-                                        <img src="images/icons/support.png" class="img-responsive" alt="this is a title" >
-                                    </div>
-                                    <figcaption>
-                                        <h4>
-                                            Качественная техподдержка
-                                        </h4>
-                                        <p>
-                                            by Artem Kvasov
-                                        </p>
-                                    </figcaption>
-                                </a>
-                            </figure>
+                        <div class="form-group">
+                            <select class="custom-select mb-2 mr-sm-2 mb-sm-0 form-control" id="inlineFormCustomSelect2">
+                                <option selected>Продукт</option>
+                                <option value="1">РКО для бизнеса</option>
+                                <option value="2">Страхование</option>
+                                <option value="3">Инвестирование</option>
+                            </select>
                         </div>
 
-                    </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="Наименование продукта" id="name_tariff" name="name_tariff">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="number" placeholder="Абонентская плата" id="subscription_fee" name="subscription_fee">
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" type="number" placeholder="Плата за перевод" id="transfer_price" name="transfer_price">
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" type="number" placeholder="Стоимость открытия">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="ФИО контактного лица">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="tel" placeholder="Номер телефона">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="email" placeholder="Email">
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn btn-lg btn-primary" onclick="insert_cash_services()">Отправить</button>
+                        </div>
+
+                    </form>
+
                 </div>
-            </section> <!-- #works -->
+            </section>
             <section id="feature">
                 <div class="container">
                     <div class="section-heading">
@@ -392,25 +288,26 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> <!-- /#feature -->
             <section id="call-to-action">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="block">
-                                <h2 class="title"><strong>Подберем лучшее расчетно-кассовое обслуживание</strong></h2>
+                                <h2 class="title">Подберем лучшее расчетно-кассовое обслуживание</h2>
                                 <p>Введите информацию о вашем бизнесе,<br>и мы поможем открыть расчетный счет в надежном банке!</p>
                                 <a href="cash_service.php" class="btn btn-success btn-lg">Подобрать РКО</a>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </section>
             <footer id="footer">
-                <div class="container copyright">
+                <div class="container">
                     <div class="col-md-8">
                         <div class="col-md-3">
-                            <a href="banks.html">Банкам</a>
+                            <a href="">Банкам</a>
                         </div>
                         <div class="col-md-3">
                             <a href="">Интеграция</a>

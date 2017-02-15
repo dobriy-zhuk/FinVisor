@@ -8,8 +8,6 @@ class Finvisor {
 
     function __construct() {
 
-
-
     }
 
     public function displayBankName(){
@@ -43,8 +41,6 @@ class CashServices extends Finvisor {
         }
 
         mysql_set_charset('utf8');
-
-
 
 
         self::$bankCashService = new Bank_Cash_Service();
@@ -96,6 +92,53 @@ END;
 
         }
 */
+    }
+
+    public function displayFilter($cashback, $transfer_price, $subscription_fee, $remote_banking_price, $withdrawal_commission){
+
+
+        if($cashback == 1){
+            $result = mysql_query( 'SELECT * FROM cash_service WHERE cashback > 0' );
+        }
+        else if($transfer_price == 1){
+            $result = mysql_query( 'SELECT * FROM cash_service WHERE transfer_price = 0' );
+        }
+        else if($subscription_fee == 1){
+            $result = mysql_query( 'SELECT * FROM cash_service WHERE subscription_fee = 0' );
+        }
+        else if($remote_banking_price == 1){
+            $result = mysql_query( 'SELECT * FROM cash_service WHERE remote_banking_price = 0' );
+        }
+        else if($withdrawal_commission == 1){
+            $result = mysql_query( 'SELECT * FROM cash_service WHERE withdrawal_commission = 0' );
+        }
+        else
+        {
+            $result = mysql_query( 'SELECT * FROM cash_service' );
+        }
+
+        if(! $result ) {
+            die('Could not get data: ' . mysql_error());
+        }
+
+        $i = 0;
+        while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+        {
+
+            self::$banks[$i] = new Bank_Cash_Service();
+            self::$banks[$i]->id = $row['id'];
+            self::$banks[$i]->name_bank = $row['name_bank'];
+            self::$banks[$i]->name_tariff = $row['name_tariff'];
+            self::$banks[$i]->subscription_fee = $row['subscription_fee'];
+            self::$banks[$i]->transfer_price = $row['transfer_price'];
+            self::$banks[$i]->remote_banking_price = $row['remote_banking_price'];
+            self::$banks[$i]->withdrawal_commission = $row['withdrawal_commission'];
+
+            $i++;
+        }
+
+        echo json_encode(self::$banks);
+
     }
 
     public function displayParam($subscription_fee){

@@ -34,14 +34,22 @@
         <script src="js/main.js"></script>
 
         <script async type="text/javascript">
-           function get_cash_services(){
+            $( document ).ready(function() {
+                var filter = document.getElementsByClassName("scrollbox");
+                filter.style.height = $( window ).height();
+            });
+
+           function get_cash_services(cashback, transfer_price, subscription_fee, remote_banking_price, withdrawal_commission){
 
                var id = location.search.split('id=')[1];
-               var subscription_fee = location.search.split('subscription_fee=')[1];
 
                var myData={
                    id: id,
-                   subscription_fee: subscription_fee
+                   cashback: cashback,
+                   transfer_price: transfer_price,
+                   subscription_fee: subscription_fee,
+                   remote_banking_price: remote_banking_price,
+                   withdrawal_commission: withdrawal_commission
                };
 
                jQuery.ajax({
@@ -50,10 +58,11 @@
                    dataType:"text",
                    data: myData,
                    success:function(response){
+                       document.getElementById('result').innerHTML = "";
+
                        var result = JSON.parse(response);
 
                        result.forEach(function(element){
-
                            document.getElementById('result').innerHTML += '<tr style=\'height: 100px\'>' +
                                '<td>'+ element.name_bank + '<br>' +
                                '<a style="cursor: pointer" data-toggle="collapse" data-target="#collapseExample' + element.id + '" aria-expanded="false" aria-controls="collapseExample">' +
@@ -80,7 +89,7 @@
         </script>
 
     </head>
-    <body onload="get_cash_services();">
+    <body onload="get_cash_services(0,0,0,0,0);">
         <header id="top-bar" class="navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -156,35 +165,148 @@
                 </div>
             </div>
             </section>
-            <div class="container col-lg-offset-1 col-lg-10">
+            <div class="container">
                 <div class="row">
-                    <form class="form-inline">
-                        <div class="form-group">
-                            <label>
-                                Город
-                            </label>
-                            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Введите город">
-                        </div>
-                        <div class="form-group">
-                            <label>
-                                Абонентская плата
-                            </label>
+                    <div class="col-md-3 col-sm-3 scrollbox">
+                        <form>
+                            <div class="form-group">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-primary col-md-12">
+                                        <input type="radio" name="options" id="option1" autocomplete="off" onchange="get_cash_services(0,0,0,0,1);"> Крупные суммы
+                                    </label>
+                                    <label class="btn btn-primary col-md-12">
+                                        <input type="radio" name="options" id="option2" autocomplete="off" onchange="get_cash_services(0,1,0,0,0);"> Частые платежи
+                                    </label>
+                                    <label class="btn btn-primary col-md-12">
+                                        <input type="radio" name="options" id="option3" autocomplete="off" onchange="get_cash_services(1,0,0,0,0);"> Кэшбек
+                                    </label>
+                                    <label class="btn btn-primary col-md-12">
+                                        <input type="radio" name="options" id="option4" autocomplete="off" onchange="get_cash_services(0,0,1,0,0);"> Без абонентской платы
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Абонентская плата
+                                </label>
+                                    <select class="form-control">
+                                        <option>Выбор</option>
+                                    </select>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Город
+                                </label>
+                                <input type="email" class="form-control" id="exampleInputEmail" placeholder="Введите город">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Абонентская плата
+                                </label>
                                 <select class="form-control">
                                     <option>Выбор</option>
                                 </select>
-                        </div>
-                    </form>
-                    <table class="table table-sm">
-                        <thead>
-                        <tr>
-                            <th class="col-sm-3"><a href="?bank_name=1">Банк</a></th>
-                            <th class="col-sm-3"><a href="?subscription_fee=1">Абонентская плата</a></th>
-                            <th class="col-sm-3"><a href="?transfer_price=1">Плата за перевод</a></th>
-                            <th class="col-sm-3"><a href="?transfer_price=1">Стоимость открытия</a></th>
-                        </tr>
-                        </thead>
-                        <tbody id="result" class="table-bordered"></tbody>
-                    </table>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Город
+                                </label>
+                                <input type="email" class="form-control" id="exampleInputEmail" placeholder="Введите город">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Абонентская плата
+                                </label>
+                                <select class="form-control">
+                                    <option>Выбор</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Город
+                                </label>
+                                <input type="email" class="form-control" id="exampleInputEmail" placeholder="Введите город">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Абонентская плата
+                                </label>
+                                <select class="form-control">
+                                    <option>Выбор</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Город
+                                </label>
+                                <input type="email" class="form-control" id="exampleInputEmail" placeholder="Введите город">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Абонентская плата
+                                </label>
+                                <select class="form-control">
+                                    <option>Выбор</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Город
+                                </label>
+                                <input type="email" class="form-control" id="exampleInputEmail" placeholder="Введите город">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Абонентская плата
+                                </label>
+                                <select class="form-control">
+                                    <option>Выбор</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Город
+                                </label>
+                                <input type="email" class="form-control" id="exampleInputEmail" placeholder="Введите город">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Абонентская плата
+                                </label>
+                                <select class="form-control">
+                                    <option>Выбор</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Город
+                                </label>
+                                <input type="email" class="form-control" id="exampleInputEmail" placeholder="Введите город">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Абонентская плата
+                                </label>
+                                <select class="form-control">
+                                    <option>Выбор</option>
+                                </select>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="col-md-9 col-sm-3">
+                        <table class="table table-sm">
+                            <thead>
+                            <tr>
+                                <th class="col-sm-3"><a href="?bank_name=1">Банк</a></th>
+                                <th class="col-sm-3"><a href="?subscription_fee=1">Абонентская плата</a></th>
+                                <th class="col-sm-3"><a href="?transfer_price=1">Плата за перевод</a></th>
+                                <th class="col-sm-3"><a href="?transfer_price=1">Стоимость открытия</a></th>
+                            </tr>
+                            </thead>
+                            <tbody id="result" class="table-bordered"></tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             <section id="blog-full-width">
@@ -229,6 +351,10 @@
                  </div>
              </div>
              </footer> <!-- /#footer -->
+
+    <script>
+
+    </script>
 
          </body>
      </html>
