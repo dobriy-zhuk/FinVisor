@@ -94,27 +94,27 @@ END;
 */
     }
 
-    public function displayFilter($cashback, $transfer_price, $subscription_fee, $remote_banking_price, $withdrawal_commission){
+    public function displayFilter($cashback, $transfer_price, $subscription_fee, $remote_banking_price, $withdrawal_commission, $limit){
 
 
         if($cashback == 1){
-            $result = mysql_query( 'SELECT * FROM cash_service WHERE cashback > 0' );
+            $result = mysql_query( "SELECT * FROM cash_service WHERE cashback > 0");
         }
         else if($transfer_price == 1){
-            $result = mysql_query( 'SELECT * FROM cash_service WHERE transfer_price = 0' );
+            $result = mysql_query( "SELECT * FROM cash_service WHERE transfer_price = 0");
         }
         else if($subscription_fee == 1){
-            $result = mysql_query( 'SELECT * FROM cash_service WHERE subscription_fee = 0' );
+            $result = mysql_query( "SELECT * FROM cash_service WHERE subscription_fee = 0");
         }
         else if($remote_banking_price == 1){
-            $result = mysql_query( 'SELECT * FROM cash_service WHERE remote_banking_price = 0' );
+            $result = mysql_query( "SELECT * FROM cash_service WHERE remote_banking_price = 0");
         }
         else if($withdrawal_commission == 1){
-            $result = mysql_query( 'SELECT * FROM cash_service WHERE withdrawal_commission = 0' );
+            $result = mysql_query( "SELECT * FROM cash_service WHERE withdrawal_commission = 0");
         }
         else
         {
-            $result = mysql_query( 'SELECT * FROM cash_service' );
+            $result = mysql_query( "SELECT * FROM cash_service");
         }
 
         if(! $result ) {

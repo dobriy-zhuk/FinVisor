@@ -11,7 +11,7 @@ $withdrawal_commission = $_GET["withdrawal_commission"];
 include_once('Finvisor.php');
 
 $obj = new CashServices();
-$obj->displayFilter($cashback,$transfer_price,$subscription_fee,$remote_banking_price,$withdrawal_commission);
+$obj->displayFilter($cashback,$transfer_price,$subscription_fee,$remote_banking_price,$withdrawal_commission,$limit);
 
 
 ?>

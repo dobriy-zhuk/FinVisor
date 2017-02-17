@@ -39,17 +39,15 @@
                 filter.style.height = $( window ).height();
             });
 
-           function get_cash_services(cashback, transfer_price, subscription_fee, remote_banking_price, withdrawal_commission){
-
-               var id = location.search.split('id=')[1];
+           function get_cash_services(cashback, transfer_price, subscription_fee, remote_banking_price, withdrawal_commission, limit){
 
                var myData={
-                   id: id,
                    cashback: cashback,
                    transfer_price: transfer_price,
                    subscription_fee: subscription_fee,
                    remote_banking_price: remote_banking_price,
-                   withdrawal_commission: withdrawal_commission
+                   withdrawal_commission: withdrawal_commission,
+                   limit: limit
                };
 
                jQuery.ajax({
@@ -59,7 +57,6 @@
                    data: myData,
                    success:function(response){
                        document.getElementById('result').innerHTML = "";
-
                        var result = JSON.parse(response);
 
                        result.forEach(function(element){
@@ -89,7 +86,7 @@
         </script>
 
     </head>
-    <body onload="get_cash_services(0,0,0,0,0);">
+    <body onload="get_cash_services(getUrlVars()['cashback'],getUrlVars()['transfer_price'],getUrlVars()['subscription_fee'],getUrlVars()['remote_banking_price'],getUrlVars()['withdrawal_commission'],1);">
         <header id="top-bar" class="navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -170,19 +167,11 @@
                     <div class="col-md-3 col-sm-3 scrollbox">
                         <form>
                             <div class="form-group">
-                                <div class="btn-group" data-toggle="buttons">
-                                    <label class="btn btn-primary col-md-12">
-                                        <input type="radio" name="options" id="option1" autocomplete="off" onchange="get_cash_services(0,0,0,0,1);"> Крупные суммы
-                                    </label>
-                                    <label class="btn btn-primary col-md-12">
-                                        <input type="radio" name="options" id="option2" autocomplete="off" onchange="get_cash_services(0,1,0,0,0);"> Частые платежи
-                                    </label>
-                                    <label class="btn btn-primary col-md-12">
-                                        <input type="radio" name="options" id="option3" autocomplete="off" onchange="get_cash_services(1,0,0,0,0);"> Кэшбек
-                                    </label>
-                                    <label class="btn btn-primary col-md-12">
-                                        <input type="radio" name="options" id="option4" autocomplete="off" onchange="get_cash_services(0,0,1,0,0);"> Без абонентской платы
-                                    </label>
+                                <div class="btn-group" data-toggle="">
+                                    <a class="btn btn-info btn-block" href="cash_service.php?transfer_price=1"> Крупные суммы </a>
+                                    <a class="btn btn-info btn-block" href="cash_service.php?withdrawal_commission=1"> Низкая комиссия </a>
+                                    <a class="btn btn-info btn-block" href="cash_service.php?cashback=1"> Кэшбек </a>
+                                    <a class="btn btn-info btn-block" href="cash_service.php?subscription_fee=1"> Без абонентсткой платы </a>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -306,6 +295,19 @@
                             </thead>
                             <tbody id="result" class="table-bordered"></tbody>
                         </table>
+                        <nav aria-label="Page navigation ">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#" onclick="get_cash_services(0,0,0,0,0,0);">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#" onclick="get_cash_services(0,0,0,0,0,3);">2</a></li>
+                                <li class="page-item"><a class="page-link" href="" onclick="get_cash_services(0,0,0,0,0,6);">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -313,7 +315,6 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-
                      </div>
                  </div>
              </div>
