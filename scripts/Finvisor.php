@@ -28,20 +28,23 @@ class CashServices extends Finvisor {
         $dbhost = 'localhost';
         $dbuser = 'root';
         $dbpass = '787876';
-        $dbname = 'FINVISION';
+        $dbname = 'kursokrf_fin';
 
-        self::$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+        self::$conn = mysqli_connect($dbhost, $dbuser, $dbpass,$dbname);
+
+        if (self::$conn->connect_errno) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
+        }
 
         if(! self::$conn ) {
             die('Could not connect: ' . mysql_error());
         }
 
-        if (!mysql_select_db($dbname)) {
-            die('Could not select database: ' . mysql_error());
+        if (!self::$conn->set_charset("utf8")) {
+            printf("Error loading character set utf8: %s\n", self::$conn->error);
+            exit();
         }
-
-        mysql_set_charset('utf8');
-
 
         self::$bankCashService = new Bank_Cash_Service();
 
@@ -94,48 +97,49 @@ END;
 */
     }
 
-    public function displayFilter($cashback, $transfer_price, $subscription_fee, $remote_banking_price, $withdrawal_commission, $limit){
+    public function displayFilter($cashback, $transfer_price, $subscription_fee, $remote_banking_price, $cash_out){
 
 
-        if($cashback == 1){
-            $result = mysql_query( "SELECT * FROM cash_service WHERE cashback > 0");
-        }
-        else if($transfer_price == 1){
-            $result = mysql_query( "SELECT * FROM cash_service WHERE transfer_price = 0");
-        }
-        else if($subscription_fee == 1){
-            $result = mysql_query( "SELECT * FROM cash_service WHERE subscription_fee = 0");
-        }
-        else if($remote_banking_price == 1){
-            $result = mysql_query( "SELECT * FROM cash_service WHERE remote_banking_price = 0");
-        }
-        else if($withdrawal_commission == 1){
-            $result = mysql_query( "SELECT * FROM cash_service WHERE withdrawal_commission = 0");
-        }
-        else
-        {
-            $result = mysql_query( "SELECT * FROM cash_service");
-        }
+         if($cashback == 1){
+             $result = self::$conn->query("SELECT * FROM cash_service WHERE cashback > 0");
+         }
+         else if($transfer_price == 1){
+             $result = self::$conn->query("SELECT * FROM cash_service WHERE transfer_price = 0");
+         }
+         else if($subscription_fee == 1){
+             $result = self::$conn->query("SELECT * FROM cash_service WHERE subscription_fee = 0");
+         }
+         else if($remote_banking_price == 1){
+             $result = self::$conn->query("SELECT * FROM cash_service WHERE remote_banking_price = 0");
+         }
+         else if($cash_out == 1){
+             $result = self::$conn->query("SELECT * FROM cash_service WHERE cash_out = 0");
+         }
+         else
+         {
+             $result = self::$conn->query("SELECT * FROM cash_service");
+         }
 
-        if(! $result ) {
-            die('Could not get data: ' . mysql_error());
-        }
+         $i = 0;
+         while($row = $result->fetch_assoc())
+         {
 
-        $i = 0;
-        while($row = mysql_fetch_array($result, MYSQL_ASSOC))
-        {
+             self::$banks[$i] = new Bank_Cash_Service();
+             self::$banks[$i]->id = $row['id'];
+             self::$banks[$i]->name_bank = $row['name_bank'];
+             self::$banks[$i]->logo_bank = $row['logo_bank'];
+             self::$banks[$i]->name_tariff = $row['name_tariff'];
+             self::$banks[$i]->subscription_fee = $row['subscription_fee'];
+             self::$banks[$i]->transfer_price = $row['transfer_price'];
+             self::$banks[$i]->remote_banking_price = $row['remote_banking_price'];
+             self::$banks[$i]->cash_out = $row['cash_out'];
+             self::$banks[$i]->details = $row['details'];
+             self::$banks[$i]->open_fee = $row['open_fee'];
 
-            self::$banks[$i] = new Bank_Cash_Service();
-            self::$banks[$i]->id = $row['id'];
-            self::$banks[$i]->name_bank = $row['name_bank'];
-            self::$banks[$i]->name_tariff = $row['name_tariff'];
-            self::$banks[$i]->subscription_fee = $row['subscription_fee'];
-            self::$banks[$i]->transfer_price = $row['transfer_price'];
-            self::$banks[$i]->remote_banking_price = $row['remote_banking_price'];
-            self::$banks[$i]->withdrawal_commission = $row['withdrawal_commission'];
+             $i++;
+         }
 
-            $i++;
-        }
+        $result->free();
 
         echo json_encode(self::$banks);
 
@@ -157,16 +161,11 @@ END;
     public function insertData($bankCashService){
 
 
-        $sql = "INSERT INTO cash_service(name_bank, name_tariff, subscription_fee, transfer_price)
-        VALUES ('$bankCashService->name_bank', '$bankCashService->name_tariff', '$bankCashService->subscription_fee', '$bankCashService->transfer_price')";
+        $sql = "INSERT INTO cash_service(name_bank, name_tariff, subscription_fee, transfer_price) VALUES ('$bankCashService->name_bank', '$bankCashService->name_tariff', '$bankCashService->subscription_fee', '$bankCashService->transfer_price')";
 
-        $retval = mysql_query( $sql, self::$conn );
+        mysqli_query(self::$conn, $sql);
 
-        if(! $retval ) {
-            die('Could not enter data: ' . mysql_error());
-        }
-
-        echo "Entered data successfully\n";
+        printf ("New Record has id %d.\n", mysqli_insert_id(self::$conn));
 
     }
 

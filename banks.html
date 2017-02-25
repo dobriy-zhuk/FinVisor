@@ -49,6 +49,7 @@
                     subscription_fee: subscription_fee
                 };
 
+
                 jQuery.ajax({
                     type: "POST",
                     url: "scripts/insert_cash_services.php",
@@ -192,9 +193,9 @@
                             <input class="form-control" type="email" placeholder="Email">
                         </div>
                         <div class="form-actions">
-                            <button class="btn btn-lg btn-primary" onclick="insert_cash_services()">Отправить</button>
-                        </div>
 
+                        </div>
+                        <button type="button" class="btn btn-lg btn-primary" onclick="insert_cash_services()">Отправить</button>
                     </form>
 
                 </div>
