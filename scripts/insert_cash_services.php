@@ -17,7 +17,7 @@ if(isset($_POST["transfer_price"])){
     $product->transfer_price = $_POST["transfer_price"];
 }
 
-$obj = new CashServices();
+$obj = new FinancialServices();
 $obj->insertData($product);
 
 ?>

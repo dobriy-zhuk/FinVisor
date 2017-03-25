@@ -1,451 +1,580 @@
 <!DOCTYPE html>
 <html class="no-js">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <link rel="icon" type="image/png" href="images/favicon.png">
-        <title>FinVisor | Лучшие предложения по кредитам, вкладам, ипотеке и РКО для юридических лиц и начинающих бизнесменов</title>
-        <meta name="description" content="">
-        <meta name="keywords" content="">
-        <meta name="author" content="">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <title>FinVisor | Лучшие предложения по кредитам, вкладам, ипотеке и РКО для юридических лиц и начинающих бизнесменов</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/ionicons.min.css">
-        <link rel="stylesheet" href="css/animate.css">
-        <link rel="stylesheet" href="css/slider.css">
-        <link rel="stylesheet" href="css/owl.carousel.css">
-        <link rel="stylesheet" href="css/owl.theme.css">
-        <link rel="stylesheet" href="css/jquery.fancybox.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
 
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/wow.min.js"></script>
-        <script src="js/slider.js"></script>
-        <script src="js/jquery.fancybox.js"></script>
-        <script src="js/main.js"></script>
-        <script async src="https://static.addtoany.com/menu/page.js"></script>
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/jquery.fancybox.js"></script>
+    <script src="js/main.js"></script>
 
-        <script>
-            function goto(){
-                window.location.href = 'cash_service.php?' + document.getElementById("activity").value + '=1';
+    <script>
+        function goto(){
+
+            var e = document.getElementById("activity");
+            var selectedValue = e.options[e.selectedIndex].value;
+
+            if (selectedValue == "credit"){
+                window.location.href = 'credit/credit.php';
             }
-        </script>
+            if (selectedValue == "cash_service"){
+                window.location.href = 'finance/cash_service.php';
+            }
+            if (selectedValue == "insurance"){
+                window.location.href = 'insurance/insurance.php';
+            }
+            if (selectedValue == "acquiring"){
+                window.location.href = 'finance/acquiring.php';
+            }
+            if (selectedValue == "investing"){
+                window.location.href = 'investing/funds.php';
+            }
 
-    </head>
-    <body>
-    <div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_vertical_style" style="left:0; top:150px;">
-        <a class="a2a_button_facebook"></a>
-        <a class="a2a_button_twitter"></a>
-        <a class="a2a_button_google_plus"></a>
-        <a class="a2a_button_reddit"></a>
-        <a class="a2a_button_linkedin"></a>
-    </div>
-    <header id="top-bar" class="navbar">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <div class="navbar-brand">
-                    <a href="index.html" >
-                        <img src="images/logo.png" alt="" height="25">
-                    </a>
-                </div>
+        }
+    </script>
+
+</head>
+<body>
+<header id="top-bar" class="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand">
+                <a href="index.html" >
+                    <img src="images/logo.png" alt="" height="25">
+                </a>
             </div>
-            <nav class="collapse navbar-collapse navbar-right" role="navigation">
-                <div class="main-menu">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Банковское обслуживание <span class="caret"></span></a>
-                            <div class="dropdown-menu">
-                                <ul>
-                                    <li><a href="cash_service.php">РКО для бизнеса</a></li>
-                                    <li><a href="gallery.html">Эквайринг</a></li>
-                                    <li><a href="gallery.html">Зарплатный проект</a></li>
-                                    <li><a href="gallery.html">Депозиты для бизнеса</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Кредитование <span class="caret"></span></a>
-                            <div class="dropdown-menu multi-column columns-3">
-                                <ul class="col-sm-4">
-                                    <li><a href="404.html">Открытие бизнеса</a></li>
-                                    <li><a href="gallery.html">Пополнение оборотного капитала</a></li>
-                                    <li><a href="gallery.html">Коммерческая ипотека</a></li>
-                                    <li><a href="404.html">Лизинг</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Страхование <span class="caret"></span></a>
-                            <div class="dropdown-menu">
-                                <ul>
-                                    <li><a href="404.html">Транспорт</a></li>
-                                    <li><a href="gallery.html">Недвижимость</a></li>
-                                    <li><a href="gallery.html">Другие виды</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Инвестирование<span class="caret"></span></a>
-                            <div class="dropdown-menu">
-                                <ul>
-                                    <li><a href="blog-fullwidth.html">Онлайн - брокеры</a></li>
-                                    <li><a href="blog-left-sidebar.html">Венчурные фонды</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li><a href="contact.html">Войти</a></li>
-                    </ul>
-                </div>
-            </nav>
         </div>
-    </header>
-        <section id="hero-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="block">
-                            <section class=" text-center">
-                                <h1 class="cd-headline slide">
-                                <span>Подберите лучший расчетный счет для вашего бизнеса!</span><br>
-                                </h1>
-                                </section>
-                                <h2 class=" text-center">
-                                   Более 500 предложений от Российских банков.<br>Менее чем за минуту поможем найти идеальное решение!
-                                </h2>
-                            <div class="option_block row form-group-lg">
-                                <div class="col-md-6 col-md-offset-2">
-                                    <select class="custom-select" data-style="btn-primary" data-width="auto" name="activity" id="activity">
-                                        <option selected disabled>Вид деятельности</option>
-                                        <option value="cash_out">Торговля</option>
-                                        <option value="subscription_fee">Услуги</option>
-                                        <option value="transfer_price">Производство</option>
-                                    </select>
+        <nav class="collapse navbar-collapse navbar-right" role="navigation">
+            <div class="main-menu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Банковской обслуживание <b class="caret"></b></a>
+                        <div class="dropdown-menu multi-column columns-3">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <ul class="multi-column-dropdown">
+                                        <li><a href=""><strong>Обзоры</strong></a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="blog/top/top-cash-service.html">Лучшие РКО 2017</a></li>
+                                        <li><a href="blog/top/top-acquiring.html">Топ эквайрингов 2017</a></li>
+                                        <li><a href="blog/top/top-deposits.html">Топ депозитов для бизнеса 2017</a></li>
+                                        <li><a href="blog/top/top-currency.html">Топ валютный контроль 2017</a></li>
+                                    </ul>
                                 </div>
-                                <div class="col-md-2">
-                                        <button class="btn btn-success btn-lg" style="width: 100%" onclick="goto()">Найти</button>
-                                 </div>
-                            </div>
+                                <div class="col-sm-4">
+                                    <ul class="multi-column-dropdown">
+                                        <li><a href=""><strong>Сравнение</strong></a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="finance/cash_service.php">РКО для бизнеса</a></li>
+                                        <li><a href="finance/acquiring.php">Эквайринг</a></li>
+                                        <li><a href="finance/deposits.php">Депозиты для бизнеса</a></li>
+
+                                    </ul>
+                                </div>
+                                <div class="col-sm-4">
+                                    <ul class="multi-column-dropdown">
+                                        <li><a href=""><strong>Рекомендации</strong></a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="blog/bank-service/cash-service-choose.html">Как выбрать РКО?</a></li>
+                                        <li><a href="blog/bank-service/acquiring-online-shop.html">Эквайринг для интернет-магазина</a></li>
+                                        <li><a href="blog/bank-service/no_inflation.html">Избавляемся от инфляции</a></li>
+                                        <li><a href="blog/bank-service/mobile-acquiring.html">Мобильный эквайринг</a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-        <section class="about-feature clearfix">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="block about-feature-1">
-                        <h2>
-                            Обзор
-                        </h2>
-                        <ul>
-                            <li><a href="#">Лучшие РКО 2016 года</a></li>
-                            <li><a href="#">Лучшие РКО по скорости обслуживания</a></li>
-                            <li><a href="#">Лучшие РКО по уровню комиссий</a></li>
-                            <li><a href="#">Лучшие РКО по удобству</a></li>
-                            <li><a href="#">Лучшие РКО без абонентской платы</a></li>
-                            <li><a href="#">Лучшие РКО по качеству техподдержки</a></li>
-                        </ul>
-                    </div>
-                    <div class="block about-feature-2">
-                        <h2 class="item_title">
-                            Сравнение РКО
-                        </h2>
-                        <ul>
-                            <li><a href="cash_service.php?subscription_fee=1">По абонентской плате</a></li>
-                            <li><a href="cash_service.php?subscription_fee=1">По скорости обслуживания</a></li>
-                            <li><a href="cash_service.php?transfer_price=1">По уровню коммиссий</a></li>
-                            <li><a href="cash_service.php?remote_banking_price=1">По удобству обслуживания</a></li>
-                            <li><a href="cash_service.php?cash_out=1">По стабильности работы</a></li>
-                            <li><a href="cash_service.php?cashback=1">Кэшбек</a></li>
-                        </ul>
-                    </div>
-                    <div class="block about-feature-3">
-                        <h2 class="item_title">
-                            Лайфхаки
-                        </h2>
-                        <ul>
-                            <li><a href="choose_cash_service.html">Как выбрать правильное РКО</a></li>
-                            <li><a href="#">На что обращать внимание?</a></li>
-                            <li><a href="#">Как идет начисление CashBack</a></li>
-                            <li><a href="#">Уменьшаем налогооблагаемую базу</a></li>
-                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Кредитование<b class="caret"></b></a>
+                        <div class="dropdown-menu multi-column columns-3">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <ul class="multi-column-dropdown">
+                                        <li><a href=""><strong>Обзоры</strong></a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Топ на открытие бизнеса 2017</a></li>
+                                        <li><a href="#">Топ кредитов на пополнение капитала</a></li>
+                                        <li><a href="#">Топ лизинг автотранспорта 2017</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-4">
+                                    <ul class="multi-column-dropdown">
+                                        <li><a href=""><strong>Сравнение</strong></a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="credit/credit.php">Открытие бизнеса</a></li>
+                                        <li><a href="#">Пополнение оборотного капитала</a></li>
+                                        <li><a href="#">Коммерческая ипотека</a></li>
+                                        <li><a href="#">Лизинг</a></li>
+
+                                    </ul>
+                                </div>
+                                <div class="col-sm-4">
+                                    <ul class="multi-column-dropdown">
+                                        <li><a href=""><strong>Рекомендации</strong></a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="blog/credit/choose-credit.html">На что обращать внимание?</a></li>
+                                        <li><a href="blog/credit/credit-open-business.html">Кредит на открытие бизнеса</a></li>
+                                        <li><a href="blog/credit/mortgage-vs-plan.html">Ипотека или рассрочка?</a></li>
+                                        <li><a href="blog/credit/credit_documents.html">Кредит в финансовой отчетности</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="insurance/insurance.php" class="dropdown-toggle" data-toggle="dropdown">Страхование <b class="caret"></b></a>
+                        <div class="dropdown-menu multi-column columns-3">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <ul class="multi-column-dropdown">
+                                        <li><a><strong>Обзоры</strong></a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Топ страхования недвижимости</a></li>
+                                        <li><a href="#">Топ страхования транспорта</a></li>
+                                        <li><a href="#">Топ страхования финансовой деятельности</a></li>
+                                        <li><a href="#">Топ страхования сотрудников</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-4">
+                                    <ul class="multi-column-dropdown">
+                                        <li><a><strong>Сравнение</strong></a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="insurance/insurance_transport.php">Автотранспорт</a></li>
+                                        <li><a href="insurance/insurance_realty.php">Недвижимость</a></li>
+                                        <li><a href="insurance/insurance_realty.php">Финансовая деятельность</a></li>
+                                        <li><a href="insurance/insurance_complex.php">Комплексное страхование</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-4">
+                                    <ul class="multi-column-dropdown">
+                                        <li><a><strong>Рекомендации</strong></a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="blog/insurance/choose-insurance.html">Как выбрать оптимальную страховку?</a></li>
+                                        <li><a href="blog/insurance/place_buying.html">Где купить полис автострахования?</a></li>
+                                        <li><a href="blog/insurance/finance-insurance.html">Страхование финансовых рисков</a></li>
+                                        <li><a href="blog/insurance/price-insurance.html">Как формируется стоимость?</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Инвестиции <b class="caret"></b></a>
+                        <div class="dropdown-menu multi-column columns-3" style="">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <ul class="multi-column-dropdown">
+                                        <li><a><strong>Обзоры</strong></a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Топ венчурных фондов 2017</a></li>
+                                        <li><a href="#">Топ онлайн-брокеров 2017</a></li>
+                                        <li><a href="#">Топ финансовых конкурсов 2017</a></li>
+                                        <li><a href="#">Топ ПО для инвесторов 2017</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-4">
+                                    <ul class="multi-column-dropdown">
+                                        <li><a><strong>Сравнение</strong></a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="investing/funds.php">Венчурные фонды</a></li>
+                                        <li><a href="investing/brokers.php">Онлайн-брокеры</a></li>
+                                        <li><a href="investing/contest.php">Финансовые конкурсы</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-4">
+                                    <ul class="multi-column-dropdown">
+                                        <li><a><strong>Рекомендации</strong></a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="blog/investing/investing_bonds.html">Инвестирование в государственные облигации</a></li>
+                                        <li><a href="#">Готовим питч</a></li>
+                                        <li><a href="#">Как создать презентацию для инвестора?</a></li>
+                                        <li><a href="#">Оценка стоимости компании</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Войти</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<section id="hero-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <section class="text-center">
+                        <h1 class="cd-headline slide">
+                            <span>Все финансовые услуги для вашего бизнеса!</span><br>
+                        </h1>
+                    </section>
+                    <h2 class="text-center">
+                        Более 500 предложений от Российских банков.<br>Менее чем за минуту поможем найти идеальное решение!
+                    </h2>
+                    <div class="option_block row form-group-lg">
+                        <div class="col-md-6 col-md-offset-2">
+                            <select class="custom-select" data-style="btn-primary" data-width="auto" name="activity" id="activity">
+                                <option value="credit">Кредитование</option>
+                                <option value="cash_service">Банковское обслуживание обслуживание</option>
+                                <option value="insurance">Страхование</option>
+                                <option value="investing">Инвестиции</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-default btn-contact" style="width: 100%" onclick="goto()">Подобрать</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-            <section id="works" class="works">
-                <div class="container col-md-10 col-md-offset-1">
-                    <div class="section-heading">
-                        <h1 class="title">Расчетно-кассовое обслуживание по категориям</h1>
+        </div>
+    </div>
+</section>
+<!--section class="about-feature clearfix">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="block about-feature-1">
+                <h2>
+                    Обзор
+                </h2>
+                <ul>
+                    <li><a href="#">Лучшие РКО 2016 года</a></li>
+                    <li><a href="#">Лучшие РКО по скорости обслуживания</a></li>
+                    <li><a href="#">Лучшие РКО по уровню комиссий</a></li>
+                    <li><a href="#">Лучшие РКО по удобству</a></li>
+                    <li><a href="#">Лучшие РКО без абонентской платы</a></li>
+                    <li><a href="#">Лучшие РКО по качеству техподдержки</a></li>
+                </ul>
+            </div>
+            <div class="block about-feature-2">
+                <h2 class="item_title">
+                    Сравнение РКО
+                </h2>
+                <ul>
+                    <li><a href="cash_service.php?subscription_fee=1">По абонентской плате</a></li>
+                    <li><a href="cash_service.php?subscription_fee=1">По скорости обслуживания</a></li>
+                    <li><a href="cash_service.php?transfer_price=1">По уровню коммиссий</a></li>
+                    <li><a href="cash_service.php?remote_banking_price=1">По удобству обслуживания</a></li>
+                    <li><a href="cash_service.php?cash_out=1">По стабильности работы</a></li>
+                    <li><a href="cash_service.php?cashback=1">Кэшбек</a></li>
+                </ul>
+            </div>
+            <div class="block about-feature-3">
+                <h2 class="item_title">
+                    Лайфхаки
+                </h2>
+                <ul>
+                    <li><a href="choose_cash_service.html">Как выбрать правильное РКО</a></li>
+                    <li><a href="#">На что обращать внимание?</a></li>
+                    <li><a href="#">Как идет начисление CashBack</a></li>
+                    <li><a href="#">Уменьшаем налогооблагаемую базу</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section-->
+<section id="works" class="works">
+    <div class="container col-md-10 col-md-offset-1">
+        <div class="section-heading">
+            <h2 class="subtitle">ТОП финансовых услуг для бизнеса по категориям</h2>
+            <p class="subtitle-des">
+                Кредитование, РКО, эквайринг и другие финансовые услуги в одном месте.<br>Выбирайте лучшее и подавайте заявку.
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-xs-12">
+                <figure class="portfolio-item">
+                    <a href="blog/top/top-cash-service.html">
+                        <div class="img-wrapper">
+                            <img src="images/cash_service.jpeg" class="img-responsive" alt="this is a title" >
+                        </div>
+                        <figcaption>
+                            <h4>
+                                Рассчетно-кассовое обслуживание
+                            </h4>
+                            <p>
+                                by Artem Kvasov
+                            </p>
+                        </figcaption>
+                    </a>
+                </figure>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <figure class="portfolio-item">
+                    <a href="blog/top/top-acquiring.html">
+                        <div class="img-wrapper">
+                            <img src="images/acquiring.jpeg" class="img-responsive" alt="this is a title" >
+                        </div>
+                        <figcaption>
+                            <h4>
+                                Эквайринг
+                            </h4>
+                            <p>
+                                by Artem Kvasov
+                            </p>
+                        </figcaption>
+                    </a>
+                </figure>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <figure class="portfolio-item">
+                    <a href="blog/credit/credit-open-business.html">
+                        <div class="img-wrapper">
+                            <img src="images/credit.jpg" class="img-responsive" alt="this is a title" >
+                        </div>
+                        <figcaption>
+                            <h4>
+                                Кредитование бизнеса
+                            </h4>
+                            <p>
+                                by Artem Kvasov
+                            </p>
+                        </figcaption>
+                    </a>
+                </figure>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-xs-12">
+                <figure class="portfolio-item">
+                    <a href="blog/credit/mortgage-vs-plan.html">
+                        <div class="img-wrapper">
+                            <img src="images/mortgage.jpg" class="img-responsive" alt="this is a title" >
+                        </div>
+                        <figcaption>
+                            <h4>
+                                Коммерческая ипотека
+                            </h4>
+                            <p>
+                                by Artem Kvasov
+                            </p>
+                        </figcaption>
+                    </a>
+                </figure>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <figure class="portfolio-item">
+                    <a href="blog/insurance/choose-insurance.html">
+                        <div class="img-wrapper">
+                            <img src="images/insurance.jpg" class="img-responsive" alt="this is a title" >
+                        </div>
+                        <figcaption>
+                            <h4>
+                                Страхование для бизнеса
+                            </h4>
+                            <p>
+                                by Artem Kvasov
+                            </p>
+                        </figcaption>
+                    </a>
+                </figure>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <figure class="portfolio-item">
+                    <a href="#">
+                        <div class="img-wrapper">
+                            <img src="images/investment.jpeg" class="img-responsive" alt="this is a title" >
+                        </div>
+                        <figcaption>
+                            <h4>
+                                Инвестиции
+                            </h4>
+                            <p>
+                                by Artem Kvasov
+                            </p>
+                        </figcaption>
+                    </a>
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="works service-page">
+    <div class="container">
+        <h2 class="subtitle">Обзоры и рекомендации в нашем блоге</h2>
+        <p class="subtitle-des">
+            Послушайте, что говорят в экспертном сообществе. Посмотрите предложения на рынке.<br>
+            Мы поможем выбрать!
+        </p>
+        <div class="row">
+            <div class="col-sm-3">
+                <figure class="portfolio-item">
+                    <div class="img-wrapper">
+                        <img src="images/credit_article.jpg" class="img-responsive" alt="this is a title" >
+                        <div class="overlay">
+                            <div class="buttons">
+                                <a href="blog/credit/choose-credit.html">Читать</a>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="blog/credit/choose-credit.html">
+                                Кредитование
+                            </a>
+                        </h4>
                         <p>
-                            Выбирайте расчетно-кассовое обслуживание, подходящее вам, и подавайте заявку
+                            На что обращать внимание?
                         </p>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4 col-xs-12">
-                            <figure class="portfolio-item">
-                                <a href="cash_service.php?subscription_fee=1">
-                                <div class="img-wrapper">
-                                    <img src="images/icons/money_pig.png" class="img-responsive" alt="this is a title" >
-                                </div>
-                                <figcaption>
-                                <h4>
-                                    Без абонентской платы
-                                </h4>
-                                <p>
-                                    by Artem Kvasov
-                                </p>
-                                </figcaption>
-                                </a>
-                            </figure>
-                        </div>
-                        <div class="col-sm-4 col-xs-12">
-                            <figure class="portfolio-item">
-                                <a href="#">
-                                    <div class="img-wrapper">
-                                        <img src="images/icons/rocket.png" class="img-responsive" alt="this is a title" >
-                                    </div>
-                                    <figcaption>
-                                        <h4>
-                                            Скорость обслуживания
-                                        </h4>
-                                        <p>
-                                            by Artem Kvasov
-                                        </p>
-                                    </figcaption>
-                                </a>
-                            </figure>
-                        </div>
-                        <div class="col-sm-4 col-xs-12">
-                            <figure class="portfolio-item">
-                                <a href="cash_service.php?cash_out=1">
-                                    <div class="img-wrapper">
-                                        <img src="images/icons/percent.png" class="img-responsive" alt="this is a title" >
-                                    </div>
-                                    <figcaption>
-                                        <h4>
-                                            Пониженная комиссия
-                                        </h4>
-                                        <p>
-                                            by Artem Kvasov
-                                        </p>
-                                    </figcaption>
-                                </a>
-                            </figure>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-3">
+                <figure>
+                    <div class="img-wrapper">
+                        <img src="images/online_banking.jpg" class="img-responsive" alt="this is a title" >
+                        <div class="overlay">
+                            <div class="buttons">
+                                <a href="blog/bank-service/acquiring-online-shop.html">Читать</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-4 col-xs-12">
-                            <figure class="portfolio-item">
-                                <a href="#">
-                                    <div class="img-wrapper">
-                                        <img src="images/icons/comfort.png" class="img-responsive" alt="this is a title" >
-                                    </div>
-                                    <figcaption>
-                                        <h4>
-                                            Удобство обслуживания
-                                        </h4>
-                                        <p>
-                                            by Artem Kvasov
-                                        </p>
-                                    </figcaption>
-                                </a>
-                            </figure>
-                        </div>
-                        <div class="col-sm-4 col-xs-12">
-                            <figure class="portfolio-item">
-                                <a href="#">
-                                    <div class="img-wrapper">
-                                        <img src="images/icons/stability.png" class="img-responsive" alt="this is a title" >
-                                    </div>
-                                    <figcaption>
-                                        <h4>
-                                            Стабильность работы
-                                        </h4>
-                                        <p>
-                                            by Artem Kvasov
-                                        </p>
-                                    </figcaption>
-                                </a>
-                            </figure>
-                        </div>
-                        <div class="col-sm-4 col-xs-12">
-                            <figure class="portfolio-item">
-                                <a href="#">
-                                    <div class="img-wrapper">
-                                        <img src="images/icons/support.png" class="img-responsive" alt="this is a title" >
-                                    </div>
-                                    <figcaption>
-                                        <h4>
-                                            Качественная техподдержка
-                                        </h4>
-                                        <p>
-                                            by Artem Kvasov
-                                        </p>
-                                    </figcaption>
-                                </a>
-                            </figure>
-                        </div>
-
-                    </div>
-                </div>
-            </section> <!-- #works -->
-            <section id="feature">
-                <div class="container">
-                    <div class="section-heading">
-                        <h1 class="title">Информация для принятия правильных решений</h1>
+                    <figcaption>
+                        <h4>
+                            <a href="blog/bank-service/acquiring-online-shop.html">
+                                Экварийнг
+                            </a>
+                        </h4>
                         <p>
-                            Послушайте, что говорят другие. Посмотрите на предложения банков.<br> Мы поможем выбрать!
+                            Выбор для интернет-магазина
                         </p>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-3">
+                <figure>
+                    <div class="img-wrapper">
+                        <img src="images/insurance_article.jpg" class="img-responsive" alt="" >
+                        <div class="overlay">
+                            <div class="buttons">
+                                <a href="blog/insurance/finance-insurance.html">Читать</a>
+                            </div>
+                        </div>
                     </div>
+                    <figcaption>
+                        <h4>
+                            <a href="blog/insurance/finance-insurance.html">
+                                Страхование
+                            </a>
+                        </h4>
+                        <p>
+                            Финансовых рисков
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-3">
+                <figure>
+                    <div class="img-wrapper">
+                        <img src="images/investing_article.jpg" class="img-responsive" alt="" >
+                        <div class="overlay">
+                            <div class="buttons">
+                                <a href="blog/investing/investing_bonds.html">Читать</a>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="blog/investing/investing_bonds.html">
+                                Инвестирование
+                            </a>
+                        </h4>
+                        <p>
+                            В государственные облигации
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="call-to-action">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <h2 class="title"><strong>Лучшие финансовые услуги для бизнеса</strong></h2>
+                    <p>Помогаем вашему бизнесу,<br>выбрать лучшие услуги от более чем 500 российских организаций!</p>
                     <div class="row">
-                        <div class="col-md-4 col-lg-4 col-xs-12">
-                            <div class="media">
-                                <div class="media-left">
-                                    <div class="icon">
-                                        <i class="ion-card"></i>
-                                    </div>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">РКО</h4>
-                                    <p>Подбор расчетно-кассового обслуживания из более 500 предложений</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-lg-4 col-xs-12">
-                            <div class="media">
-                                <div class="media-left">
-                                    <div class="icon">
-                                        <i class="ion-calculator"></i>
-                                    </div>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">Эквайринг</h4>
-                                    <p>Поиск и покупка сервиса эквайринга для ведения бизнеса</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-lg-4 col-xs-12">
-                            <div class="media">
-                                <div class="media-left">
-                                    <div class="icon">
-                                        <i class="ion-document-text"></i>
-                                    </div>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">Кредитование</h4>
-                                    <p>Получение кредита на ведение бизнеса с вероятностью 95%. Только заполнить документы</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-lg-4 col-xs-12">
-                            <div class="media">
-                                <div class="media-left">
-                                    <div class="icon">
-                                        <i class="ion-home"></i>
-                                    </div>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">Коммерческая ипотека</h4>
-                                    <p>Получение займа на покупку коммерческой недвижимости, автотранспорта и оборудования</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-lg-4 col-xs-12">
-                            <div class="media">
-                                <div class="media-left">
-                                    <div class="icon">
-                                        <i class="ion-ios-person"></i>
-                                    </div>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">Страхование</h4>
-                                    <p>Возможность застраховать свой бизнес на лучших условиях</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-lg-4 col-xs-12">
-                            <div class="media">
-                                <div class="media-left">
-                                    <div class="icon">
-                                        <i class="ion-ios-lightbulb-outline"></i>
-                                    </div>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">Инвестирование</h4>
-                                    <p>Выгодное вложение средств при помощи лучших игроков рынка</p>
-                                </div>
-                            </div>
-                        </div>
+                        <a href="credit/credit.php" class="btn btn-default btn-contact">Кредитование</a>
+                        <a href="finance/cash_service.php" class="btn btn-default btn-contact">РКО для бизнеса</a>
+                        <a href="insurance/insurance_realty.php" class="btn btn-default btn-contact">Страхование</a>
+                        <a href="investing/funds.php" class="btn btn-default btn-contact">Инвестирование</a>
                     </div>
                 </div>
-            </section>
-            <section id="call-to-action">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="block">
-                                <h2 class="title"><strong>Подберем лучшее расчетно-кассовое обслуживание</strong></h2>
-                                <p>Введите информацию о вашем бизнесе,<br>и мы поможем открыть расчетный счет в надежном банке!</p>
-                                <a href="cash_service.php" class="btn btn-success btn-lg">Подобрать РКО</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <footer id="footer">
-                <div class="container copyright">
-                    <div class="col-md-8">
-                        <div class="col-md-3">
-                            <a href="banks.html">Банкам</a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="">Интеграция</a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="">Оферта</a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="">Контакты</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <ul class="social">
-                            <li>
-                                <a href="http://wwww.fb.com/themefisher" class="Facebook">
-                                    <i class="ion-social-facebook"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://wwww.twitter.com/themefisher" class="Twitter">
-                                    <i class="ion-social-twitter"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="Linkedin">
-                                    <i class="ion-social-linkedin"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://wwww.fb.com/themefisher" class="Google Plus">
-                                    <i class="ion-social-googleplus"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </footer>
-        </body>
-    </html>
+            </div>
+        </div>
+    </div>
+</section>
+<footer id="footer">
+    <div class="container copyright">
+        <div class="col-md-8">
+            <div class="col-md-3">
+                <a href="banks.html">Банкам</a>
+            </div>
+            <div class="col-md-3">
+                <a href="">Интеграция</a>
+            </div>
+            <div class="col-md-3">
+                <a href="">Оферта</a>
+            </div>
+            <div class="col-md-3">
+                <a href="">Контакты</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <ul class="social">
+                <li>
+                    <a href="http://wwww.fb.com/themefisher" class="Facebook">
+                        <i class="ion-social-facebook"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://wwww.twitter.com/themefisher" class="Twitter">
+                        <i class="ion-social-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="Linkedin">
+                        <i class="ion-social-linkedin"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://wwww.fb.com/themefisher" class="Google Plus">
+                        <i class="ion-social-googleplus"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

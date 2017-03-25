@@ -29,7 +29,7 @@ if(isset($_GET["cash_out"])){
 
 include_once('Finvisor.php');
 
-$obj = new CashServices();
-$obj->displayFilter($cashback,$transfer_price,$subscription_fee,$remote_banking_price,$cash_out);
+$obj = new FinancialServices();
+$obj->displayFilterCashService($cashback,$transfer_price,$subscription_fee,$remote_banking_price,$cash_out);
 
 ?>

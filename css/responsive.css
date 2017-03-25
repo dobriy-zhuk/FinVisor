@@ -6,9 +6,9 @@
   .navbar-nav .dropdown-menu,
   .navbar-nav .dropdown.megamenu div.dropdown-menu {
     background: none;
+    background-color: #ffffff;
     border: 0;
     box-shadow: none;
-    display: block;
     opacity: 0;
     z-index: 1;
     visibility: hidden;
@@ -28,12 +28,21 @@
     opacity: 1;
     visibility: visible;
     color: #777;
+    display: block;
+    border: 1px solid #5CB85C;
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     -ms-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1);
   }
+
+    .navbar-nav .dropdown:hover
+    {
+        text-decoration: underline;
+        text-decoration-color: #5CB85C;
+    }
+
   .navbar-nav .dropdown-backdrop {
     visibility: hidden;
   }
