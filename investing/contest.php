@@ -67,8 +67,6 @@
 
            function get_contest(){
 
-
-
                var myData={
                    city_contest: getUrlVars()['city_contest'],
                    directions: getUrlVars()['directions'],
@@ -86,17 +84,18 @@
 
                        result.forEach(function(element){
                            document.getElementById('result').innerHTML += '<tr class="product_card">' +
-                               '<td>'+ element.name_contest + '<br>' +
-                               '<img src="' + element.logo_bank + '" alt="" width = "125" height="125"' + '<br>' +
-                                '<p><a style="font-size: 15px" data-toggle="collapse" data-target="#collapseExample' + element.id + '" aria-expanded="false" aria-controls="collapseExample">' +
-                               'Подробности' +
-                               '</a></p><div class="collapse"  id="collapseExample' + element.id + '">' +
-                               element.details +
+                               '<td>'+ element.name_institution + '<br>' +
+                               '<img src="' + element.logo_institution + '" alt="" width = "125" height="125"' + '<br>' +
                                '</td>' +
-                               '<td style="text-align: center; vertical-align: middle;">' + '<a title="element">' + element.date_contest + ' <i class="ion ion-ios-information-outline"></i></a></td>' +
+                               '<td style="text-align: center; vertical-align: middle;">' + element.date_begin + ' - ' + element.date_end + '</td>' +
                                '<td style="text-align: center; vertical-align: middle;">' + element.directions + '</td>' +
-                               '<td class="active" style="text-align: center; vertical-align: middle;">' + element.volume + 'руб.<br><button class=\"btn btn-success\" onclick=forward("' + element.logo_bank + '");> Подать заявку</button>' + '</td>' +
-                               '</tr>';
+                               '<td class="active" style="text-align: center; vertical-align: middle;">' + element.volume + '<br><button class=\"btn btn-success\" onclick="forward(\'' + element.id + '\',\'' + element.name_institution + '\')"> Подать заявку фонд</button>' + '</td>' +
+                               '</tr>' +
+                               '<tr><td style="border: none" colspan="3"><a style="font-size: 15px; cursor: pointer" data-toggle="collapse" data-target="#collapseExample' + element.id + '" aria-expanded="false" aria-controls="collapseExample">' +
+                               'Особенности' +
+                               '</a><div class="collapse"  id="collapseExample' + element.id + '"><p>' +
+                               element.details +
+                               '</p></td><td style="border: none" class="active"></td></tr>';
                        });
 
                    },
@@ -182,10 +181,9 @@
                                             <li><a href=""><strong>Сравнение</strong></a></li>
                                             <li class="divider"></li>
                                             <li><a href="../credit/credit.php">Открытие бизнеса</a></li>
-                                            <li><a href="#">Пополнение оборотного капитала</a></li>
-                                            <li><a href="#">Коммерческая ипотека</a></li>
-                                            <li><a href="#">Лизинг</a></li>
-
+                                            <li><a href="../credit/credit-capital.php">Пополнение оборотного капитала</a></li>
+                                            <li><a href="../credit/credit-mortgage.php">Коммерческая ипотека</a></li>
+                                            <li><a href="../credit/credit-leasing.php">Лизинг</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
@@ -219,11 +217,10 @@
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Сравнение</strong></a></li>
                                             <li class="divider"></li>
+                                            <li><a href="../insurance/insurance_transport.php">Автотранспорт</a></li>
                                             <li><a href="../insurance/insurance_realty.php">Недвижимость</a></li>
-                                            <li><a href="#">Автотранспорт</a></li>
-                                            <li><a href="#">Финансовая деятельность</a></li>
-                                            <li><a href="#">Сотрудники</a></li>
-
+                                            <li><a href="../insurance/insurance_realty.php">Финансовая деятельность</a></li>
+                                            <li><a href="../insurance/insurance_complex.php">Комплексное страхование</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">

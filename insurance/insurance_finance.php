@@ -250,7 +250,6 @@
                                             <li><a href="../investing/funds.php">Венчурные фонды</a></li>
                                             <li><a href="../investing/brokers.php">Онлайн-брокеры</a></li>
                                             <li><a href="../investing/contest.php">Финансовые конкурсы</a></li>
-
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">

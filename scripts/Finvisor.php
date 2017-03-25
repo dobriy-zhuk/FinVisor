@@ -381,8 +381,8 @@ class FinancialServices extends Finvisor {
 
     public function displayFilterContest($city_contest, $directions, $volume){
 
-        $query = "SELECT * FROM contest LEFT JOIN financial_institution using(id_bank)
-                    WHERE city_contest = '$city_contest' AND  directions = '$directions' AND volume >= '$volume'";
+        $query = "SELECT * FROM contest LEFT JOIN financial_institution using(id_institution)
+                    WHERE city_contest = '$city_contest' AND  directions LIKE '%$directions%' AND volume >= '$volume' order by date_begin";
 
         $result = self::$conn->query($query);
 
@@ -392,12 +392,20 @@ class FinancialServices extends Finvisor {
 
             self::$banks[$i] = new Fund();
             self::$banks[$i]->id = $row['id'];
-            self::$banks[$i]->name_contest = $row['name_contest'];
-            self::$banks[$i]->logo_bank = $row['logo_bank'];
+            self::$banks[$i]->name_institution = $row['name_institution'];
+            self::$banks[$i]->logo_institution = $row['logo_institution'];
             self::$banks[$i]->city_contest = $row['city_contest'];
             self::$banks[$i]->directions = $row['directions'];
             self::$banks[$i]->volume = $row['volume'];
-            self::$banks[$i]->date_contest = $row['date_contest'];
+
+            $date_begin = strtotime($row['date_begin']);
+            $date_begin = date("d.m.Y",$date_begin);
+
+            $date_end = strtotime($row['date_end']);
+            $date_end = date("d.m.Y",$date_end);
+
+            self::$banks[$i]->date_begin = $date_begin;
+            self::$banks[$i]->date_end = $date_end;
 
             $i++;
         }
@@ -555,11 +563,13 @@ class Fund {
 
 class Contest {
     public $id;
-    public $name_contest;
+    public $name_institution;
+    public $logo_institution;
     public $city_contest;
     public $directions;
     public $volume;
-    public $date_contest;
+    public $date_begin;
+    public $date_end;
 }
 
 
