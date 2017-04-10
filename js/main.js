@@ -141,8 +141,48 @@ var MAX_TOP = 350;
 
 
 
- 
+function AjaxCallBack(result_id,form_id,subject, url) {
+    jQuery.ajax({
+        url:     url,
+        type:     "POST",
+        dataType: "html",
+        data: jQuery("#"+form_id).serialize() + "&subject=" + subject,
+        success: function(response) {
+            $('#form_id').trigger( 'reset' );
+            document.getElementById(result_id).innerHTML = "<div class=\"alert alert-success\">" + response + "</div>";
+        },
+        error: function(response) {
+            document.getElementById(result_id).innerHTML = "<div class=\"alert alert-danger\">Ошибка отправки формы‹</div>"
+        }
+    });
+}
 
 
 
+function CheckFormSimple() {
 
+    $("#name_order").next(".error").remove();
+    $("#phone_order").next(".error").remove();
+    $("#inn_order").next(".error").remove();
+
+    $('#name_order').css("border-color", "#CCCCCC");
+    $('#phone_order').css("border-color", "#CCCCCC");
+    $('#inn_order').css("border-color", "#CCCCCC");
+
+    if ($('#name_order').val() == "")
+    {
+        $('#name_order').css("border-color", "red");
+        return false;
+    }
+    else if ($('#phone_order').val() == "")
+    {
+        $('#phone_order').css("border-color", "red");
+        return false;
+    }
+    else if ($('#inn_order').val() == "")
+    {
+        $('#inn_order').css("border-color", "red");
+        return false;
+    }
+    else return true;
+}

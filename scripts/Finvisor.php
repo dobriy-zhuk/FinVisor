@@ -292,7 +292,7 @@ class FinancialServices extends Finvisor {
     public function displayFilterCreditLeasing($first_pay, $interest_rate, $credit_time, $max_credit, $order_by, $page){
 
         $query = "SELECT * FROM credit_leasing LEFT JOIN financial_institution using(id_institution)
-                    WHERE first_pay = '$first_pay' AND interest_rate <= '$interest_rate'
+                    WHERE first_pay <= '$first_pay' AND interest_rate <= '$interest_rate'
                     AND credit_time <= '$credit_time' order by $order_by LIMIT $page";
 
         $result = self::$conn->query($query);

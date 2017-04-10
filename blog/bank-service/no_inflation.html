@@ -27,8 +27,74 @@
         <script src="../../js/slider.js"></script>
         <script src="../../js/jquery.fancybox.js"></script>
         <script src="../../js/main.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+
+            function forward(name_institution){
+
+                var mymodal = $('#myModalBox');
+                mymodal.find('.modal-title').text("Заявление на открытие депозита");
+                mymodal.modal('show');
+
+            }
+
+            function changed_form(){
+
+                var sum = $("#sum" ).val();
+                var proc = $("#proc" ).val();
+                var time = $("#time" ).val();
+                var capitalization = $("#capitalization" ).val();
+
+                if(sum > 0 && proc > 0 && time > 0){
+
+                    var remainder = sum*Math.pow((1 + proc*capitalization/36500),time/capitalization);
+                    var income = remainder - sum;
+
+                    document.getElementById("remainder").innerHTML = remainder.toFixed(2) + ' руб.';
+                    document.getElementById("income").innerHTML = income.toFixed(2) + ' руб.';
+                }
+
+            }
+
+        </script>
     </head>
     <body>
+    <div id="myModalBox" class="modal fade modal_center">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="modal-title">Заявка на мобильный эквайринг</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="contact" name="form_id" id="form_id">
+                        <div id="result_div_id"></div>
+                        <div class="form-group">
+                            <label class="sr-only" for="name_order">Ваше имя</label>
+                            <input type="text" class="form-control" id="name_order" name="name_order" placeholder="Ваше имя">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="phone_order">Ваш телефон</label>
+                            <input type="tel" class="form-control" id="phone_order" name="phone_order" placeholder="Телефон">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="inn_order">ОГРН организации/ОГРНИП</label>
+                            <input type="text" class="form-control" id="inn_order" name="inn_order" placeholder="ОГРН организации/ОГРНИП">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="url_order">Сайт организации (если есть)</label>
+                            <input type="url" class="form-control" id="url_order" name="url_order" placeholder="Сайт организации (если есть)">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a onclick="if (CheckFormSimple()) AjaxCallBack('result_div_id', 'form_id','Депозит','../../scripts/order.php');" class="btn btn-success">Отправить заявку<i class="icon-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
     <header id="top-bar" class="navbar">
         <div class="container">
             <div class="navbar-header">
@@ -55,10 +121,9 @@
                                         <ul class="multi-column-dropdown">
                                             <li><a href=""><strong>Обзоры</strong></a></li>
                                             <li class="divider"></li>
-                                            <li><a href="../top/top-cash-service.html">Лучшие РКО 2017</a></li>
-                                            <li><a href="../top/top-acquiring.html">Топ эквайрингов 2017</a></li>
-                                            <li><a href="../top/top-currency.html">Топ зарплатный проект 2017</a></li>
-                                            <li><a href="../top/top-deposits.html">Топ депозитов для бизнеса 2017</a></li>
+                                            <li><a href="../top-finance/top-cash-service.html">Лучшие РКО 2017</a></li>
+                                            <li><a href="../top-finance/top-acquiring.html">Топ эквайрингов 2017</a></li>
+                                            <li><a href="../top-finance/top-deposits.html">Топ депозитов для бизнеса 2017</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
@@ -66,10 +131,8 @@
                                             <li><a href=""><strong>Сравнение</strong></a></li>
                                             <li class="divider"></li>
                                             <li><a href="../../finance/cash_service.php">РКО для бизнеса</a></li>
-                                            <li><a href="../../finance/acquiring.php">Экварийнг</a></li>
-                                            <li><a href="#">Зарплатный проект</a></li>
-                                            <li><a href="#">Депозиты для бизнеса</a></li>
-
+                                            <li><a href="../../finance/acquiring.php">Эквайринг</a></li>
+                                            <li><a href="../../finance/deposits.php">Депозиты для бизнеса</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
@@ -93,9 +156,9 @@
                                         <ul class="multi-column-dropdown">
                                             <li><a href=""><strong>Обзоры</strong></a></li>
                                             <li class="divider"></li>
-                                            <li><a href="#">Топ на открытие бизнеса 2017</a></li>
-                                            <li><a href="#">Топ кредитов на пополнение капитала</a></li>
-                                            <li><a href="#">Топ лизинг автотранспорта 2017</a></li>
+                                            <li><a href="../top-credit/top-credit-open.html">Топ на открытие бизнеса 2017</a></li>
+                                            <li><a href="../top-credit/top-credit-additional.html">Топ кредитов на пополнение капитала</a></li>
+                                            <li><a href="../top-credit/top-leasing.html">Топ лизинг автотранспорта 2017</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
@@ -103,9 +166,9 @@
                                             <li><a href=""><strong>Сравнение</strong></a></li>
                                             <li class="divider"></li>
                                             <li><a href="../../credit/credit.php">Открытие бизнеса</a></li>
-                                            <li><a href="#">Пополнение оборотного капитала</a></li>
-                                            <li><a href="#">Коммерческая ипотека</a></li>
-                                            <li><a href="#">Лизинг</a></li>
+                                            <li><a href="../../credit/credit-capital.php">Пополнение оборотного капитала</a></li>
+                                            <li><a href="../../credit/credit-mortgage.php">Коммерческая ипотека</a></li>
+                                            <li><a href="../../credit/credit-leasing.php">Лизинг</a></li>
 
                                         </ul>
                                     </div>
@@ -113,10 +176,9 @@
                                         <ul class="multi-column-dropdown">
                                             <li><a href=""><strong>Рекомендации</strong></a></li>
                                             <li class="divider"></li>
-                                            <li><a href="../credit/choose-credit.html">На что обращать внимание?</a></li>
-                                            <li><a href="../credit/credit-open-business.html">Кредит на открытие бизнеса</a></li>
-                                            <li><a href="../credit/mortgage-vs-plan.html">Ипотека или рассрочка?</a></li>
-                                            <li><a href="../credit/credit_documents.html">Кредит в финансовой отчетности</a></li>
+                                            <li><a href="../credit/get-credit.html">Как получить банковский кредит?</a></li>
+                                            <li><a href="../credit/credit-open-business.html">Деньги на открытие бизнеса</a></li>
+                                            <li><a href="../credit/credit-documents.html">Документы на получение кредита</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -141,9 +203,9 @@
                                             <li><a><strong>Сравнение</strong></a></li>
                                             <li class="divider"></li>
                                             <li><a href="../../insurance/insurance_realty.php">Недвижимость</a></li>
-                                            <li><a href="#">Автотранспорт</a></li>
-                                            <li><a href="#">Финансовая деятельность</a></li>
-                                            <li><a href="#">Сотрудники</a></li>
+                                            <li><a href="../../insurance/insurance_transport.php">Автотранспорт</a></li>
+                                            <li><a href="../../insurance/insurance_finance.php">Финансовая деятельность</a></li>
+                                            <li><a href="../../insurance/insurance_complex.php">Комплексное страхование</a></li>
 
                                         </ul>
                                     </div>
@@ -152,9 +214,8 @@
                                             <li><a><strong>Рекомендации</strong></a></li>
                                             <li class="divider"></li>
                                             <li><a href="../insurance/choose-insurance.html">Как выбрать оптимальную страховку?</a></li>
-                                            <li><a href="../insurance/place_buying.html">Где купить полис автострахования?</a></li>
-                                            <li><a href="../insurance/finance-insurance.html">Страхование финансовых рисков</a></li>
-                                            <li><a href="../insurance/price-insurance.html">Как формируется стоимость?</a></li>
+                                            <li><a href="../insurance/liability-insurance.html">Страхование ответственности</a></li>
+                                            <li><a href="../insurance/property-insurance.html">Страхование недвижимости</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -187,10 +248,10 @@
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Рекомендации</strong></a></li>
                                             <li class="divider"></li>
-                                            <li><a href="../investing/investing_bonds.html">Инвестирование в государственные облигации</a></li>
-                                            <li><a href="#">Готовим питч</a></li>
-                                            <li><a href="#">Как создать презентацию для инвестора?</a></li>
-                                            <li><a href="#">Оценка стоимости компании</a></li>
+                                            <li><a href="../investing/financial-statement.html">Инвестирование в государственные облигации</a></li>
+                                            <li><a href="../investing/prepare-pitch.html">Готовим питч</a></li>
+                                            <li><a href="../investing/investing-presentation.html">Как создать презентацию для инвестора?</a></li>
+                                            <li><a href="../investing/company-value.html">Оценка стоимости компании</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -202,13 +263,12 @@
             </nav>
         </div>
     </header>
-
         <section class="global-page-header">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="block">
-                            <h2>Как избежать зависимости от инфляции?</h2>
+                            <h2>Как избежать зависимости бизнеса от инфляции или подбираем надежный вклад</h2>
                             <ol class="breadcrumb">
                                 <li>
                                     <a href="../../index.html">
@@ -224,217 +284,230 @@
             </div>
             </section>
     <section id="blog-full-width">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <article style="font-size: 18px; line-height: 2">
-                        <div class="blog-content">
-                            <h2 class="blogpost-title">
-                                Как избежать зависимости бизнеса от инфляции? Депозиты для юридических лиц!
-                            </h2>
-                            <p class="note">Для оформления депозитного соглашения юридическое лицо должно иметь договор обслуживания
-                                с тем или иным банковским учреждением.<br>
-                                Сроки вложений исчисляются от 1 дня до 3 лет. Как правило, банк подстраивается под компанию-клиента и предлагает индивидуальные условия.<br>
-                                Распространено отсутствие санкций за досрочный отзыв денежных средств, есть возможность пополнения либо пролонгации договоров.
-                                <br>Большинство банков работает с резидентами и нерезидентами. Имеется разделение программ для крупного (с оборотом более 350 млн. рублей в год)
-                                и другого бизнеса, корпоративных клиентов.
-                            </p>
-                            <h2 class="blogpost-title">
-                                Как открыть?
-                            </h2>
-                            <p class="note">Открыть депозит можно как в отделениях банков, так и в дистанционном режиме. Это несколько увеличивает процентную ставку по любой предлагаемой программе.<br>
-                                Компания, имеющая договор с учреждением на обслуживание, должна определиться с представителем — гражданином, который будет отстаивать её интересы при проведении переговоров и заключении сделки по привлечению денежных средств на депозит (неснижаемый остаток по счёту).<br>
-                                Так как изначально клиент заключает с учреждением договор на обслуживание, то впоследствии для оформления депозита достаточно предоставить соответствующее заявление в отделение банка представителем клиента лично либо посредством интернет-ресурсов. Сведения о нём изначально указываются в анкете.<br>
-                            <strong>Процентные ставки по депозитам для юр лиц выше, чем у предложений для физических лиц, а минимальная сумма вложения на уровне 100000 рублей.</strong></p>
-                            <h2 class="blogpost-title">
-                                Страхование
-                            </h2>
-                            <p class="note">
-                                Депозиты в банковских учреждениях могут открывать как частные лица, так и юридические.
-                                Но обязательная страховка вкладов от бизнеса не предполагается.<br>
-                                На сегодняшний день юридические лица могут добровольно застраховать свой вклад, то есть самостоятельно вести уплату страховых взносов.
-                                Это несколько уменьшает прибыльность банковских вкладов, но гарантирует возврат средств.<br>
-                                Страховщиком в данном случае будет не государственное агентство, а выбранная юридическим лицом страховая компания.<br>
-                                Страхование депозитов юридических лиц проходит становление и имеет множество узких мест и разночтений нормативных актов.</p>
-                            <div class="blog-post-image">
-                                <img class="img-responsive" src="http://rapidfreightintl.com/wp-content/uploads/2015/02/i2.jpg" alt="" />
-                            </div>
-                            <h2 class="blogpost-title">
-                                Требования к вкладчикам
-                            </h2>
-                            <p class="note">
-                                Особых требований финансово-кредитными учреждениями не устанавливается. Клиентами могут
-                                становиться отечественные и зарубежные предприятия, ведущие легальный бизнес на территории России
-                            </p>
-                            <h2 class="blogpost-title">
-                                Список документов
-                            </h2>
-                            <ol>
-                                <li>сведения о регистрации в ЕГРЮЛ;</li>
-                                <li>справка от инспекции ФНС;</li>
-                                <li>документ о полномочиях лица, ведущего переговоры;</li>
-                                <li>информация о происхождении доходов согласно ФЗ №115 от 07.08.2001 года;</li>
-                                <li>разрешение на заключение договора от уполномоченного лица (для крупных сделок).</li>
-                            </ol>
-                            <h2 class="blogpost-title">
-                                Как вывести деньги?
-                            </h2>
-                            <p class="note">
-                                Денежные средства после оформления на таких удобных условиях могут выводиться только в случае острой необходимости.<br>
-                                Для осуществления такой операции в банк необходимо за несколько дней предоставить распоряжение от юридического лица на перевод средств с указанием счёта перечисления.<br>
-                                При этом учреждение, в соответствии с договором, производит перерасчёт процентной ставки по минимальному размеру.<br>
-                                При невозвращении депозита в срок, предусмотренный договором, учреждение несет ответственность согласно ст. 395 Гражданского кодекса РФ или другой вид ответственности. Например, неустойку, если таковая указана в депозитном соглашении с банком.<br>
-                                Таким образом, деньги всегда с депозитного переводятся на расчётный счёт клиента, а далее работают по распоряжениям, оформляемым уполномоченными лицами обслуживающейся компании.<br>
-                                Процедура вывода средств по первому требованию, т.е. на следующий после обращения день, допустима только в части тела депозита. Это прямо предполагает ст. 849 Гражданского кодекса РФ.<br>
-                            </p>
-                            <div class="blog-post-image">
-                                <img class="img-responsive" src="http://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2015/01/05/102309439-3344170.530x298.jpg?v=1449161817" alt="" />
-                            </div>
-                            <h2 class="blogpost-title">
-                                Плюсы и минусы
-                            </h2>
-                            <p class="note">
-                                Умелый менеджер компании ни за что не позволит свободным средствам лежать без дела на расчётном счету в банке.<br>
-                                Очевидно, что в случае простого хранения средств, их количество будет уменьшаться из-за взимания комиссии за обслуживание банком счёта. Намного продуктивнее заставить излишки работать.<br>
-                                Это должно приносить прибыль, но и не лишать руководителя возможности воспользоваться ими в случае необходимости. Для этого учреждения разделяют продукты на отзывные и безотзывные.<br>
-                                Ставки и тарифы по линейке банков позволяют выбрать депозит со сроком от нескольких дней до 3-5 лет.<br>
-                                Прибыль обычно прямо пропорциональна сумме и времени, на которое открывается депозитный счёт. У предприятия, имеющего депозит, появляется возможность открыть кредитную линию под обеспечение депозитом.<br>                            </p>
-                            <h2 class="blogpost-title">
-                                Это даёт свою выгоду:
-                            </h2>
-                            <ol>
-                                <li>уменьшение процентной ставки по сравнению с обычным кредитованием;</li>
-                                <li>ускоренное оформление кредита (до 2 рабочих дней банка);</li>
-                                <li>возможность погашения кредита за счёт депозита;</li>
-                                <li>оформление кредита без сбора пакета документов;</li>
-                                <li>нет необходимости в поручителях или залоге;</li>
-                            </ol>
+    <div class="container">
+    <div class="row fill">
+        <div class="col-md-3 ">
+            <a data-toggle="tooltip" title="Мы сохраняем строгую редакторскую оценку в наших обзорах. При этом мы получаем компенсацию, если вы переходите по ссылке на нашем сайте и заказываете услуги у наших партнеров." data-placement="bottom">Раскрытие информации</a>
+        </div>
+    </div>
+    <div class="row">
+    <div class="col-md-7 col-md-offset-1">
+        <article style="font-size: 18px; line-height: 2">
+            <div class="blog-content">
+                <h1 class="blogpost-title text-left">
+                    <strong>Подбор надежного депозита для бизнеса с высокой процентной ставкой</strong>
+                </h1>
+                <p style="text-align: left">Мы сохраняем строгую редакторскую оценку в наших обзорах. При этом мы получаем компенсацию, если вы переходите по ссылке на нашем сайте и заказываете услуги у наших партнеров.</p>
+                <img src="../../images/deposits_no_inflation.jpg" class="img-responsive">
+                <br>
+                <h3>1. Определитесь со временем хранения вклада</h3>
+                <p style="font-size: 18px; line-height: 1.8;">
+                    Когда вы откроете депозит для бизнеса, вы не сможете снять его в любое удобное время, поэтому убедитесь, что деньги, которые вы планируете положить на вклад действительно
+                    свободные и ближайшее время не понадобятся на какие-либо непредвиденные нужды. Минимальные сроки вклада для бизнеса как правило не длинные и варьируются от 7 дней до 1 года.
+                </p>
+                <h3>2. Сравните ставки по депозитам для юридических лиц</h3>
+                <p style="font-size: 18px; line-height: 1.8;">
+                    Перед тем как открыть вклад для юридических лиц в одном из финансовых институтов, обязательно посетите его (или хотя сайт), чтобы подобрать условия, подходящие для вашего бизнеса. Сделать это можно у нас <a href="../../finance/deposits.php">на сервисе</a>.
+                    Убедитесь, что вы разобрались с процентными ставками, указанными в промо предложениях банков. Как правило они варьируются от 5 до 8 процентов годовых.
+                </p>
+                <hr>
+                <form onchange="changed_form()">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <label for="sum">Сумма вклада (руб)</label>
+                            <input type="number" class="form-control" id="sum" placeholder="100 000">
                         </div>
-                    </article>
-                </div>
-                <div id="sticky-anchor" class="col-md-4">
-                    <div id="sticky" class="sidebar">
-                        <div class="recent-post widget">
-                            <h3>Банковское обслуживание</h3>
-                            <ul>
-                                <li>
-                                    <a href="cash-service-choose.html">Как выбрать РКО?</a><br>
-                                    <time>16 марта, 2017</time>
-                                </li>
-                                <li>
-                                    <a href="acquiring-online-shop.html">Эквайринг для интернет-магазина</a><br>
-                                    <time>15 мая, 2016</time>
-                                </li>
-                                <li>
-                                    <a href="no_inflation.html">Как избежать зависимости бизнеса от инфляции?</a><br>
-                                    <time>14 апреля, 2015</time>
-                                </li>
-                                <li>
-                                    <a href="mobile-acquiring.html">Мобильный эквайринг</a><br>
-                                    <time>14 марта, 2015</time>
-                                </li>
-                            </ul>
+                        <div class="col-lg-4">
+                            <label for="proc">Процентная ставка</label>
+                            <input type="number" class="form-control" id="proc" placeholder="7">
+                        </div>
+                        <div class="col-lg-4">
+                            <label for="time">Срок вклада (дней)</label>
+                            <input type="number" class="form-control" id="time" placeholder="365">
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="capitalization">Начисление процентов (капитализация)</label>
+                                <select id="capitalization" class="selectpicker form-control">
+                                    <option value="30" selected>Ежемесячно</option>
+                                    <option value="90">Ежеквартально</option>
+                                    <option value="365">Ежегодно</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <p style="font-size: 18px; line-height: 1.8;"> <i> Остаток на вкладе: </i><b id="remainder"></b> </p>
+                        </div>
+                        <div class="col-lg-6">
+                            <p style="font-size: 18px; line-height: 1.8;"> <i> Чистая прибыль: </i><b id="income"></b> </p>
+                        </div>
+                    </div>
+                </form>
+                <hr>
+                <h3>3. Обратите внимание на сумму минимального вклада</h3>
+                <p style="font-size: 18px; line-height: 1.8;">
+                    Различные финансовые институты предлагают разные суммы минимального вложения для бизнеса. Они могут как отсутствовать, так и представлять собой суммы от 0.1 до 10 млн. рублей.
+                    <br>Для примера, если открыть вклад в Альфа Банке величиной и с минимальным остатком в 100 тыс. рублей под 7% годовых, то через год на вашем счету окажется уже 107 тыс. рублей.
+                </p>
+                <h3>4. Способы выплат</h3>
+                <p style="font-size: 18px; line-height: 1.8;">
+                    Если вы попытаетесь отозвать свои денежные средства до того, как вы заработаете проценты, или до конца срока вклада, то скорее всего вы будете нести ответственность за досрочное снятие или денежные штрафы.
+                    Сумма штрафов зависит от финансовой организации и как правило прописывается в договоре на открытие вклада.
+                    Однако иногда досрочное снятие может сыграть вам на пользу, когда, например, повысились процентные ставки по вашему кредиту, и вы хотите перенести деньги со вклада для реинвестирования.
+                </p>
+                <h3>5. Обеспечьте страхование депозита</h3>
+                <p style="font-size: 18px; line-height: 1.8;">
+                    Денежные, которые, как правило, кладутся бизнесом на депозит, не застрахованы государством, поэтому важно позаботиться о страховании своего вклада, чтобы не волноваться о его возврате. Подобрать лучшее страхование для финансов можно на <a href="../../insurance/insurance_finance.php">нашем сервисе</a>.
+                </p>
+                <h3>6. Сбор документов</h3>
+                <p style="font-size: 18px; line-height: 1.8;">
+                    После того, когда вы определились банком, предоставляющим вклад, необходимо заполнить соответсвующий пакет документов. Как правило он включает в себя:
+                </p>
+                <ol style="font-size: 18px; list-style-type: disc">
+                    <li>Сведения о регистрации в ЕГРЮЛ</li>
+                    <li>Справка от инспекции ФНС</li>
+                    <li>Документ о полномочиях лица, ведущего переговоры</li>
+                    <li>Информация о происхождении доходов согласно ФЗ №115 от 07.08.2001 года</li>
+                    <li>Разрешение на заключение договора от уполномоченного лица (для крупных сделок)</li>
+                </ol>
+                <h3>7. Плюсы размещения средств на депозит</h3>
+                <p style="font-size: 18px; line-height: 1.8;">
+                    Проценты по вкладам для юридических как правило выше, чем для обычных граждан, при этом не стоит забывать, что снять деньги в любой момент времени станет достаточно трудоемким процессом. Кроме того, необходимо заполнить достаточно обширный пакет документов для открытия депозита.
+                    Мы совершенно бесплатно поможем подобрать вам нужный депозит и сами займемся передачей документов в банк. Попробуйте:
+                </p>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" placeholder="Объем свободных средств, рублей">
+                    </div>
+                    <div class="col-lg-4">
+                        <button type="submit" class="btn btn-block btn-success" onclick="forward('none')">Подобрать депозит</button>
+                    </div>
                 </div>
+                <hr>
+                <br>
+                <p class="other"> <b>Читайте также</b> </p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <figure>
+                            <a href="../credit/get-credit.html">
+                                <div class="img-wrapper">
+                                    <img src="../../images/credit_article.jpg" class="img-responsive" alt="this is a title" >
+                                </div>
+                                <figcaption>
+                                    <h4>
+                                        Кредитование
+                                    </h4>
+                                    <p>
+                                        На что обращать внимание?
+                                    </p>
+                                </figcaption>
+                            </a>
+                        </figure>
+                    </div>
+                    <div class="col-sm-6">
+                        <figure>
+                            <a href="../bank-service/acquiring-online-shop.html">
+                                <div class="img-wrapper">
+                                    <img src="../../images/online_banking.jpg" class="img-responsive" alt="this is a title" >
+                                </div>
+                                <figcaption>
+                                    <h4>
+                                        Эквайринг
+                                    </h4>
+                                    <p>
+                                        Выбор для интернет-магазина
+                                    </p>
+                                </figcaption>
+                            </a>
+                        </figure>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <figure>
+                            <a href="../insurance/choose-insurance.html">
+                                <div class="img-wrapper">
+                                    <img src="../../images/insurance_realty.jpeg" class="img-responsive" alt="" >
+                                </div>
+                                <figcaption>
+                                    <h4>
+                                        Страхование
+                                    </h4>
+                                    <p>
+                                        Коммерческая недвижимость
+                                    </p>
+                                </figcaption>
+                            </a>
+                        </figure>
+                    </div>
+                    <div class="col-sm-6">
+                        <figure>
+                            <a href="../bank-service/acquiring-online-shop.html">
+                                <div class="img-wrapper">
+                                    <img src="../../images/price_company.jpg" class="img-responsive" alt="" >
+                                </div>
+                                <figcaption>
+                                    <h4>
+                                        Инвестиции
+                                    </h4>
+                                    <p>
+                                        Оценка стоимости компании
+                                    </p>
+                                </figcaption>
+                            </a>
+                        </figure>
+                    </div>
+                </div>
+                <div id="fb-root"></div>
+                <script>(function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=375102396198776";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+                <div class="fb-comments" data-href="http://finvisor.ru" data-numposts="5" data-width="100%"></div>
             </div>
-        </div>
-    </section>
-    <section class="works service-page">
-        <div class="container">
-            <div class="row">
-                <p class="other">Другие статьи </p>
-                <div class="col-sm-3">
-                    <figure class="portfolio-item">
-                        <div class="img-wrapper">
-                            <img src="../../images/credit_article.jpg" class="img-responsive" alt="this is a title" >
-                            <div class="overlay">
-                                <div class="buttons">
-                                    <a target="_blank" href="">Читать</a>
-                                </div>
-                            </div>
-                        </div>
-                        <figcaption>
-                            <h4>
-                                <a href="#">
-                                    Кредитование
-                                </a>
-                            </h4>
-                            <p>
-                                На что обращать внимание?
-                            </p>
-                        </figcaption>
-                    </figure>
-                </div>
-                <div class="col-sm-3">
-                    <figure>
-                        <div class="img-wrapper">
-                            <img src="../../images/online_banking.jpg" class="img-responsive" alt="this is a title" >
-                            <div class="overlay">
-                                <div class="buttons">
-                                    <a target="_blank" href="">Читать</a>
-                                </div>
-                            </div>
-                        </div>
-                        <figcaption>
-                            <h4>
-                                <a href="#">
-                                    Экварийнг
-                                </a>
-                            </h4>
-                            <p>
-                                Выбор для интернет-магазина
-                            </p>
-                        </figcaption>
-                    </figure>
-                </div>
-                <div class="col-sm-3">
-                    <figure>
-                        <div class="img-wrapper">
-                            <img src="../../images/insurance_article.jpg" class="img-responsive" alt="" >
-                            <div class="overlay">
-                                <div class="buttons">
-                                    <a target="_blank" href="">Читать</a>
-                                </div>
-                            </div>
-                        </div>
-                        <figcaption>
-                            <h4>
-                                <a href="">
-                                    Страхование
-                                </a>
-                            </h4>
-                            <p>
-                                На опасных производствах
-                            </p>
-                        </figcaption>
-                    </figure>
-                </div>
-
-                <div class="col-sm-3">
-                    <figure>
-                        <div class="img-wrapper">
-                            <img src="../../images/investing_article.jpg" class="img-responsive" alt="" >
-                            <div class="overlay">
-                                <div class="buttons">
-                                    <a href="../../blog/investing/investing_bonds.html">Читать</a>
-                                </div>
-                            </div>
-                        </div>
-                        <figcaption>
-                            <h4>
-                                <a href="../../blog/investing/investing_bonds.html">
-                                    Инвестирование
-                                </a>
-                            </h4>
-                            <p>
-                                В государственные облигации
-                            </p>
-                        </figcaption>
-                    </figure>
-                </div>
+        </article>
+    </div>
+    <div class="col-md-3">
+        <article style="font-size: 18px; line-height: 1.8;">
+            <div class="blog-content">
+                <h3>Сравнение</h3>
+                <hr>
+                <ol style="font-size: 16px; list-style-type: disc">
+                    <li><a href="../../finance/cash_service.php">РКО для бизнеса</a></li>
+                    <li><a href="../../finance/acquiring.php">Эквайринг</a></li>
+                    <li><a href="../../finance/deposits.php">Депозиты для бизнеса</a></li>
+                </ol>
             </div>
-        </div>
+            <div class="blog-content">
+                <h3>Обзоры</h3>
+                <hr>
+                <ol style="font-size: 16px; list-style-type: disc">
+                    <li><a href="../top-finance/top-cash-service.html">Лучшие РКО 2017</a></li>
+                    <li><a href="../top-finance/top-acquiring.html">Топ эквайрингов 2017</a></li>
+                    <li><a href="../top-finance/top-deposits.html">Топ депозитов 2017</a></li>
+                    <li><a href="../top-finance/top-currency.html">Топ валютного контроля</a></li>
+                </ol>
+            </div>
+            <div class="blog-content">
+                <h3>Рекомендации</h3>
+                <hr>
+                <ol style="font-size: 16px; list-style-type: disc">
+                    <li><a href="../bank-service/cash-service-choose.html">Как выбрать РКО?</a></li>
+                    <li><a href="../bank-service/acquiring-online-shop.html">Эквайринг для интернет-магазина</a></li>
+                    <li><a href="../bank-service/mobile-acquiring.html">Мобильный эквайринг</a></li>
+                </ol>
+            </div>
+        </article>
+    </div>
+    </div>
+    </div>
     </section>
     <section id="call-to-action">
         <div class="container">
@@ -492,7 +565,6 @@
                                             <i class="ion-social-googleplus"></i>
                                         </a>
                                     </li>
-                                    
                                 </ul>
                             </div>
                         </div>

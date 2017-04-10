@@ -90,7 +90,7 @@
                                '</td>' +
                                '<td style="text-align: center; vertical-align: middle;">от ' + element.interest_rate + '%</td>' +
                                '<td style="text-align: center; vertical-align: middle;">до ' + element.credit_time + ' мес.</td>' +
-                               '<td class="active" style="text-align: center; vertical-align: middle;">' + element.max_credit + 'руб.<br><button class=\"btn btn-success\" onclick="forward(\'' + element.id + '\',\'' + element.name_institution + '\')"> Подать заявку на кредит</button>' + '</td>' +
+                               '<td class="active" style="text-align: center; vertical-align: middle;">' + element.max_credit + ' млн. руб.<br><button class=\"btn btn-success\" onclick="forward(\'' + element.id + '\',\'' + element.name_institution + '\')"> Подать заявку на кредит</button>' + '</td>' +
                                '</tr>' +
                                '<tr><td style="border: none" colspan="3"><a style="font-size: 15px; cursor: pointer" data-toggle="collapse" data-target="#collapseExample' + element.id + '" aria-expanded="false" aria-controls="collapseExample">' +
                                'Особенности' +
@@ -145,10 +145,10 @@
                                         <ul class="multi-column-dropdown">
                                             <li><a href=""><strong>Обзоры</strong></a></li>
                                             <li class="divider"></li>
-                                            <li><a href="../blog/top/top-cash-service.html">Лучшие РКО 2017</a></li>
-                                            <li><a href="../blog/top/top-acquiring.html">Топ эквайрингов 2017</a></li>
-                                            <li><a href="../blog/top/top-currency.html">Топ валютный контроль 2017</a></li>
-                                            <li><a href="../blog/top/top-deposits.html">Топ депозитов для бизнеса 2017</a></li>
+                                            <li><a href="../blog/top-finance/top-cash-service.html">Лучшие РКО 2017</a></li>
+                                            <li><a href="../blog/top-finance/top-acquiring.html">Топ эквайрингов 2017</a></li>
+                                            <li><a href="../blog/top-finance/top-currency.html">Топ валютный контроль 2017</a></li>
+                                            <li><a href="../blog/top-finance/top-deposits.html">Топ депозитов для бизнеса 2017</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
@@ -181,9 +181,9 @@
                                         <ul class="multi-column-dropdown">
                                             <li><a href=""><strong>Обзоры</strong></a></li>
                                             <li class="divider"></li>
-                                            <li><a href="#">Топ на открытие бизнеса 2017</a></li>
-                                            <li><a href="#">Топ кредитов на пополнение капитала</a></li>
-                                            <li><a href="#">Топ лизинг автотранспорта 2017</a></li>
+                                            <li><a href="../blog/top-credit/top-credit-open.html">Топ на открытие бизнеса 2017</a></li>
+                                            <li><a href="../blog/top-credit/top-credit-additional.html">Топ кредитов на пополнение капитала</a></li>
+                                            <li><a href="../blog/top-credit/top-leasing.html">Топ лизинг автотранспорта 2017</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
@@ -200,10 +200,9 @@
                                         <ul class="multi-column-dropdown">
                                             <li><a href=""><strong>Рекомендации</strong></a></li>
                                             <li class="divider"></li>
-                                            <li><a href="../blog/credit/choose-credit.html">На что обращать внимание?</a></li>
-                                            <li><a href="../blog/credit/credit-open-business.html">Кредит на открытие бизнеса</a></li>
-                                            <li><a href="../blog/credit/mortgage-vs-plan.html">Ипотека или рассрочка?</a></li>
-                                            <li><a href="../blog/credit/credit_documents.html">Кредит в финансовой отчетности</a></li>
+                                            <li><a href="../blog/credit/get-credit.html">Как получить банковский кредит?</a></li>
+                                            <li><a href="../blog/credit/credit-open-business.html">Деньги на открытие бизнеса</a></li>
+                                            <li><a href="../blog/credit/credit-documents.html">Документы на получение кредита</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -227,11 +226,10 @@
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Сравнение</strong></a></li>
                                             <li class="divider"></li>
+                                            <li><a href="../insurance/insurance_transport.php">Автотранспорт</a></li>
                                             <li><a href="../insurance/insurance_realty.php">Недвижимость</a></li>
-                                            <li><a href="#">Автотранспорт</a></li>
-                                            <li><a href="#">Финансовая деятельность</a></li>
-                                            <li><a href="#">Комплексное страхование</a></li>
-
+                                            <li><a href="../insurance/insurance_finance.php">Финансовая деятельность</a></li>
+                                            <li><a href="../insurance/insurance_complex.php">Комплексное страхование</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
@@ -239,9 +237,9 @@
                                             <li><a><strong>Рекомендации</strong></a></li>
                                             <li class="divider"></li>
                                             <li><a href="../blog/insurance/choose-insurance.html">Как выбрать оптимальную страховку?</a></li>
-                                            <li><a href="../blog/insurance/place_buying.html">Где купить полис автострахования?</a></li>
+                                            <li><a href="../blog/insurance/liability-insurance.html">Где купить полис автострахования?</a></li>
                                             <li><a href="../blog/insurance/finance-insurance.html">Страхование финансовых рисков</a></li>
-                                            <li><a href="../blog/insurance/price-insurance.html">Как формируется стоимость?</a></li>
+                                            <li><a href="../blog/insurance/property-insurance.html">Как формируется стоимость?</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -275,7 +273,7 @@
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Рекомендации</strong></a></li>
                                             <li class="divider"></li>
-                                            <li><a href="../blog/investing/investing_bonds.html">Инвестирование в государственные облигации</a></li>
+                                            <li><a href="../blog/investing/financial-statement.html">Инвестирование в государственные облигации</a></li>
                                             <li><a href="#">Готовим питч</a></li>
                                             <li><a href="#">Как создать презентацию для инвестора?</a></li>
                                             <li><a href="#">Оценка стоимости компании</a></li>
@@ -341,9 +339,9 @@
                     <label for="max_credit">Максимальная сумма кредита</label>
                     <select id="max_credit" class="selectpicker form-control">
                         <option value="0">Любая</option>
-                        <option value="100000">До 100 тыс. руб.</option>
-                        <option value="3000000">До 3 млн. руб.</option>
-                        <option value="10000000" selected>До 10 млн. руб.</option>
+                        <option value="0.1">До 100 тыс. руб.</option>
+                        <option value="3">До 3 млн. руб.</option>
+                        <option value="10" selected>До 10 млн. руб.</option>
                     </select>
                 </div>
             </div>
@@ -432,26 +430,27 @@
                         <h4 class="modal-title" id="modal-title">Заявка на кредитование</h4>
                     </div>
                     <div class="modal-body">
-                        <form class="contact" name="contact" id="ContactForm" method="post" onsubmit="send_order()">
+                        <form class="contact" name="form_id" id="form_id">
+                            <div id="result_div_id"></div>
                             <div class="form-group">
                                 <label class="sr-only" for="name_order">Ваше имя</label>
-                                <input type="text" class="form-control" id="name_order" placeholder="Ваше имя" required oninvalid="this.setCustomValidity('Пожалуйста, введите имя')">
+                                <input type="text" class="form-control" id="name_order" name="name_order" placeholder="Ваше имя">
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" for="phone_order">Ваш телефон</label>
-                                <input type="tel" class="form-control" id="phone_order" placeholder="Телефон" required oninvalid="this.setCustomValidity('Пожалуйста, введите номер телефона')">
+                                <input type="tel" class="form-control" id="phone_order" name="phone_order" placeholder="Телефон">
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" for="inn_order">ОГРН организации/ОГРНИП</label>
-                                <input type="text" class="form-control" id="inn_order" placeholder="ОГРН организации/ОГРНИП" required oninvalid="this.setCustomValidity('Пожалуйста, введите ИНН')">
+                                <input type="text" class="form-control" id="inn_order" name="inn_order" placeholder="ОГРН организации/ОГРНИП">
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" for="url_order">Сайт организации (если есть)</label>
-                                <input type="url" class="form-control" id="url_order" placeholder="Сайт организации (если есть)">
+                                <input type="url" class="form-control" id="url_order" name="url_order" placeholder="Сайт организации (если есть)">
                             </div>
                     </div>
                     <div class="modal-footer">
-                        <input class="btn btn-success" id="submit" type="submit" value="Отправить заявку">
+                        <a onclick="if (CheckFormSimple()) AjaxCallBack('result_div_id', 'form_id','credit','../scripts/order.php');" class="btn btn-success">Отправить заявку<i class="icon-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
