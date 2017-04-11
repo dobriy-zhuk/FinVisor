@@ -138,7 +138,7 @@
                 <div class="main-menu">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Банковской обслуживание <b class="caret"></b></a>
+                            <a href="../finance/cash_service.php" class="dropdown-toggle" data-toggle="dropdown">Банковской обслуживание <b class="caret"></b></a>
                             <div class="dropdown-menu multi-column columns-3">
                                 <div class="row">
                                     <div class="col-sm-4">
@@ -147,8 +147,8 @@
                                             <li class="divider"></li>
                                             <li><a href="../blog/top-finance/top-cash-service.html">Лучшие РКО 2017</a></li>
                                             <li><a href="../blog/top-finance/top-acquiring.html">Топ эквайрингов 2017</a></li>
-                                            <li><a href="../blog/top-finance/top-currency.html">Топ валютный контроль 2017</a></li>
                                             <li><a href="../blog/top-finance/top-deposits.html">Топ депозитов для бизнеса 2017</a></li>
+                                            <li><a href="../blog/top-finance/top-currency.html">Топ валютный контроль 2017</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
@@ -174,7 +174,7 @@
                             </div>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle underline" data-toggle="dropdown">Кредитование<b class="caret"></b></a>
+                            <a href="../credit/credit.php" class="dropdown-toggle" data-toggle="dropdown">Кредитование<b class="caret"></b></a>
                             <div class="dropdown-menu multi-column columns-3">
                                 <div class="row">
                                     <div class="col-sm-4">
@@ -190,10 +190,10 @@
                                         <ul class="multi-column-dropdown">
                                             <li><a href=""><strong>Сравнение</strong></a></li>
                                             <li class="divider"></li>
-                                            <li><a href="credit.php">Открытие бизнеса</a></li>
-                                            <li><a href="credit-capital.php">Пополнение оборотного капитала</a></li>
-                                            <li><a href="credit-mortgage.php">Коммерческая ипотека</a></li>
-                                            <li><a href="credit-leasing.php">Лизинг</a></li>
+                                            <li><a href="../credit/credit.php">Открытие бизнеса</a></li>
+                                            <li><a href="../credit/credit-capital.php">Пополнение оборотного капитала</a></li>
+                                            <li><a href="../credit/credit-mortgage.php">Коммерческая ипотека</a></li>
+                                            <li><a href="../credit/credit-leasing.php">Лизинг</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
@@ -209,25 +209,25 @@
                             </div>
                         </li>
                         <li class="dropdown">
-                            <a href="../insurance/insurance_realty.php" class="dropdown-toggle" data-toggle="dropdown">Страхование <b class="caret"></b></a>
+                            <a href="../insurance/insurance_complex.php" class="dropdown-toggle" data-toggle="dropdown">Страхование <b class="caret"></b></a>
                             <div class="dropdown-menu multi-column columns-3">
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Обзоры</strong></a></li>
                                             <li class="divider"></li>
-                                            <li><a href="#">Топ страхования недвижимости</a></li>
-                                            <li><a href="#">Топ страхования транспорта</a></li>
-                                            <li><a href="#">Топ страхования финансовой деятельности</a></li>
-                                            <li><a href="#">Топ страхования сотрудников</a></li>
+                                            <li><a href="../blog/top-insurance/top-realty.html">Топ страхования недвижимости</a></li>
+                                            <li><a href="../blog/top-insurance/top-transport.html">Топ страхования транспорта</a></li>
+                                            <li><a href="../blog/top-insurance/top-finance.html">Топ страхования финансовой деятельности</a></li>
+                                            <li><a href="../blog/top-insurance/top-liability.html">Топ страхования ответственности</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Сравнение</strong></a></li>
                                             <li class="divider"></li>
-                                            <li><a href="../insurance/insurance_transport.php">Автотранспорт</a></li>
                                             <li><a href="../insurance/insurance_realty.php">Недвижимость</a></li>
+                                            <li><a href="../insurance/insurance_transport.php">Автотранспорт</a></li>
                                             <li><a href="../insurance/insurance_finance.php">Финансовая деятельность</a></li>
                                             <li><a href="../insurance/insurance_complex.php">Комплексное страхование</a></li>
                                         </ul>
@@ -237,26 +237,24 @@
                                             <li><a><strong>Рекомендации</strong></a></li>
                                             <li class="divider"></li>
                                             <li><a href="../blog/insurance/choose-insurance.html">Как выбрать оптимальную страховку?</a></li>
-                                            <li><a href="../blog/insurance/liability-insurance.html">Где купить полис автострахования?</a></li>
-                                            <li><a href="../blog/insurance/finance-insurance.html">Страхование финансовых рисков</a></li>
-                                            <li><a href="../blog/insurance/property-insurance.html">Как формируется стоимость?</a></li>
+                                            <li><a href="../blog/insurance/liability-insurance.html">Страхование ответственности</a></li>
+                                            <li><a href="../blog/insurance/property-insurance.html">Страхование недвижимости</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Инвестиции <b class="caret"></b></a>
+                            <a href="../investing/funds.php" class="dropdown-toggle" data-toggle="dropdown">Инвестиции <b class="caret"></b></a>
                             <div class="dropdown-menu multi-column columns-3" style="">
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Обзоры</strong></a></li>
                                             <li class="divider"></li>
-                                            <li><a href="#">Топ венчурных фондов 2017</a></li>
-                                            <li><a href="#">Топ онлайн-брокеров 2017</a></li>
-                                            <li><a href="#">Топ финансовых конкурсов 2017</a></li>
-                                            <li><a href="#">Топ ПО для инвесторов 2017</a></li>
+                                            <li><a href="../blog/top-investment/top-venture.html">Топ венчурных фондов 2017</a></li>
+                                            <li><a href="../blog/top-investment/top-brokers.html">Топ онлайн-брокеров 2017</a></li>
+                                            <li><a href="../blog/top-investment/top-contest.html">Топ финансовых конкурсов 2017</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
@@ -266,17 +264,16 @@
                                             <li><a href="../investing/funds.php">Венчурные фонды</a></li>
                                             <li><a href="../investing/brokers.php">Онлайн-брокеры</a></li>
                                             <li><a href="../investing/contest.php">Финансовые конкурсы</a></li>
-
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Рекомендации</strong></a></li>
                                             <li class="divider"></li>
-                                            <li><a href="../blog/investing/financial-statement.html">Инвестирование в государственные облигации</a></li>
-                                            <li><a href="#">Готовим питч</a></li>
-                                            <li><a href="#">Как создать презентацию для инвестора?</a></li>
-                                            <li><a href="#">Оценка стоимости компании</a></li>
+                                            <li><a href="../blog/investing/financial-statement.html">Как построить финансовую модель?</a></li>
+                                            <li><a href="../blog/investing/prepare-pitch.html">Готовим питч</a></li>
+                                            <li><a href="../blog/investing/investing-presentation.html">Как создать презентацию для инвестора?</a></li>
+                                            <li><a href="../blog/investing/company-value.html">Оценка стоимости компании</a></li>
                                         </ul>
                                     </div>
                                 </div>

@@ -31,6 +31,16 @@
         <script src="../../js/slider.js"></script>
         <script src="../../js/jquery.fancybox.js"></script>
         <script src="../../js/main.js"></script>
+        <script>
+
+            function forward(name_institution){
+
+                var mymodal = $('#myModalBox');
+                mymodal.find('.modal-title').text("Заявление на страхование в " + name_institution);
+                mymodal.modal('show');
+
+            }
+        </script>
     </head>
     <body>
     <header id="top-bar" class="navbar">
@@ -52,7 +62,7 @@
                 <div class="main-menu">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Банковской обслуживание <b class="caret"></b></a>
+                            <a href="../../finance/cash_service.php" class="dropdown-toggle" data-toggle="dropdown">Банковской обслуживание <b class="caret"></b></a>
                             <div class="dropdown-menu multi-column columns-3">
                                 <div class="row">
                                     <div class="col-sm-4">
@@ -72,7 +82,6 @@
                                             <li><a href="../../finance/cash_service.php">РКО для бизнеса</a></li>
                                             <li><a href="../../finance/acquiring.php">Эквайринг</a></li>
                                             <li><a href="../../finance/deposits.php">Депозиты для бизнеса</a></li>
-
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
@@ -89,16 +98,16 @@
                             </div>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Кредитование<b class="caret"></b></a>
+                            <a href="../../credit/credit.php" class="dropdown-toggle" data-toggle="dropdown">Кредитование<b class="caret"></b></a>
                             <div class="dropdown-menu multi-column columns-3">
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a href=""><strong>Обзоры</strong></a></li>
                                             <li class="divider"></li>
-                                            <li><a href="top-transport.html">Топ на открытие бизнеса 2017</a></li>
-                                            <li><a href="top-finance.html">Топ кредитов на пополнение капитала</a></li>
-                                            <li><a href="top-realty.html">Топ лизинг автотранспорта 2017</a></li>
+                                            <li><a href="../top-credit/top-credit-open.html">Топ на открытие бизнеса 2017</a></li>
+                                            <li><a href="../top-credit/top-credit-additional.html">Топ кредитов на пополнение капитала</a></li>
+                                            <li><a href="../top-credit/top-leasing.html">Топ лизинг автотранспорта 2017</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
@@ -109,34 +118,32 @@
                                             <li><a href="../../credit/credit-capital.php">Пополнение оборотного капитала</a></li>
                                             <li><a href="../../credit/credit-mortgage.php">Коммерческая ипотека</a></li>
                                             <li><a href="../../credit/credit-leasing.php">Лизинг</a></li>
-
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a href=""><strong>Рекомендации</strong></a></li>
                                             <li class="divider"></li>
-                                            <li><a href="../credit/get-credit.html">На что обращать внимание?</a></li>
-                                            <li><a href="../credit/credit-open-business.html">Кредит на открытие бизнеса</a></li>
-                                            <li><a href="../credit/mortgage-vs-plan.html">Ипотека или рассрочка?</a></li>
-                                            <li><a href="../credit/credit-documents.html">Кредит в финансовой отчетности</a></li>
+                                            <li><a href="../credit/get-credit.html">Как получить банковский кредит?</a></li>
+                                            <li><a href="../credit/credit-open-business.html">Деньги на открытие бизнеса</a></li>
+                                            <li><a href="../credit/credit-documents.html">Документы на получение кредита</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <li class="dropdown">
-                            <a href="../../insurance/insurance_realty.php" class="dropdown-toggle" data-toggle="dropdown">Страхование <b class="caret"></b></a>
+                            <a href="../../insurance/insurance_complex.php" class="dropdown-toggle" data-toggle="dropdown">Страхование <b class="caret"></b></a>
                             <div class="dropdown-menu multi-column columns-3">
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Обзоры</strong></a></li>
                                             <li class="divider"></li>
-                                            <li><a href="#">Топ страхования недвижимости</a></li>
-                                            <li><a href="#">Топ страхования транспорта</a></li>
-                                            <li><a href="#">Топ страхования финансовой деятельности</a></li>
-                                            <li><a href="#">Топ страхования сотрудников</a></li>
+                                            <li><a href="../top-insurance/top-realty.html">Топ страхования недвижимости</a></li>
+                                            <li><a href="../top-insurance/top-transport.html">Топ страхования транспорта</a></li>
+                                            <li><a href="../top-insurance/top-finance.html">Топ страхования финансовой деятельности</a></li>
+                                            <li><a href="../top-insurance/top-liability.html">Топ страхования ответственности</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
@@ -147,7 +154,6 @@
                                             <li><a href="../../insurance/insurance_transport.php">Автотранспорт</a></li>
                                             <li><a href="../../insurance/insurance_finance.php">Финансовая деятельность</a></li>
                                             <li><a href="../../insurance/insurance_complex.php">Комплексное страхование</a></li>
-
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
@@ -163,17 +169,16 @@
                             </div>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Инвестиции <b class="caret"></b></a>
+                            <a href="../../investing/funds.php" class="dropdown-toggle" data-toggle="dropdown">Инвестиции <b class="caret"></b></a>
                             <div class="dropdown-menu multi-column columns-3" style="">
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Обзоры</strong></a></li>
                                             <li class="divider"></li>
-                                            <li><a href="#">Топ венчурных фондов 2017</a></li>
-                                            <li><a href="#">Топ онлайн-брокеров 2017</a></li>
-                                            <li><a href="#">Топ финансовых конкурсов 2017</a></li>
-                                            <li><a href="#">Топ ПО для инвесторов 2017</a></li>
+                                            <li><a href="../top-investment/top-venture.html">Топ венчурных фондов 2017</a></li>
+                                            <li><a href="../top-investment/top-brokers.html">Топ онлайн-брокеров 2017</a></li>
+                                            <li><a href="../top-investment/top-contest.html">Топ финансовых конкурсов 2017</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
@@ -189,7 +194,7 @@
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Рекомендации</strong></a></li>
                                             <li class="divider"></li>
-                                            <li><a href="../investing/financial-statement.html">Инвестирование в государственные облигации</a></li>
+                                            <li><a href="../investing/financial-statement.html">Как построить финансовую модель?</a></li>
                                             <li><a href="../investing/prepare-pitch.html">Готовим питч</a></li>
                                             <li><a href="../investing/investing-presentation.html">Как создать презентацию для инвестора?</a></li>
                                             <li><a href="../investing/company-value.html">Оценка стоимости компании</a></li>
@@ -214,10 +219,10 @@
                                 <li>
                                     <a href="../../index.html">
                                         <i class="ion-ios-home"></i>
-                                        Банковское обслуживание
+                                        Страхование
                                     </a>
                                 </li>
-                                <li class="active">Страхование недвижимости</li>
+                                <li class="active">Страхование коммерческой недвижимости</li>
                             </ol>
                         </div>
                     </div>
@@ -236,34 +241,33 @@
                         <p style="text-align: left; font-size: 14px">Мы сохраняем строгую редакторскую оценку в наших обзорах.
                             При этом мы получаем компенсацию, если вы переходите по ссылке на нашем сайте и заказываете услуги у наших партнеров.</p>
                         <hr>
-                            <p style="font-size: 18px; line-height: 1.8;">Лизинг - это выгодный способ приобретения имущества для бизнеса и индивидуальных предпринимателей независимо от вида бизнеса и системы налогообложения путем предоставления аренды на оборудование с правом его дальнейшего перехода в собственность лизингополучателя.</p>
-                        <img src="../../images/credit_leasing.jpeg" class="img-responsive">
+                        <img src="../../images/insurance_property.jpg" class="img-responsive">
                         <br>
                         <p style="font-size: 18px; line-height: 1.8;">
-                            Получая в аренду транспортное средство или оборудование, вы избегаете больших расходов для своего бизнеса, а используя лизинговое средство вы можете сразу начать зарабатывать.
-                            Для работы по лизингу вам не нужно привлекать заемный капитал и использовать средства компании, благодаря чему, у вас все также остается возможность взять <a href="../../credit/credit.php">кредит</a> в банке на более важные вещи для развития своего бизнеса.
-                            Лизинг делает процесс получения транспортного средства или оборудования для бизнеса простым и доступным, а также позволяет получить более лояльные условия по выплате.
-                            Изучите нашу подборку компаний, предоставляющих лизинг, и выберите лучшее для себя:</p>
+                            На рынке множество предложений по страхованию коммерческой недвижимости.
+                            Все они отличаются объемом выплат и стоимостью страховки.
+                            <br>Изучите нашу подборку компаний, предоставляющих страховые услуги по страхованию коммерческой недвижимости, и выберите лучшее для себя:</p>
                         <table class="table">
                             <thead>
                             <tr>
-                                <th colspan="4">МКБ-Лизинг</th>
+                                <th colspan="4">Ингосстрах</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <td colspan="3">
                                     <ol style="font-size: 16px; list-style-type: disc">
-                                        <li>Срок лизинга до 37 месяцев</li>
-                                        <li>Авансовый платеж от 10% от стоимости<br> имущеста</li>
-                                        <li><a href="../../credit/credit-leasing.php">Удорожание от 3.85%</a></li>
+                                        <li>Страхование жилой недвижимости</li>
+                                        <li>Страхование нежилого и складского имущества</li>
+                                        <li>Страхование офисных центров</li>
+                                        <li>Страхование строительства и реконструкции зданий и сооружений</li>
                                     </ol>
                                 </td>
                                 <td class="text-center">
-                                    <img style="margin-left: auto; margin-right: 0" src="http://www.mkb-leasing.ru/images/logo_new.png" class="img-responsive" height="30" width="200">
+                                    <img style="margin-left: auto; margin-right: 0" src="http://www.insure.travel/static/files/logo/SK/ingosstrakh-logo-HD.png" class="img-responsive" height="30" width="200">
                                     <br>
                                     <a href="#mkb" class="btn btn-success">Обзор компании</a>
-                                    <p><i>на FinVisor</i></p>
+                                    <p><i>на SpaceFinance</i></p>
                                 </td>
                             </tr>
                             </tbody>
@@ -271,24 +275,23 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th colspan="4">Европлан</th>
+                                <th colspan="4">Абсолют Страхование</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <td colspan="3">
                                     <ol style="font-size: 16px; list-style-type: disc">
-                                        <li>Эксклюзивные скидки от производителей</li>
-                                        <li>Доход от имущества больше, <br>чем лизинговые платежи</li>
-                                        <li>Минимальный пакет документов</li>
-                                        <li><a href="../../credit/credit-leasing.php">Гибкие ставки на удорожание</a></li>
+                                        <li>Страхование имущественного комплекса</li>
+                                        <li>Возможно страхование от всех рисков</li>
+                                        <li>Могут быть застрахованы свои финансовые потери страхователя</li>
                                     </ol>
                                 </td>
                                 <td class="text-center" style="text-align: center">
-                                    <img style="margin-left: auto; margin-right: 0" src="https://im0-tub-ru.yandex.net/i?id=66c9c180e5956703f181027398bbe705-l&n=13" class="img-responsive" height="30" width="200">
+                                    <img style="margin-left: auto; margin-right: 0" src="https://www.uk-kc.ru/upload/peredelkino/images/abs_strakhovanie.png" class="img-responsive" height="30" width="200">
                                     <br>
                                     <a href="https://europlan.ru/leasing" rel="nofollow" target="_blank" class="btn btn-success">Обзор компании</a>
-                                    <p><i>на EuroPlan</i></p>
+                                    <p><i>на SpaceFinance</i></p>
                                 </td>
                             </tr>
                             </tbody>
@@ -296,24 +299,24 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th colspan="4">Альфа-Банк Лизинг</th>
+                                <th colspan="4">Альфа-Страхование</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <td colspan="3">
                                     <ol style="font-size: 16px; list-style-type: disc">
-                                        <li>Аванс от 5% от стоимости</li>
-                                        <li>Срок лизинга до 5 лет</li>
-                                        <li>Сумма сделки до 40 млн. руб.</li>
-                                        <li><a href="../../credit/credit-leasing.php">Выгодные процентные ставки от 16%</a></li>
+                                        <li>Страхование движимого и недвижимого имущества</li>
+                                        <li>Гарантии надежности страховой защиты</li>
+                                        <li>Простая процедура получения компенсации</li>
+                                        <li>Возможность оформить полис страхования практически в любой точке России</li>
                                     </ol>
                                 </td>
                                 <td class="text-center">
-                                    <img style="margin-left: auto; margin-right: 0" src="https://alfaleasing.ru/upload/medialibrary/f82/logo.png" class="img-responsive" height="30" width="200">
+                                    <img style="margin-left: auto; margin-right: 0" src="https://upload.wikimedia.org/wikipedia/ru/thumb/6/64/Logo_alfastrah.svg/1280px-Logo_alfastrah.svg.png" class="img-responsive" height="30" width="200">
                                     <br>
                                     <a href="#alfa-bank" class="btn btn-success">Обзор компании</a>
-                                    <p><i>на FinVisor</i></p>
+                                    <p><i>на SpaceFinance</i></p>
                                 </td>
                             </tr>
                             </tbody>
@@ -321,24 +324,23 @@
     <table class="table">
         <thead>
         <tr>
-            <th colspan="4">CarCade</th>
+            <th colspan="4">ВТБ-Страхование</th>
         </tr>
         </thead>
         <tbody>
         <tr>
             <td colspan="3">
                 <ol style="font-size: 16px; list-style-type: disc">
-                    <li>Минимальные пакет документов</li>
-                    <li>Срок лизинга от 12 до 60 месяцев</li>
-                    <li>Гибкий график погашения задолженности</li>
-                    <li><a href="../../credit/credit-leasing.php">Выгодные процентные ставки</a></li>
+                    <li>Страхование имущества предприятий и организаций</li>
+                    <li>Страхование производственного и технологического оборудования</li>
+                    <li>Защита имущественных интересов предприятия</li>
                 </ol>
             </td>
             <td style="text-align: center">
-                <img style="margin-left: auto; margin-right: 0"  src="https://getin.pl/getinholding/img/carcade.png" class="img-responsive" height="30" width="200">
+                <img style="margin-left: auto; margin-right: 0"  src="http://www.insuinfo.ru/sites/default/files/styles/logo_com250x190/public/logo_ru_vtb_0.png?itok=BlK3Nz2Z" class="img-responsive" height="30" width="200">
                 <br>
                 <a href="https://www.carcade.com/fe-leasing/standard/" rel="nofollow" target="_blank" class="btn btn-success">Обзор компании</a>
-                <p><i>на CarCade</i></p>
+                <p><i>на SpaceFinance</i></p>
             </td>
         </tr>
         </tbody>
@@ -347,43 +349,28 @@
     <table class="table">
                             <thead>
                             <tr>
-                                <th colspan="4">ВТБ-Лизинг</th>
+                                <th colspan="4">AIG-страхование</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <td colspan="3">
                                     <ol style="font-size: 16px; list-style-type: disc">
-                                        <li>Аванс – от 10%</li>
+                                        <li>Страховая емкость – до $1,5 млрд.</li>
                                         <li>Стоимость предмета лизинга: до 7 млн руб</li>
-                                        <li>Срок лизинга – от 11 до 48 мес</li>
-                                        <li><a href="../../credit/credit-leasing.php">Минимальное удорожание</a></li>
+                                        <li>Программа инженерных осмотров объектов недвижимости</li>
+                                        <li>Специальные процедуры урегулирования убытков</a></li>
                                     </ol>
                                 </td>
                                 <td class="text-center" style="text-align: center">
-                                    <img style="margin-left: auto; margin-right: 0" src="http://www.autolight.ru/images/logotypes/VTB_logo_small.jpg" class="img-responsive" height="30" width="200">
+                                    <img style="margin-left: auto; margin-right: 0" src="http://bmlmarkets.com/wp-content/uploads/2016/01/aig.png" class="img-responsive" height="30" width="200">
                                     <br>
                                     <a href="#psb" class="btn btn-success">Обзор компании</a>
-                                    <p><i>на FinVisor</i></p>
+                                    <p><i>на SpaceFinance</i></p>
                                 </td>
                             </tr>
                             </tbody>
     </table>
-                        <hr>
-                        <h3>Плюсы лизинга</h3>
-                        <ol style="font-size: 18px; list-style-type: disc">
-                            <li>После окончания срока действия лизингового договора вы вправе выкупить имущество за плату</li>
-                            <li>Минимум документов и упрощенное кредитование</li>
-                            <li>Низкие обсуждаемые платежи, в которые включены <a href="../../insurance/insurance_transport.php">страховка</a> и налоги</li>
-                            <li>Большой выбор лизингового имущества</li>
-                            <li>Лизингодатель предоставляет услуги технической поддержки</li>
-                        </ol>
-                        <h3>Минусы лизинга</h3>
-                        <ol style="font-size: 18px; list-style-type: disc">
-                            <li>Ухудшение свойств оборудования во время эксплуатации</li>
-                            <li>Уменьшение рыночной стоимоти к окочнанию договору</li>
-                            <li>Объект лизинга предлагаетя на правах аренды</li>
-                        </ol>
                         <hr>
     <div class="row">
         <br>
