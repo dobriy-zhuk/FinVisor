@@ -80,16 +80,16 @@
 
                        result.forEach(function(element){
                            document.getElementById('result').innerHTML += '<tr class="product_card">' +
-                               '<td>'+ element.name_broker + '<br>' +
-                               '<img src="' + element.logo_bank + '" alt="" width = "125" height="125"' + '<br>' +
+                               '<td>'+ element.name_institution + '<br>' +
+                               '<img src="' + element.logo_institution + '" alt="" width = "125" height="125"' + '<br>' +
                                 '<p><a style="font-size: 15px" data-toggle="collapse" data-target="#collapseExample' + element.id + '" aria-expanded="false" aria-controls="collapseExample">' +
                                'Подробности' +
                                '</a></p><div class="collapse"  id="collapseExample' + element.id + '">' +
                                element.details +
                                '</td>' +
-                               '<td style="text-align: center; vertical-align: middle;">' + '<a title="element">' + element.commission + ' <i class="ion ion-ios-information-outline"></i></a></td>' +
+                               '<td style="text-align: center; vertical-align: middle;">' + '<a title="element">' + element.commission + '</a></td>' +
                                '<td style="text-align: center; vertical-align: middle;">' + element.instruments + '</td>' +
-                               '<td class="active" style="text-align: center; vertical-align: middle;">' + element.min_sum + 'руб.<br><button class=\"btn btn-success\" onclick=forward("' + element.logo_bank + '");> Подать заявку</button>' + '</td>' +
+                               '<td class="active" style="text-align: center; vertical-align: middle;">' + element.min_sum + 'руб.<br><button class=\"btn btn-success\" onclick=forward("' + element.name_institution + '");> Подать заявку</button>' + '</td>' +
                                '</tr>';
                        });
 
@@ -100,10 +100,52 @@
                });
             }
 
+            function forward(name_institution){
+
+                var mymodal = $('#myModalBox');
+                mymodal.find('.modal-title').text("Заявление на подключение к брокеру  " + name_institution);
+                mymodal.modal('show');
+
+            }
+
         </script>
 
     </head>
     <body onload="get_brokers()">
+    <div id="myModalBox" class="modal fade modal_center">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="modal-title">Заявка в венчурный фонд</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="contact" name="form_id" id="form_id">
+                        <div id="result_div_id"></div>
+                        <div class="form-group">
+                            <label class="sr-only" for="name_order">Ваше имя</label>
+                            <input type="text" class="form-control" id="name_order" name="name_order" placeholder="Ваше имя">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="phone_order">Ваш телефон</label>
+                            <input type="tel" class="form-control" id="phone_order" name="phone_order" placeholder="Телефон">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="inn_order">ОГРН организации/ОГРНИП</label>
+                            <input type="text" class="form-control" id="inn_order" name="inn_order" placeholder="ОГРН организации/ОГРНИП">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="url_order">Сайт организации (если есть)</label>
+                            <input type="url" class="form-control" id="url_order" name="url_order" placeholder="Сайт организации (если есть)">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a onclick="if (CheckFormSimple()) AjaxCallBack('result_div_id', 'form_id','modal-title','../../scripts/order.php');" class="btn btn-success">Отправить заявку<i class="icon-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
     <header id="top-bar" class="navbar">
         <div class="container">
             <div class="navbar-header">
@@ -300,52 +342,21 @@
                                </div>
                            </form>
                        </div>
-    <div class="col-md-12">
-        <table class="table">
-            <thead>
-            <tr>
-                <th class="col-sm-3 text-center active"><a href="">Наименование брокера</a></th>
-                <th class="col-sm-3 text-center active"><a href="">Комиссия</a></th>
-                <th class="col-sm-3 text-center active"><a href="">Инструменты</a></th>
-                <th class="col-sm-3 text-center active"><a href="">Минимальная сумма</a></th>
-            </tr>
-            </thead>
-            <tbody id="result" class="table-bordered"></tbody>
-        </table>
-        <nav aria-label="Page navigation ">
-            <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1">Previous</a>
-                </li>
-                <li class="page-item active"><a class="page-link" href="#" onclick="get_cash_services(0,0,0,0,0,0);">1</a></li>
-                <li class="page-item"><a class="page-link" href="#" onclick="get_cash_services(0,0,0,0,0,3);">2</a></li>
-                <li class="page-item"><a class="page-link" href="" onclick="get_cash_services(0,0,0,0,0,6);">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
-    <section id="blog-full-width">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <article class="wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
-                        <div class="blog-content">
-                            <h2 class="blogpost-title">
-                                <a href="post-fullwidth.html">Какие инструменты актуальны на валютной бирже?</a>
-                            </h2>
-                            <p>Ultrices posuere cubilia curae curabitur sit amet tortor ut massa commodo. Vestibulum consectetur euismod malesuada tincidunt cum. Sed ullamcorper dignissim consectetur ut tincidunt eros sed sapien consectetur dictum. Pellentesques sed volutpat ante, cursus port. Praesent mi magna, penatibus et magniseget dis parturient montes sed quia consequuntur magni dolores eos qui ratione.
-                            </p>
-                            <a href="../single-post.html" class="btn btn-dafault btn-details">Continue Reading</a>
-                        </div>
-
-                    </article>
-                </div>
+    <div class="container">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th class="col-sm-3 text-center active"><a href="">Наименование брокера</a></th>
+                    <th class="col-sm-3 text-center active"><a href="">Комиссия</a></th>
+                    <th class="col-sm-3 text-center active"><a href="">Инструменты</a></th>
+                    <th class="col-sm-3 text-center active"><a href="">Минимальная сумма</a></th>
+                </tr>
+                </thead>
+                <tbody id="result" class="table-bordered"></tbody>
+            </table>
         </div>
-    </section>
-
+    </div>
         <footer id="footer">
             <div class="container copyright">
                 <div class="col-md-8">
@@ -388,6 +399,5 @@
                 </div>
             </div>
         </footer>
-
          </body>
      </html>

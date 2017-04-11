@@ -119,6 +119,40 @@
 
     </head>
     <body onload="get_credit()">
+    <div id="myModalBox" class="modal fade modal_center">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="modal-title">Заявка на РКО</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="contact" name="form_id" id="form_id">
+                        <div id="result_div_id"></div>
+                        <div class="form-group">
+                            <label class="sr-only" for="name_order">Ваше имя</label>
+                            <input type="text" class="form-control" id="name_order" name="name_order" placeholder="Ваше имя">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="phone_order">Ваш телефон</label>
+                            <input type="tel" class="form-control" id="phone_order" name="phone_order" placeholder="Телефон">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="inn_order">ОГРН организации/ОГРНИП</label>
+                            <input type="text" class="form-control" id="inn_order" name="inn_order" placeholder="ОГРН организации/ОГРНИП">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="url_order">Сайт организации (если есть)</label>
+                            <input type="url" class="form-control" id="url_order" name="url_order" placeholder="Сайт организации (если есть)">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a onclick="if (CheckFormSimple()) AjaxCallBack('result_div_id', 'form_id','modal-title','../../scripts/order.php');" class="btn btn-success">Отправить заявку<i class="icon-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
     <header id="top-bar" class="navbar">
         <div class="container">
             <div class="navbar-header">
@@ -335,7 +369,7 @@
                 <div class="form-group">
                     <label for="max_credit">Максимальная сумма кредита</label>
                     <select id="max_credit" class="selectpicker form-control">
-                        <option value="0">Любая</option>
+                        <option value="1000">Любая</option>
                         <option value="0.1">До 100 тыс. руб.</option>
                         <option value="3">До 3 млн. руб.</option>
                         <option value="10" selected>До 10 млн. руб.</option>
@@ -345,7 +379,7 @@
         </div>
     </div>
     </form>
-
+    <div class="container">
     <div class="col-md-12">
         <table class="table">
             <thead>
@@ -358,25 +392,8 @@
             </thead>
             <tbody id="result" class="table-bordered"></tbody>
         </table>
-        <nav aria-label="Page navigation ">
-            <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1">Previous</a>
-                </li>
-                <li class="page-item active"><a class="page-link" href="#" onclick="get_cash_services(0,0,0,0,0,0);">1</a></li>
-                <li class="page-item"><a class="page-link" href="#" onclick="get_cash_services(0,0,0,0,0,3);">2</a></li>
-                <li class="page-item"><a class="page-link" href="" onclick="get_cash_services(0,0,0,0,0,6);">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                </li>
-            </ul>
-        </nav>
     </div>
-
-            <div class="container">
-
-            </div>
-
+</div>
         <footer id="footer">
             <div class="container copyright">
                 <div class="col-md-8">
@@ -419,38 +436,5 @@
                 </div>
             </div>
         </footer>
-        <div id="myModalBox" class="modal fade modal_center">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title" id="modal-title">Заявка на кредитование</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form class="contact" name="form_id" id="form_id">
-                            <div id="result_div_id"></div>
-                            <div class="form-group">
-                                <label class="sr-only" for="name_order">Ваше имя</label>
-                                <input type="text" class="form-control" id="name_order" name="name_order" placeholder="Ваше имя">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="phone_order">Ваш телефон</label>
-                                <input type="tel" class="form-control" id="phone_order" name="phone_order" placeholder="Телефон">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="inn_order">ОГРН организации/ОГРНИП</label>
-                                <input type="text" class="form-control" id="inn_order" name="inn_order" placeholder="ОГРН организации/ОГРНИП">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="url_order">Сайт организации (если есть)</label>
-                                <input type="url" class="form-control" id="url_order" name="url_order" placeholder="Сайт организации (если есть)">
-                            </div>
-                    </div>
-                    <div class="modal-footer">
-                        <a onclick="if (CheckFormSimple()) AjaxCallBack('result_div_id', 'form_id','credit','../scripts/order.php');" class="btn btn-success">Отправить заявку<i class="icon-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
          </body>
      </html>

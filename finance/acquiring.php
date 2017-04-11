@@ -103,7 +103,7 @@
                                 '</td>' +
                                '<td style="text-align: center; vertical-align: middle;"> от ' + element.transfer_price + '%</td>' +
                                '<td style="text-align: center; vertical-align: middle;">до ' + element.transfer_speed + ' дней</td>' +
-                               '<td class="active" style="text-align: center; vertical-align: middle;">' + element.connection_fee + ' руб.<br><button class=\"btn btn-success\" onclick="forward(\'' + element.id + '\',\'' + element.name_institution + '\',\'' + element.type_acquiring + '\')";> Подключить</button>' + '</td>' +
+                               '<td class="active" style="text-align: center; vertical-align: middle;">' + element.connection_fee + ' руб.<br><button class=\"btn btn-success\" onclick="forward(\'' + element.name_institution + '\',\'' + element.type_acquiring + '\')";> Подключить</button>' + '</td>' +
                                '</tr>' +
                                '<tr><td style="border: none" colspan="3"><a style="font-size: 15px; cursor: pointer" data-toggle="collapse" data-target="#collapseExample' + element.id + '" aria-expanded="false" aria-controls="collapseExample">' +
                                'Особенности' +
@@ -119,7 +119,7 @@
                });
             }
 
-            function forward(order_id, name_institution, type_acquiring){
+            function forward(name_institution, type_acquiring){
 
                 var mymodal = $('#myModalBox');
 
@@ -142,7 +142,40 @@
 
     </head>
     <body onload="get_acquiring()">
-
+    <div id="myModalBox" class="modal fade modal_center">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="modal-title">Заявка на мобильный эквайринг</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="contact" name="form_id" id="form_id">
+                        <div id="result_div_id"></div>
+                        <div class="form-group">
+                            <label class="sr-only" for="name_order">Ваше имя</label>
+                            <input type="text" class="form-control" id="name_order" name="name_order" placeholder="Ваше имя">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="phone_order">Ваш телефон</label>
+                            <input type="tel" class="form-control" id="phone_order" name="phone_order" placeholder="Телефон">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="inn_order">ОГРН организации/ОГРНИП</label>
+                            <input type="text" class="form-control" id="inn_order" name="inn_order" placeholder="ОГРН организации/ОГРНИП">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="url_order">Сайт организации (если есть)</label>
+                            <input type="url" class="form-control" id="url_order" name="url_order" placeholder="Сайт организации (если есть)">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a onclick="if (CheckFormSimple()) AjaxCallBack('result_div_id', 'form_id','modal-title','../../scripts/order.php');" class="btn btn-success">Отправить заявку<i class="icon-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
     <header id="top-bar" class="navbar">
         <div class="container">
             <div class="navbar-header">
@@ -428,37 +461,5 @@
                 </div>
             </div>
     </footer>
-    <div id="myModalBox" class="modal fade modal_center">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title" id="modal-title">Заявка на открытие РКО</h4>
-                </div>
-                <div class="modal-body">
-                    <form class="contact" name="contact" id="ContactForm" method="post" onsubmit="send_order()">
-                        <div class="form-group">
-                            <label class="sr-only" for="name_order">Ваше имя</label>
-                            <input type="text" class="form-control" id="name_order" placeholder="Ваше имя" required oninvalid="this.setCustomValidity('Пожалуйста, введите имя')">
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only" for="phone_order">Ваш телефон</label>
-                            <input type="tel" class="form-control" id="phone_order" placeholder="Телефон" required oninvalid="this.setCustomValidity('Пожалуйста, введите номер телефона')">
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only" for="inn_order">ОГРН организации/ОГРНИП</label>
-                            <input type="text" class="form-control" id="inn_order" placeholder="ОГРН организации/ОГРНИП" required oninvalid="this.setCustomValidity('Пожалуйста, введите ИНН')">
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only" for="url_order">Сайт организации (если есть)</label>
-                            <input type="url" class="form-control" id="url_order" placeholder="Сайт организации (если есть)">
-                        </div>
-                </div>
-                <div class="modal-footer">
-                    <input class="btn btn-success" id="submit" type="submit" value="Отправить заявку">
-                </div>
-            </div>
-        </div>
-    </div>
     </body>
 </html>

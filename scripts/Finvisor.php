@@ -418,7 +418,7 @@ class FinancialServices extends Finvisor {
 
     public function displayFilterBrokers($min_sum){
 
-        $query = "SELECT * FROM brokers LEFT JOIN financial_institution using(id_bank)
+        $query = "SELECT * FROM brokers LEFT JOIN financial_institution using(id_institution)
                     WHERE min_sum >= '$min_sum'";
 
         $result = self::$conn->query($query);
@@ -429,8 +429,8 @@ class FinancialServices extends Finvisor {
 
             self::$banks[$i] = new Fund();
             self::$banks[$i]->id = $row['id'];
-            self::$banks[$i]->name_broker = $row['name_broker'];
-            self::$banks[$i]->logo_bank = $row['logo_bank'];
+            self::$banks[$i]->name_institution = $row['name_institution'];
+            self::$banks[$i]->logo_institution = $row['logo_institution'];
             self::$banks[$i]->commission = $row['commission'];
             self::$banks[$i]->min_sum = $row['min_sum'];
             self::$banks[$i]->instruments = $row['instruments'];

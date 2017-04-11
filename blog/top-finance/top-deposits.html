@@ -31,8 +31,52 @@
     <script src="../../js/slider.js"></script>
     <script src="../../js/jquery.fancybox.js"></script>
     <script src="../../js/main.js"></script>
+    <script>
+
+        function forward(name_institution){
+
+            var mymodal = $('#myModalBox');
+            mymodal.find('.modal-title').text("Заявление на депозит в " + name_institution);
+            mymodal.modal('show');
+
+        }
+    </script>
 </head>
 <body>
+<div id="myModalBox" class="modal fade modal_center">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="modal-title">Заявка на РКО</h4>
+            </div>
+            <div class="modal-body">
+                <form class="contact" name="form_id" id="form_id">
+                    <div id="result_div_id"></div>
+                    <div class="form-group">
+                        <label class="sr-only" for="name_order">Ваше имя</label>
+                        <input type="text" class="form-control" id="name_order" name="name_order" placeholder="Ваше имя">
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="phone_order">Ваш телефон</label>
+                        <input type="tel" class="form-control" id="phone_order" name="phone_order" placeholder="Телефон">
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="inn_order">ОГРН организации/ОГРНИП</label>
+                        <input type="text" class="form-control" id="inn_order" name="inn_order" placeholder="ОГРН организации/ОГРНИП">
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="url_order">Сайт организации (если есть)</label>
+                        <input type="url" class="form-control" id="url_order" name="url_order" placeholder="Сайт организации (если есть)">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a onclick="if (CheckFormSimple()) AjaxCallBack('result_div_id', 'form_id','modal-title','../../scripts/order.php');" class="btn btn-success">Отправить заявку<i class="icon-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
 <header id="top-bar" class="navbar">
     <div class="container">
         <div class="navbar-header">
@@ -229,8 +273,8 @@
                                 <td style="text-align: center">
                                     <img style="margin-left: auto; margin-right: 0" src="http://s4.pikabu.ru/post_img/2016/05/18/7/og_og_1463568506296952141.jpg" class="img-responsive" height="30" width="200">
                                     <br>
-                                    <a href="#vtb" class="btn btn-success">Обзор банка</a>
-                                    <p><i>на SpaceFinance</i></p>
+                                    <button class="btn btn-success" onclick="forward('ВТБ-Банк Москвы')">Открыть депозит</button>
+                                    <p><i><a href="#vtb">Обзор банка</a></i></p>
                                 </td>
                             </tr>
                             </tbody>
@@ -253,8 +297,8 @@
                                 <td style="text-align: center">
                                     <img style="margin-left: auto; margin-right: 0"  src="../../images/institutions/open-bank.png" class="img-responsive" height="30" width="200">
                                     <br>
-                                    <a href="#open-bank" class="btn btn-success">Обзор банка</a>
-                                    <p><i>на SpaceFinance</i></p>
+                                    <button class="btn btn-success" onclick="forward('Банк Открытие')">Открыть депозит</button>
+                                    <p><i><a href="#open-bank">Обзор банка</a></i></p>
                                 </td>
                             </tr>
                             </tbody>
@@ -277,8 +321,8 @@
                                 <td class="text-center">
                                     <img style="margin-left: auto; margin-right: 0" src="http://financers.ru/wp-content/uploads/2014/08/alfa.jpg" class="img-responsive" height="30" width="200">
                                     <br>
-                                    <a href="#alfa-bank" class="btn btn-success">Обзор банка</a>
-                                    <p><i>на SpaceFinance</i></p>
+                                    <button class="btn btn-success" onclick="forward('Альфа-Банк')">Открыть депозит</button>
+                                    <p><i><a href="#alfa-bank">Обзор банка</a></i></p>
                                 </td>
                             </tr>
                             </tbody>
@@ -302,8 +346,8 @@
                                 <td class="text-center" style="text-align: center">
                                     <img style="margin-left: auto; margin-right: 0" src="http://data.sberbank.ru/common/img/uploaded/banks/uploaded_szb/files/smi_sber_logo.jpg" class="img-responsive" height="30" width="200">
                                     <br>
-                                    <a href="#sberbank" class="btn btn-success">Обзор банка</a>
-                                    <p><i>на SpaceFinance</i></p>
+                                    <button class="btn btn-success" onclick="forward('Сбербанк')">Открыть депозит</button>
+                                    <p><i><a href="#sberbank">Обзор банка</a></i></p>
                                 </td>
                             </tr>
                             </tbody>
@@ -326,8 +370,8 @@
                                 <td class="text-center" style="text-align: center">
                                     <img style="margin-left: auto; margin-right: 0" src="https://im0-tub-ru.yandex.net/i?id=ae7367a956b5f786a324929ddba0ffb7-l&n=13" class="img-responsive" height="30" width="200">
                                     <br>
-                                    <a href="#raiffaisen" class="btn btn-success">Обзор банка</a>
-                                    <p><i>на SpaceFinance</i></p>
+                                    <button class="btn btn-success" onclick="forward('РайффайзенБанк')">Открыть депозит</button>
+                                    <p><i><a href="#raiffaisen">Обзор банка</a></i></p>
                                 </td>
                             </tr>
                             </tbody>

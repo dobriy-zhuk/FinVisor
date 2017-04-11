@@ -36,7 +36,7 @@
         function forward(name_institution){
 
             var mymodal = $('#myModalBox');
-            mymodal.find('.modal-title').text("Заявление на страхование в " + name_institution);
+            mymodal.find('.modal-title').text("Заявление на страхование транспорта в " + name_institution);
             mymodal.modal('show');
 
         }
@@ -48,7 +48,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title" id="modal-title">Заявка на страхование</h4>
+                <h4 class="modal-title" id="modal-title">Заявка на страхование транспорта</h4>
             </div>
             <div class="modal-body">
                 <form class="contact" name="form_id" id="form_id">
@@ -72,7 +72,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <a onclick="if (CheckFormSimple()) AjaxCallBack('result_div_id', 'form_id','РКО','../../scripts/order.php');" class="btn btn-success">Отправить заявку<i class="icon-arrow-right"></i></a>
+                <a onclick="if (CheckFormSimple()) AjaxCallBack('result_div_id', 'form_id','modal-title','../../scripts/order.php');" class="btn btn-success">Отправить заявку<i class="icon-arrow-right"></i></a>
             </div>
         </div>
     </div>
@@ -274,8 +274,8 @@
                                 <td class="text-center">
                                     <img style="margin-left: auto; margin-right: 0" src="http://www.insure.travel/static/files/logo/SK/ingosstrakh-logo-HD.png" class="img-responsive" height="30" width="200">
                                     <br>
-                                    <a href="#mkb" class="btn btn-success">Заявка на страхование</a>
-                                    <p><i>на SpaceFinance</i></p>
+                                    <button class="btn btn-success" onclick="forward('Ингосстрах')">Заявка на страхование</button>
+                                    <p><i><a href="https://www.ingos.ru/ru/corporate/" rel="nofollow" target="_blank">Обзор компании</a></i></p>
                                 </td>
                             </tr>
                             </tbody>
@@ -298,8 +298,8 @@
                                 <td class="text-center">
                                     <img style="margin-left: auto; margin-right: 0" src="https://upload.wikimedia.org/wikipedia/ru/thumb/6/64/Logo_alfastrah.svg/1280px-Logo_alfastrah.svg.png" class="img-responsive" height="30" width="200">
                                     <br>
-                                    <a href="#alfa-bank" class="btn btn-success">Заявка на страхование</a>
-                                    <p><i>на SpaceFinance</i></p>
+                                    <button class="btn btn-success" onclick="forward('Альфа-Страхование')">Заявка на страхование</button>
+                                    <p><i><a href="https://www.alfastrah.ru/corporate/" rel="nofollow" target="_blank">Обзор компании</a></i></p>
                                 </td>
                             </tr>
                             </tbody>
@@ -322,8 +322,8 @@
                                 <td style="text-align: center">
                                     <img style="margin-left: auto; margin-right: 0"  src="http://www.insuinfo.ru/sites/default/files/styles/logo_com250x190/public/logo_ru_vtb_0.png?itok=BlK3Nz2Z" class="img-responsive" height="30" width="200">
                                     <br>
-                                    <a href="https://www.carcade.com/fe-leasing/standard/" rel="nofollow" target="_blank" class="btn btn-success">Заявка на страхование</a>
-                                    <p><i>на SpaceFinance</i></p>
+                                    <button class="btn btn-success" onclick="forward('ВТБ-Страхование')">Заявка на страхование</button>
+                                    <p><i><a href="https://www.vtbins.ru/corporate/" rel="nofollow" target="_blank">Обзор компании</a></i></p>
                                 </td>
                             </tr>
                             </tbody>
@@ -345,8 +345,8 @@
                                 <td class="text-center">
                                     <img style="margin-left: auto; margin-right: 0" src="http://www.cheboksary.ru/images/48708.jpg" class="img-responsive" height="30" width="200">
                                     <br>
-                                    <button class="btn btn-success" onclick="forward('Сбербанк-Страхование')">Заявка на страхование</button>
-                                    <p><i>на SpaceFinance</i></p>
+                                    <button class="btn btn-success" onclick="forward('Сбербанк Страхование')">Заявка на страхование</button>
+                                    <p><i><a href="https://sberbankins.ru/products/business/" rel="nofollow" target="_blank">Обзор компании</a></i></p>
                                 </td>
                             </tr>
                             </tbody>
@@ -371,7 +371,7 @@
                                     <img style="margin-left: auto; margin-right: 0" src="https://upload.wikimedia.org/wikipedia/ru/thumb/5/5a/Logo_renessans.svg/1280px-Logo_renessans.svg.png" class="img-responsive" height="30" width="200">
                                     <br>
                                     <button class="btn btn-success" onclick="forward('Ренессанс Страхование')">Заявка на страхование</button>
-                                    <p><i>на SpaceFinance</i></p>
+                                    <p><i><a href="http://www.renins.com/insurance/fleets/cars" rel="nofollow" target="_blank">Обзор компании</a></i></p>
                                 </td>
                             </tr>
                             </tbody>
@@ -473,28 +473,28 @@
                         <h3>Обзоры</h3>
                         <hr>
                         <ol style="font-size: 16px; list-style-type: disc">
-                            <li><a href="top-finance.html">ТОП на пополнение оборотного капитала 2017</a></li>
-                            <li><a href="top-realty.html">ТОП лизинг автотранспорта 2017</a></li>
+                            <li><a href="top-realty.html">ТОП страхования недвижимости</a></li>
+                            <li><a href="top-finance.html">ТОП страхования финансовой деятельности</a></li>
+                            <li><a href="top-liability.html">ТОП страхования ответственности</a></li>
                         </ol>
                     </div>
                     <div class="blog-content">
                         <h3>Сравнение</h3>
                         <hr>
                         <ol style="font-size: 16px; list-style-type: disc">
-                            <li><a href="../../credit/credit.php">Кредиты на открытие бизнеса</a></li>
-                            <li><a href="../../credit/credit-capital.php">Кредиты на пополнение капитала</a></li>
-                            <li><a href="../../credit/credit-mortgage.php">Коммерческая ипотека</a></li>
-                            <li><a href="../../credit/credit-leasing.php">Лизинг</a></li>
+                            <li><a href="../../insurance/insurance_realty.php">Недвижимость</a></li>
+                            <li><a href="../../insurance/insurance_transport.php">Автотранспорт</a></li>
+                            <li><a href="../../insurance/insurance_finance.php">Финансовая деятельность</a></li>
+                            <li><a href="../../insurance/insurance_complex.php">Комплексное страхование</a></li>
                         </ol>
                     </div>
                     <div class="blog-content">
                         <h3>Рекомендации</h3>
                         <hr>
                         <ol style="font-size: 16px; list-style-type: disc">
-                            <li><a href="../credit/get-credit.html">На что обращать внимание при кредитовании?</a></li>
-                            <li><a href="../credit/credit-open-business.html">Как получить кредит на открытие бизнеса</a></li>
-                            <li><a href="../credit/mortgage-vs-plan.html">Ипотека или рассрочка?</a></li>
-                            <li><a href="../credit/credit-documents.html">Кредит в финансовой отчетности</a></li>
+                            <li><a href="../insurance/choose-insurance.html">Как выбрать оптимальную страховку?</a></li>
+                            <li><a href="../insurance/liability-insurance.html">Страхование ответственности</a></li>
+                            <li><a href="../insurance/property-insurance.html">Страхование недвижимости</a></li>
                         </ol>
                     </div>
                 </article>

@@ -146,7 +146,7 @@ function AjaxCallBack(result_id,form_id,subject, url) {
         url:     url,
         type:     "POST",
         dataType: "html",
-        data: jQuery("#"+form_id).serialize() + "&subject=" + subject,
+        data: jQuery("#"+form_id).serialize() + "&subject=" + document.getElementById(subject).innerText,
         success: function(response) {
             $('#form_id').trigger( 'reset' );
             document.getElementById(result_id).innerHTML = "<div class=\"alert alert-success\">" + response + "</div>";

@@ -94,7 +94,7 @@
             function forward(order_id, name_institution){
 
                 var mymodal = $('#myModalBox');
-                mymodal.find('.modal-title').text("Заявление на страхование в " + name_institution);
+                mymodal.find('.modal-title').text("Заявление на страхование недвижимости в " + name_institution);
                 mymodal.modal('show');
 
             }
@@ -103,6 +103,40 @@
 
     </head>
     <body onload="get_insurance()">
+    <div id="myModalBox" class="modal fade modal_center">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="modal-title">Заявка на страхование</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="contact" name="form_id" id="form_id">
+                        <div id="result_div_id"></div>
+                        <div class="form-group">
+                            <label class="sr-only" for="name_order">Ваше имя</label>
+                            <input type="text" class="form-control" id="name_order" name="name_order" placeholder="Ваше имя">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="phone_order">Ваш телефон</label>
+                            <input type="tel" class="form-control" id="phone_order" name="phone_order" placeholder="Телефон">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="inn_order">ОГРН организации/ОГРНИП</label>
+                            <input type="text" class="form-control" id="inn_order" name="inn_order" placeholder="ОГРН организации/ОГРНИП">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="url_order">Сайт организации (если есть)</label>
+                            <input type="url" class="form-control" id="url_order" name="url_order" placeholder="Сайт организации (если есть)">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a onclick="if (CheckFormSimple()) AjaxCallBack('result_div_id', 'form_id','modal-title','../../scripts/order.php');" class="btn btn-success">Отправить заявку<i class="icon-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
     <header id="top-bar" class="navbar">
         <div class="container">
             <div class="navbar-header">
@@ -307,25 +341,6 @@
             </table>
         </div>
     </div>
-    <section id="blog-full-width">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <article class="wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
-                        <div class="blog-content">
-                            <h2 class="blogpost-title">
-                                <a href="post-fullwidth.html">Как подобрать надежное страхование для бизнеса?</a>
-                            </h2>
-                            <p>Ultrices posuere cubilia curae curabitur sit amet tortor ut massa commodo. Vestibulum consectetur euismod malesuada tincidunt cum. Sed ullamcorper dignissim consectetur ut tincidunt eros sed sapien consectetur dictum. Pellentesques sed volutpat ante, cursus port. Praesent mi magna, penatibus et magniseget dis parturient montes sed quia consequuntur magni dolores eos qui ratione.
-                            </p>
-                            <a href="../single-post.html" class="btn btn-dafault btn-details">Continue Reading</a>
-                        </div>
-
-                    </article>
-                </div>
-        </div>
-    </section>
-
         <footer id="footer">
             <div class="container copyright">
                 <div class="col-md-8">
@@ -368,6 +383,5 @@
                 </div>
             </div>
         </footer>
-
          </body>
      </html>

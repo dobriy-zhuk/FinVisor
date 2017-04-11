@@ -31,8 +31,52 @@
         <script src="../../js/slider.js"></script>
         <script src="../../js/jquery.fancybox.js"></script>
         <script src="../../js/main.js"></script>
+        <script>
+
+            function forward(name_institution){
+
+                var mymodal = $('#myModalBox');
+                mymodal.find('.modal-title').text("Заявление на валютный контроль в " + name_institution);
+                mymodal.modal('show');
+
+            }
+        </script>
     </head>
     <body>
+    <div id="myModalBox" class="modal fade modal_center">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="modal-title">Заявка на валютный контроль</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="contact" name="form_id" id="form_id">
+                        <div id="result_div_id"></div>
+                        <div class="form-group">
+                            <label class="sr-only" for="name_order">Ваше имя</label>
+                            <input type="text" class="form-control" id="name_order" name="name_order" placeholder="Ваше имя">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="phone_order">Ваш телефон</label>
+                            <input type="tel" class="form-control" id="phone_order" name="phone_order" placeholder="Телефон">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="inn_order">ОГРН организации/ОГРНИП</label>
+                            <input type="text" class="form-control" id="inn_order" name="inn_order" placeholder="ОГРН организации/ОГРНИП">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="url_order">Сайт организации (если есть)</label>
+                            <input type="url" class="form-control" id="url_order" name="url_order" placeholder="Сайт организации (если есть)">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a onclick="if (CheckFormSimple()) AjaxCallBack('result_div_id', 'form_id','modal-title','../../scripts/order.php');" class="btn btn-success">Отправить заявку<i class="icon-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
     <header id="top-bar" class="navbar">
         <div class="container">
             <div class="navbar-header">
@@ -250,8 +294,8 @@
                                 <td class="text-center" style="text-align: center">
                                     <img style="margin-left: auto; margin-right: 0" src="http://data.sberbank.ru/common/img/uploaded/banks/uploaded_szb/files/smi_sber_logo.jpg" class="img-responsive" height="30" width="200">
                                     <br>
-                                    <a href="#sberbank" class="btn btn-success">Обзор банка</a>
-                                    <p><i>на SpaceFinance</i></p>
+                                    <button class="btn btn-success" onclick="forward('Сбербанк')">Подключиться</button>
+                                    <p><i><a href="#sberbank">Обзор банка</a></i></p>
                                 </td>
                             </tr>
                             </tbody>
@@ -274,8 +318,8 @@
             <td style="text-align: center">
                 <img style="margin-left: auto; margin-right: 0"  src="https://www.novorosinform.org/upload/8/c/binbank.jpg" class="img-responsive" height="30" width="200">
                 <br>
-                <a href="#binbank-bank" class="btn btn-success">Обзор банка</a>
-                <p><i>на SpaceFinance</i></p>
+                <button class="btn btn-success" onclick="forward('БинБанк')">Подключиться</button>
+                <p><i><a href="#binbank-bank">Обзор банка</a></i></p>
             </td>
         </tr>
         </tbody>
@@ -297,8 +341,8 @@
             <td class="text-center">
                 <img style="margin-left: auto; margin-right: 0" src="http://kredit-otziv.ru/wp-content/uploads/Logo_bordo.png" class="img-responsive" height="30" width="200">
                 <br>
-                <a href="#mkb" class="btn btn-success">Обзор банка</a>
-                <p><i>на SpaceFinance</i></p>
+                <button class="btn btn-success" onclick="forward('Московский Кредитный Банк')">Подключиться</button>
+                <p><i><a href="#mkb">Обзор банка</a></i></p>
             </td>
         </tr>
         </tbody>
@@ -321,8 +365,8 @@
                                 <td class="text-center" style="text-align: center">
                                     <img style="margin-left: auto; margin-right: 0" src="http://poipoteke.com/uimages/posts/u265/preview/58456905ca89c793422879/58456855b8fd1.jpg" class="img-responsive" height="30" width="200">
                                     <br>
-                                    <a href="#psb" class="btn btn-success">Обзор банка</a>
-                                    <p><i>на SpaceFinance</i></p>
+                                    <button class="btn btn-success" onclick="forward('Промсвязьбанк')">Подключиться</button>
+                                    <p><i><a href="#psb">Обзор банка</a></i></p>
                                 </td>
                             </tr>
                             </tbody>
@@ -345,8 +389,8 @@
     <td class="text-center">
         <img style="margin-left: auto; margin-right: 0" src="http://financers.ru/wp-content/uploads/2014/08/alfa.jpg" class="img-responsive" height="30" width="200">
     <br>
-    <a href="#alfa-bank" class="btn btn-success">Обзор банка</a>
-        <p><i>на SpaceFinance</i></p>
+        <button class="btn btn-success" onclick="forward('Альфа-Банк')">Подключиться</button>
+        <p><i><a href="#alfa-bank">Обзор банка</a></i></p>
     </td>
     </tr>
        </tbody>

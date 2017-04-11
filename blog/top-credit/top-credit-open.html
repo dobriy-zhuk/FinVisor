@@ -72,7 +72,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <a onclick="if (CheckFormSimple()) AjaxCallBack('result_div_id', 'form_id','Кредитование','../../scripts/order.php');" class="btn btn-success">Отправить заявку<i class="icon-arrow-right"></i></a>
+                <a onclick="if (CheckFormSimple()) AjaxCallBack('result_div_id', 'form_id','modal-title','../../scripts/order.php');" class="btn btn-success">Отправить заявку<i class="icon-arrow-right"></i></a>
             </div>
         </div>
     </div>
@@ -276,7 +276,7 @@
                                     <img style="margin-left: auto; margin-right: 0" src="http://data.sberbank.ru/common/img/uploaded/banks/uploaded_szb/files/smi_sber_logo.jpg" class="img-responsive" height="30" width="200">
                                     <br>
                                     <button class="btn btn-success" onclick="forward('Сбербанк')">Получить кредит</button>
-                                    <p><i>на SpaceFinance</i></p>
+                                    <p><i><a href="#sberbank">Обзор банка</a></i></p>
                                 </td>
                             </tr>
                             </tbody>
@@ -300,7 +300,7 @@
                                     <img style="margin-left: auto; margin-right: 0" src="http://www.iee.unn.ru/files/2015/04/vtb24-logo.jpg" class="img-responsive" height="30" width="200">
                                     <br>
                                     <button class="btn btn-success" onclick="forward('ВТБ24')">Получить кредит</button>
-                                    <p><i>на SpaceFinance</i></p>
+                                    <p><i><a href="#vtb24">Обзор банка</a></i></p>
                                 </td>
                             </tr>
                             </tbody>
@@ -325,7 +325,7 @@
                                     <img style="margin-left: auto; margin-right: 0"  src="../../images/institutions/open-bank.png" class="img-responsive" height="30" width="200">
                                     <br>
                                     <button class="btn btn-success" onclick="forward('Банк Открытие')">Получить кредит</button>
-                                    <p><i>на SpaceFinance</i></p>
+                                    <p><i><a href="#open">Обзор банка</a></i></p>
                                 </td>
                             </tr>
                             </tbody>
@@ -349,7 +349,7 @@
                                     <img style="margin-left: auto; margin-right: 0" src="http://financers.ru/wp-content/uploads/2014/08/alfa.jpg" class="img-responsive" height="30" width="200">
                                     <br>
                                     <button class="btn btn-success" onclick="forward('Альфа-Банк')">Получить кредит</button>
-                                    <p><i>на SpaceFinance</i></p>
+                                    <p><i><a href="#alfa">Обзор банка</a></i></p>
                                 </td>
                             </tr>
                             </tbody>
@@ -375,7 +375,7 @@
                                     <img style="margin-left: auto; margin-right: 0" src="http://dubovskaya-zastava.ru/design/images/1447922630_logotip_1.png" class="img-responsive" height="30" width="200">
                                     <br>
                                     <button class="btn btn-success" onclick="forward('Россельхозбанк')">Получить кредит</button>
-                                    <p><i>на SpaceFinance</i></p>
+                                    <p><i><a href="#rosselkhoz">Обзор банка</a></i></p>
                                 </td>
                             </tr>
                             </tbody>
@@ -384,7 +384,7 @@
                             <p style="font-size: 18px; line-height: 1.8;">По статистике 65% процентов предпринимателей начинают с кредитования своего будущего бизнеса. При открытии бизнеса, важно не только продумать идею и найти деньги под минимальный процент, важно найти надежного партнера в лице банка.
                             Нужно, чтобы банк был достаточно гибким для обеспечения вас денежными средствами при открытии бизнеса. Подобрать надежного партнера можно на <a href="../../credit/credit.php">нашем сервисе</a>.</p>
                         </div>
-                        <div class="row">
+                        <div class="row" id="sberbank">
                             <h3><b>1. Сбербанк</b></h3>
                             <div style="float: right; margin:  7px 0 7px 7px;" class="text-center">
                                 <img src="http://data.sberbank.ru/common/img/uploaded/banks/uploaded_szb/files/smi_sber_logo.jpg" alt="" class="img-responsive" height="30" width="200">
@@ -395,7 +395,7 @@
                                 Для предпринимателей доступен сервис "Сбербанк Бизнес Онлайн", предоставляющий механизм работы с РКО, открытием вкладов и валютного контроля.</p>
                             <p>[<a href="#sberbank-top">Вверх</a>]</p>
                         </div>
-                        <div class="row">
+                        <div class="row" id="vtb24">
                             <h3><b>2. ВТБ24</b></h3>
                             <div style="float: right; margin:  7px 0 7px 7px;" class="text-center">
                                 <img src="http://www.iee.unn.ru/files/2015/04/vtb24-logo.jpg" alt="" class="img-responsive" height="30" width="200">
@@ -407,7 +407,7 @@
                             </p>
                             <p>[<a href="#vtb24-top">Вверх</a>]</p>
                         </div>
-                        <div class="row">
+                        <div class="row" id="open">
                             <h3><b>3. Банк Открытие</b></h3>
                             <div style="float: right; margin:  7px 0 7px 7px;" class="text-center">
                                 <img src="../../images/institutions/open-bank.png" alt="" class="img-responsive" height="30" width="200">
@@ -419,7 +419,7 @@
                             <p>[<a href="#open-top">Вверх</a>]</p>
                         </div>
 
-                        <div class="row">
+                        <div class="row" id="alfa">
                             <h3><b>4. Альфа-Банк</b></h3>
                             <div style="float: right; margin:  7px 0 7px 7px;" class="text-center">
                                 <img src="http://financers.ru/wp-content/uploads/2014/08/alfa.jpg" alt="" class="img-responsive" height="30" width="200">
