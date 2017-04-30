@@ -5,9 +5,9 @@
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <link rel="icon" type="image/png" href="../images/favicon.png">
-        <title>Подбор наиболее депозита для предпринимателей и бизнеса</title>
-        <meta name="description" content="Подбор депозитов для вашего бизнеса из более 500 предложений Российских банков">
-        <meta name="keywords" content="депозиты, бизнес, валюта">
+        <title>Депозиты для юридических лиц и индивидуальных предпринимателей</title>
+        <meta name="description" content="Подбор депозитов с высокими ставками для малого и среднего бизнеса из более 500 предложений Российских банков">
+        <meta name="keywords" content="депозиты, бизнес, вклады, ставки, высокие, юридические, лица, ип, space, finance, spacefinance">
         <meta name="author" content="">
         <meta name="format-detection" content="telephone=no">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -405,7 +405,7 @@
             <div class="container copyright">
                 <div class="col-md-8">
                     <div class="col-md-3">
-                        <a href="../banks.html">Банкам</a>
+                        <a href="../partnership.html">Банкам</a>
                     </div>
                     <div class="col-md-3">
                         <a href="">Интеграция</a>
@@ -443,5 +443,45 @@
                 </div>
             </div>
         </footer>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter44226269 = new Ya.Metrika({
+                        id:44226269,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true,
+                        ecommerce:"dataLayer"
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/44226269" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-42988665-6', 'auto');
+        ga('send', 'pageview');
+
+    </script>
          </body>
      </html>

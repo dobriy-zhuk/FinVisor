@@ -26,8 +26,8 @@ class FinancialServices extends Finvisor {
     function __construct(){
 
         $dbhost = 'localhost';
-        $dbuser = 'kursokrf_fin';
-        $dbpass = 'dobriy76';
+        $dbuser = 'root';
+        $dbpass = '787876';
         $dbname = 'kursokrf_fin';
 
         self::$conn = mysqli_connect($dbhost, $dbuser, $dbpass,$dbname);
@@ -466,6 +466,30 @@ class FinancialServices extends Finvisor {
         mysqli_query(self::$conn, $sql);
 
         printf ("New Record has id %d.\n", mysqli_insert_id(self::$conn));
+
+    }
+
+    public function loadData($filename){
+
+
+  //      $sql = "LOAD DATA INFILE '$filename' INTO TABLE financial_institution FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 LINES;";
+
+  //      mysqli_query(self::$conn, $import);
+
+
+        $handle = fopen($filename, "r");
+
+        $i=0;
+        while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+            if($i>0){
+                $import="INSERT INTO `financial_institution`(`id_institution`, `name_institution`, `logo_institution`, `type_institution`, `site_institution`, `city_institution`, `rating`, `description`)
+                VALUES('".$data[0]."','".$data[1]."','".$data[2]."','".$data[3]."','".$data[4]."','".$data[5]."','".$data[6]."','".$data[7]."')";
+                mysqli_query(self::$conn, $import);
+            }
+            $i=1;
+        }
+
+      //  printf ("New Record has id %d.\n", mysqli_insert_id(self::$conn));
 
     }
 
