@@ -1,10 +1,10 @@
 <?php
 
-$type_fund = 'Государственный';
+$round = 'preseed';
 $directions = 'IT';
 
-if(isset($_GET["type_fund"])){
-    $type_fund = $_GET["type_fund"];
+if(isset($_GET["round"])){
+    $round = $_GET["round"];
 }
 if(isset($_GET["directions"])){
     $directions = $_GET["directions"];
@@ -13,6 +13,6 @@ if(isset($_GET["directions"])){
 include_once('Finvisor.php');
 
 $obj = new FinancialServices();
-$obj->displayFilterFund($type_fund, $directions);
+$obj->displayFilterFund($round, $directions);
 
 ?>

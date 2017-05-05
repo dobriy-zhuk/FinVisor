@@ -2,10 +2,10 @@
 
 $pledge = 'no';
 $interest_rate = 100;
-$credit_time = 50;
+$credit_time = 360;
 $max_credit = 10000000;
 $order_by = 'interest_rate';
-$page = 10;
+$page = 100;
 
 if(isset($_GET["pledge"])){
     $pledge = $_GET["pledge"];

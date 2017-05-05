@@ -1,7 +1,7 @@
 <?php
 
-$city_contest = 'Moscow';
-$directions = 'IT';
+$city_contest = '';
+$directions = '';
 $volume = 0;
 
 if(isset($_GET["city_contest"])){

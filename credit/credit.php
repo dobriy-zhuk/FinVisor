@@ -4,7 +4,7 @@
 
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <link rel="icon" type="image/png" href="../images/favicon.png">
+        <link rel="icon" type="image/png" href="../images/favicon.ico">
         <title>Кредиты для малого и среднего бизнеса | Взять кредит на открытие бизнеса, пополнение капитала для юридических лиц и индивидуальных предпринимателей</title>
         <meta name="description" content="Подбор кредита для юридических лиц и ип на открытие и развитие бизнеса с залогом и без">
         <meta name="keywords" content="кредит, кредиты, сбербанк, тинькофф, альфа, втб, промсвязьбанк, малый, бизнес, с нуля, заем, получить, space, finance, spacefinance">
@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="../css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/ionicons.min.css">
+        <link rel="stylesheet" href="../css/font-awesome.min.css">
         <link rel="stylesheet" href="../css/animate.css">
         <link rel="stylesheet" href="../css/slider.css">
         <link rel="stylesheet" href="../css/owl.carousel.css">
@@ -86,7 +86,7 @@
                        result.forEach(function(element){
                            document.getElementById('result').innerHTML += '<tr class="product_card">' +
                                '<td>'+ element.name_institution + ' (' + element.name_tariff + ') <br>' +
-                               '<img src="' + element.logo_institution + '" alt="" width = "125" height="125"' + '<br>' +
+                               '<img src="../images/logo/' + element.logo_institution + '" alt="" width = "125" height="125"' + '<br>' +
                                '</td>' +
                                '<td style="text-align: center; vertical-align: middle;">от ' + element.interest_rate + '%</td>' +
                                '<td style="text-align: center; vertical-align: middle;">до ' + element.credit_time + ' мес.</td>' +
@@ -113,7 +113,6 @@
                 mymodal.modal('show');
 
             }
-
 
         </script>
 
@@ -162,20 +161,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <div class="navbar-brand">
+                <div class="navbar-brand hidden-sm">
                     <a href="../index.html" >
-                        <img src="../images/logo.png" alt="" height="25">
+                        <img src="../images/logo.png" alt="" height="35">
                     </a>
                 </div>
             </div>
             <nav class="collapse navbar-collapse navbar-right" role="navigation">
                 <div class="main-menu">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="../finance/cash_service.php" class="dropdown-toggle" data-toggle="dropdown">Банковской обслуживание <b class="caret"></b></a>
+                        <li class="dropdown" style="position: static">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Банковской обслуживание <b class="caret"></b></a>
                             <div class="dropdown-menu multi-column columns-3">
-                                <div class="row">
-                                    <div class="col-sm-4">
+                                <div class="row col-md-offset-2 col-md-8">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a href=""><strong>Обзоры</strong></a></li>
                                             <li class="divider"></li>
@@ -185,7 +184,7 @@
                                             <li><a href="../blog/top-finance/top-currency.html">Топ валютный контроль 2017</a></li>
                                         </ul>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a href=""><strong>Сравнение</strong></a></li>
                                             <li class="divider"></li>
@@ -194,7 +193,7 @@
                                             <li><a href="../finance/deposits.php">Депозиты для бизнеса</a></li>
                                         </ul>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a href=""><strong>Рекомендации</strong></a></li>
                                             <li class="divider"></li>
@@ -207,11 +206,11 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="dropdown">
-                            <a href="../credit/credit.php" class="dropdown-toggle" data-toggle="dropdown">Кредитование<b class="caret"></b></a>
+                        <li class="dropdown" style="position: static">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Кредитование<b class="caret"></b></a>
                             <div class="dropdown-menu multi-column columns-3">
-                                <div class="row">
-                                    <div class="col-sm-4">
+                                <div class="row col-md-offset-2 col-md-8">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a href=""><strong>Обзоры</strong></a></li>
                                             <li class="divider"></li>
@@ -220,7 +219,7 @@
                                             <li><a href="../blog/top-credit/top-leasing.html">Топ лизинг автотранспорта 2017</a></li>
                                         </ul>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a href=""><strong>Сравнение</strong></a></li>
                                             <li class="divider"></li>
@@ -230,7 +229,7 @@
                                             <li><a href="../credit/credit-leasing.php">Лизинг</a></li>
                                         </ul>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a href=""><strong>Рекомендации</strong></a></li>
                                             <li class="divider"></li>
@@ -242,11 +241,11 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="dropdown">
-                            <a href="../insurance/insurance_complex.php" class="dropdown-toggle" data-toggle="dropdown">Страхование <b class="caret"></b></a>
+                        <li class="dropdown" style="position: static">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Страхование <b class="caret"></b></a>
                             <div class="dropdown-menu multi-column columns-3">
-                                <div class="row">
-                                    <div class="col-sm-4">
+                                <div class="row col-md-offset-2 col-md-8">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Обзоры</strong></a></li>
                                             <li class="divider"></li>
@@ -256,7 +255,7 @@
                                             <li><a href="../blog/top-insurance/top-liability.html">Топ страхования ответственности</a></li>
                                         </ul>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Сравнение</strong></a></li>
                                             <li class="divider"></li>
@@ -264,9 +263,10 @@
                                             <li><a href="../insurance/insurance_transport.php">Автотранспорт</a></li>
                                             <li><a href="../insurance/insurance_finance.php">Финансовая деятельность</a></li>
                                             <li><a href="../insurance/insurance_complex.php">Комплексное страхование</a></li>
+
                                         </ul>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Рекомендации</strong></a></li>
                                             <li class="divider"></li>
@@ -278,11 +278,11 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="dropdown">
-                            <a href="../investing/funds.php" class="dropdown-toggle" data-toggle="dropdown">Инвестиции <b class="caret"></b></a>
+                        <li class="dropdown" style="position: static">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Инвестиции <b class="caret"></b></a>
                             <div class="dropdown-menu multi-column columns-3" style="">
-                                <div class="row">
-                                    <div class="col-sm-4">
+                                <div class="row col-md-offset-2 col-md-8">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Обзоры</strong></a></li>
                                             <li class="divider"></li>
@@ -291,7 +291,7 @@
                                             <li><a href="../blog/top-investment/top-contest.html">Топ финансовых конкурсов 2017</a></li>
                                         </ul>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Сравнение</strong></a></li>
                                             <li class="divider"></li>
@@ -300,7 +300,7 @@
                                             <li><a href="../investing/contest.php">Финансовые конкурсы</a></li>
                                         </ul>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Рекомендации</strong></a></li>
                                             <li class="divider"></li>
@@ -348,9 +348,10 @@
                 <div class="form-group">
                     <label for="interest_rate">Процентная ставка</label>
                     <select id="interest_rate" class="selectpicker form-control">
+                        <option value="100" selected>Любая</option>
                         <option value="10">До 10%</option>
                         <option value="20">До 20%</option>
-                        <option value="30" selected>До 30%</option>
+                        <option value="30">До 30%</option>
                     </select>
                 </div>
             </div>
@@ -358,10 +359,11 @@
                 <div class="form-group">
                     <label for="credit_time">Срок кредитования</label>
                     <select id="credit_time" class="selectpicker form-control">
+                        <option value="360" selected>Любой</option>
                         <option value="3">до 3 месяцев</option>
                         <option value="12">до 12 месяцев</option>
                         <option value="24">до 24 месяцев</option>
-                        <option value="48" selected>до 48 месяцев</option>
+                        <option value="48">до 48 месяцев</option>
                     </select>
                 </div>
             </div>
@@ -369,10 +371,10 @@
                 <div class="form-group">
                     <label for="max_credit">Максимальная сумма кредита</label>
                     <select id="max_credit" class="selectpicker form-control">
-                        <option value="1000">Любая</option>
+                        <option value="10000" selected>Любая</option>
                         <option value="0.1">До 100 тыс. руб.</option>
                         <option value="3">До 3 млн. руб.</option>
-                        <option value="10" selected>До 10 млн. руб.</option>
+                        <option value="10">До 10 млн. руб.</option>
                     </select>
                 </div>
             </div>
@@ -394,48 +396,73 @@
         </table>
     </div>
 </div>
-        <footer id="footer">
-            <div class="container copyright">
-                <div class="col-md-8">
-                    <div class="col-md-3">
-                        <a href="../partnership.html">Банкам</a>
+    <footer id="footer">
+        <div class="container copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="col-md-3">
+                            <p><a href="../finance/cash_service.php">Банковское обслуживание</a></p>
+                            <p><a href="../credit/credit.php">Кредитование</a></p>
+                            <p><a href="../insurance/insurance_complex.php">Страхование</a></p>
+                            <p><a href="../investing/funds.php">Инвестиции</a></p>
+                        </div>
+                        <div class="col-md-3">
+                            <p><a href="../accomodation.html">Размещение на портале</a></p>
+                            <p><a href="../integration.html">Интеграция</a></p>
+                            <p><a href="../api.html">API</a></p>
+                        </div>
+                        <div class="col-md-3">
+                            <p><a href="../documents/politic.pdf" target="_blank">Политика конфиденциальности</a></p>
+                            <p><a href="../documents/rules.pdf" target="_blank">Правила сервиса</a></p>
+                            <p><a href="../documents/rules.pdf" target="_blank">Условия использования</a></p>
+                        </div>
+                        <div class="col-md-3">
+                            <p><a href="../about.html">О компании</a></p>
+                            <p><a href="../partnership.html">Сотрудничество</a></p>
+                            <p><a href="../press.html">Пресса</a></p>
+                            <p><a href="../career.html">Карьера</a></p>
+                            <p><a href="../projects.html">Проекты</a></p>
+                        </div>
                     </div>
                     <div class="col-md-3">
-                        <a href="">Интеграция</a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="">Оферта</a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="">Контакты</a>
+                        <ul class="social">
+                            <li>
+                                <a href="https://www.facebook.com/spacefinance/" class="Facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://vk.com/spacefinance" class="Facebook">
+                                    <i class="fa fa-vk"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="Twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="Google Plus">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <ul class="social">
-                        <li>
-                            <a href="http://wwww.fb.com/themefisher" class="Facebook">
-                                <i class="ion-social-facebook"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://wwww.twitter.com/themefisher" class="Twitter">
-                                <i class="ion-social-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="Linkedin">
-                                <i class="ion-social-linkedin"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://wwww.fb.com/themefisher" class="Google Plus">
-                                <i class="ion-social-googleplus"></i>
-                            </a>
-                        </li>
-                    </ul>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p style="text-align: left; font-size: 13px; color: #ffffff; line-height: 1.2;">
+                            Ответственность: SpaceFinance ежедневно стремится, чтобы информация была точной и актуальной. Информация на сайте может отличаться от информации на сайте финансового института, поставщика услуг или конкретного сайта продукта.
+                            Все финансовые продукты и услуги представлены без гарантии. Услуги представлены в ознакомительных целях. Обязательно проверяйте актуальность данных на официальных сайтах партнеров.
+                            Если вы обнаружите несоответствия, пожалуйста, свяжитесь с нами напрямую info@spacefinance.net.
+                        </p>
+                    </div>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function (d, w, c) {

@@ -4,7 +4,7 @@
 
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <link rel="icon" type="image/png" href="../images/favicon.png">
+        <link rel="icon" type="image/png" href="../images/favicon.ico">
         <title>Подать заявку на инвестиции в российские и зарубежные венчурные фонды</title>
         <meta name="description" content="Подбор венчурных фондов для поиска инвестиций и финансирования бизнеса">
         <meta name="keywords" content="венчурный, инвестор, инвестиции, фирма, предпринимательство, российская венчурная компания, деятельность,, капитал, финансирование, бизнес, ангел, space, finance, spacefinance">
@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="../css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/ionicons.min.css">
+        <link rel="stylesheet" href="../css/font-awesome.min.css">
         <link rel="stylesheet" href="../css/animate.css">
         <link rel="stylesheet" href="../css/slider.css">
         <link rel="stylesheet" href="../css/owl.carousel.css">
@@ -39,10 +39,10 @@
             });
 
             function changed_form(){
-                var type_fund = $("#type_fund" ).val();
+                var round = $("#round" ).val();
                 var directions = $("#directions" ).val();
 
-                window.history.replaceState({}, "", updateQueryStringParameter(window.location.href,"type_fund",type_fund));
+                window.history.replaceState({}, "", updateQueryStringParameter(window.location.href,"round",round));
                 window.history.replaceState({}, "", updateQueryStringParameter(window.location.href,"directions",directions));
 
                 get_fund();
@@ -64,7 +64,7 @@
            function get_fund(){
 
                var myData={
-                   type_fond: getUrlVars()['type_fund'],
+                   round: getUrlVars()['round'],
                    directions: getUrlVars()['directions']
                };
 
@@ -80,11 +80,11 @@
                        result.forEach(function(element){
                            document.getElementById('result').innerHTML += '<tr class="product_card">' +
                                '<td>'+ element.name_institution + '<br>' +
-                               '<img src="' + element.logo_institution + '" alt="" width = "125" height="125"' + '<br>' +
+                               '<img src="../images/logo/' + element.logo_institution + '" alt="" width = "125" height="125"' + '<br>' +
                                '</td>' +
-                               '<td style="text-align: center; vertical-align: middle;">' + element.type_fund + '</td>' +
+                               '<td style="text-align: center; vertical-align: middle;">' + element.round + '</td>' +
                                '<td style="text-align: center; vertical-align: middle;">' + element.directions + '</td>' +
-                               '<td class="active" style="text-align: center; vertical-align: middle;">' + element.volume + '<br><button class=\"btn btn-success\" onclick="forward(\'' + element.name_institution + '\')"> Подать заявку фонд</button>' + '</td>' +
+                               '<td class="active" style="text-align: center; vertical-align: middle; font-style: italic"><a rel="nofollow" target="_blank" href="' + element.site + '" >ссылка на сайт</a><br><button class=\"btn btn-success\" onclick="forward(\'' + element.name_institution + '\')"> Подать заявку в фонд</button>' + '</td>' +
                                '</tr>' +
                                '<tr><td style="border: none" colspan="3"><a style="font-size: 15px; cursor: pointer" data-toggle="collapse" data-target="#collapseExample' + element.id + '" aria-expanded="false" aria-controls="collapseExample">' +
                                'Особенности' +
@@ -155,20 +155,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <div class="navbar-brand">
+                <div class="navbar-brand hidden-sm">
                     <a href="../index.html" >
-                        <img src="../images/logo.png" alt="" height="25">
+                        <img src="../images/logo.png" alt="" height="35">
                     </a>
                 </div>
             </div>
             <nav class="collapse navbar-collapse navbar-right" role="navigation">
                 <div class="main-menu">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="../finance/cash_service.php" class="dropdown-toggle" data-toggle="dropdown">Банковской обслуживание <b class="caret"></b></a>
+                        <li class="dropdown" style="position: static">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Банковской обслуживание <b class="caret"></b></a>
                             <div class="dropdown-menu multi-column columns-3">
-                                <div class="row">
-                                    <div class="col-sm-4">
+                                <div class="row col-md-offset-2 col-md-8">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a href=""><strong>Обзоры</strong></a></li>
                                             <li class="divider"></li>
@@ -178,7 +178,7 @@
                                             <li><a href="../blog/top-finance/top-currency.html">Топ валютный контроль 2017</a></li>
                                         </ul>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a href=""><strong>Сравнение</strong></a></li>
                                             <li class="divider"></li>
@@ -187,7 +187,7 @@
                                             <li><a href="../finance/deposits.php">Депозиты для бизнеса</a></li>
                                         </ul>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a href=""><strong>Рекомендации</strong></a></li>
                                             <li class="divider"></li>
@@ -200,11 +200,11 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="dropdown">
-                            <a href="../credit/credit.php" class="dropdown-toggle" data-toggle="dropdown">Кредитование<b class="caret"></b></a>
+                        <li class="dropdown" style="position: static">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Кредитование<b class="caret"></b></a>
                             <div class="dropdown-menu multi-column columns-3">
-                                <div class="row">
-                                    <div class="col-sm-4">
+                                <div class="row col-md-offset-2 col-md-8">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a href=""><strong>Обзоры</strong></a></li>
                                             <li class="divider"></li>
@@ -213,7 +213,7 @@
                                             <li><a href="../blog/top-credit/top-leasing.html">Топ лизинг автотранспорта 2017</a></li>
                                         </ul>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a href=""><strong>Сравнение</strong></a></li>
                                             <li class="divider"></li>
@@ -223,7 +223,7 @@
                                             <li><a href="../credit/credit-leasing.php">Лизинг</a></li>
                                         </ul>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a href=""><strong>Рекомендации</strong></a></li>
                                             <li class="divider"></li>
@@ -235,11 +235,11 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="dropdown">
-                            <a href="../insurance/insurance_complex.php" class="dropdown-toggle" data-toggle="dropdown">Страхование <b class="caret"></b></a>
+                        <li class="dropdown" style="position: static">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Страхование <b class="caret"></b></a>
                             <div class="dropdown-menu multi-column columns-3">
-                                <div class="row">
-                                    <div class="col-sm-4">
+                                <div class="row col-md-offset-2 col-md-8">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Обзоры</strong></a></li>
                                             <li class="divider"></li>
@@ -249,7 +249,7 @@
                                             <li><a href="../blog/top-insurance/top-liability.html">Топ страхования ответственности</a></li>
                                         </ul>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Сравнение</strong></a></li>
                                             <li class="divider"></li>
@@ -257,9 +257,10 @@
                                             <li><a href="../insurance/insurance_transport.php">Автотранспорт</a></li>
                                             <li><a href="../insurance/insurance_finance.php">Финансовая деятельность</a></li>
                                             <li><a href="../insurance/insurance_complex.php">Комплексное страхование</a></li>
+
                                         </ul>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Рекомендации</strong></a></li>
                                             <li class="divider"></li>
@@ -271,11 +272,11 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="dropdown">
-                            <a href="../investing/funds.php" class="dropdown-toggle" data-toggle="dropdown">Инвестиции <b class="caret"></b></a>
+                        <li class="dropdown" style="position: static">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Инвестиции <b class="caret"></b></a>
                             <div class="dropdown-menu multi-column columns-3" style="">
-                                <div class="row">
-                                    <div class="col-sm-4">
+                                <div class="row col-md-offset-2 col-md-8">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Обзоры</strong></a></li>
                                             <li class="divider"></li>
@@ -284,7 +285,7 @@
                                             <li><a href="../blog/top-investment/top-contest.html">Топ финансовых конкурсов 2017</a></li>
                                         </ul>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Сравнение</strong></a></li>
                                             <li class="divider"></li>
@@ -293,7 +294,7 @@
                                             <li><a href="../investing/contest.php">Финансовые конкурсы</a></li>
                                         </ul>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4 col-md-4">
                                         <ul class="multi-column-dropdown">
                                             <li><a><strong>Рекомендации</strong></a></li>
                                             <li class="divider"></li>
@@ -322,18 +323,20 @@
         </div>
         <div class="row">
             <div class="col-md-8 col-md-push-2 top-offset center-block">
-                <h1><strong>Ищите инвестиции в фондах по всей России</strong></h1>
-                <p><i>Расскажите о своем проекте в фондах и получите венурные инвестиции</i></p>
+                <h1><strong>Ищите инвестиции в фондах по всему Миру</strong></h1>
+                <p><i>Расскажите о своем проекте в фондах и получите венчурные инвестиции</i></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <form onchange="changed_form()">
                     <div class="form-group col-md-6">
-                        <label for="type_fund">Тип фонда</label>
-                        <select id="type_fund" class="selectpicker form-control">
-                            <option value="Государственный" selected>Государственные фонды</option>
-                            <option value="Частный">Частные фонды</option>
+                        <label for="round">Раунд инвестиций</label>
+                        <select id="round" class="selectpicker form-control">
+                            <option value="preseed" selected>Предпосевной ($10-50 тыс.)</option>
+                            <option value="seed">Посевной ($100-500 тыс.)</option>
+                            <option value="roundA">Раунд A ($1–2 млн)</option>
+                            <option value="roundB">Раунд B ($2–10 млн)</option>
                         </select>
                     </div>
                     <div class="form-group col-md-6">
@@ -343,6 +346,8 @@
                             <option value="BioTech">BioMed (Биомедицина)</option>
                             <option value="FinTech">FinTech (Финансы)</option>
                             <option value="EduTech">EduTech (Образование)</option>
+                            <option value="Energy">Energy (Энергетика)</option>
+                            <option value="Transport">Transport (Транспорт)</option>
                         </select>
                     </div>
                 </form>
@@ -355,57 +360,82 @@
             <thead>
             <tr>
                 <th class="col-sm-3 text-center active"><a href="">Наименование</a></th>
-                <th class="col-sm-3 text-center active"><a href="">Тип фонда</a></th>
+                <th class="col-sm-3 text-center active"><a href="">Раунд инвестиций</a></th>
                 <th class="col-sm-3 text-center active"><a href="">Направления инвестирования</a></th>
-                <th class="col-sm-3 text-center active"><a href="">Объем фонда</a></th>
+                <th class="col-sm-3 text-center active"><a href="">Сайт фонда</a></th>
             </tr>
             </thead>
             <tbody id="result" class="table-bordered"></tbody>
         </table>
     </div>
     </div>
-        <footer id="footer">
-            <div class="container copyright">
-                <div class="col-md-8">
-                    <div class="col-md-3">
-                        <a href="../partnership.html">Банкам</a>
+    <footer id="footer">
+        <div class="container copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="col-md-3">
+                            <p><a href="../finance/cash_service.php">Банковское обслуживание</a></p>
+                            <p><a href="../credit/credit.php">Кредитование</a></p>
+                            <p><a href="../insurance/insurance_complex.php">Страхование</a></p>
+                            <p><a href="../investing/funds.php">Инвестиции</a></p>
+                        </div>
+                        <div class="col-md-3">
+                            <p><a href="../accomodation.html">Размещение на портале</a></p>
+                            <p><a href="../integration.html">Интеграция</a></p>
+                            <p><a href="../api.html">API</a></p>
+                        </div>
+                        <div class="col-md-3">
+                            <p><a href="../documents/politic.pdf" target="_blank">Политика конфиденциальности</a></p>
+                            <p><a href="../documents/rules.pdf" target="_blank">Правила сервиса</a></p>
+                            <p><a href="../documents/rules.pdf" target="_blank">Условия использования</a></p>
+                        </div>
+                        <div class="col-md-3">
+                            <p><a href="../about.html">О компании</a></p>
+                            <p><a href="../partnership.html">Сотрудничество</a></p>
+                            <p><a href="../press.html">Пресса</a></p>
+                            <p><a href="../career.html">Карьера</a></p>
+                            <p><a href="../projects.html">Проекты</a></p>
+                        </div>
                     </div>
                     <div class="col-md-3">
-                        <a href="">Интеграция</a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="">Оферта</a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="">Контакты</a>
+                        <ul class="social">
+                            <li>
+                                <a href="https://www.facebook.com/spacefinance/" class="Facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://vk.com/spacefinance" class="Facebook">
+                                    <i class="fa fa-vk"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="Twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="Google Plus">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <ul class="social">
-                        <li>
-                            <a href="http://wwww.fb.com/themefisher" class="Facebook">
-                                <i class="ion-social-facebook"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://wwww.twitter.com/themefisher" class="Twitter">
-                                <i class="ion-social-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="Linkedin">
-                                <i class="ion-social-linkedin"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://wwww.fb.com/themefisher" class="Google Plus">
-                                <i class="ion-social-googleplus"></i>
-                            </a>
-                        </li>
-                    </ul>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p style="text-align: left; font-size: 13px; color: #ffffff; line-height: 1.2;">
+                            Ответственность: SpaceFinance ежедневно стремится, чтобы информация была точной и актуальной. Информация на сайте может отличаться от информации на сайте финансового института, поставщика услуг или конкретного сайта продукта.
+                            Все финансовые продукты и услуги представлены без гарантии. Услуги представлены в ознакомительных целях. Обязательно проверяйте актуальность данных на официальных сайтах партнеров.
+                            Если вы обнаружите несоответствия, пожалуйста, свяжитесь с нами напрямую info@spacefinance.net.
+                        </p>
+                    </div>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function (d, w, c) {

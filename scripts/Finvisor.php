@@ -26,8 +26,8 @@ class FinancialServices extends Finvisor {
     function __construct(){
 
         $dbhost = 'localhost';
-        $dbuser = 'root';
-        $dbpass = '787876';
+        $dbuser = 'kursokrf_fin';
+        $dbpass = 'dobriy76';
         $dbname = 'kursokrf_fin';
 
         self::$conn = mysqli_connect($dbhost, $dbuser, $dbpass,$dbname);
@@ -175,8 +175,8 @@ class FinancialServices extends Finvisor {
             self::$banks[$i]->id = $row['id'];
             self::$banks[$i]->name_institution = $row['name_institution'];
             self::$banks[$i]->logo_institution = $row['logo_institution'];
-            self::$banks[$i]->name_deposit = $row['name_deposit'];
-            self::$banks[$i]->rate = $row['rate'];
+            self::$banks[$i]->name_tariff = $row['name_tariff'];
+            self::$banks[$i]->interest_rate = $row['interest_rate'];
             self::$banks[$i]->min_time = $row['min_time'];
             self::$banks[$i]->currency = $row['currency'];
             self::$banks[$i]->min_balance = $row['min_balance'];
@@ -197,7 +197,7 @@ class FinancialServices extends Finvisor {
 
         $query = "SELECT * FROM credit LEFT JOIN financial_institution using(id_institution)
                     WHERE pledge = '$pledge' AND interest_rate <= '$interest_rate'
-                    AND credit_time <= '$credit_time' AND max_credit <= '$max_credit' order by $order_by LIMIT $page";
+                    AND credit_time <= '$credit_time' AND max_credit <= '$max_credit' AND type_credit = 'business' order by $order_by LIMIT $page";
 
         $result = self::$conn->query($query);
 
@@ -227,9 +227,9 @@ class FinancialServices extends Finvisor {
 
     public function displayFilterCreditMortgage($first_pay, $interest_rate, $credit_time, $max_credit, $order_by, $page){
 
-        $query = "SELECT * FROM credit_mortgage LEFT JOIN financial_institution using(id_institution)
-                    WHERE first_pay = '$first_pay' AND interest_rate <= '$interest_rate'
-                    AND credit_time <= '$credit_time' order by $order_by LIMIT $page";
+        $query = "SELECT * FROM credit LEFT JOIN financial_institution using(id_institution)
+                    WHERE first_pay > '$first_pay' AND interest_rate <= '$interest_rate'
+                    AND credit_time <= '$credit_time' AND type_credit = 'mortgage' order by $order_by LIMIT $page";
 
         $result = self::$conn->query($query);
 
@@ -241,6 +241,7 @@ class FinancialServices extends Finvisor {
             self::$banks[$i]->id = $row['id'];
             self::$banks[$i]->name_institution = $row['name_institution'];
             self::$banks[$i]->logo_institution = $row['logo_institution'];
+            self::$banks[$i]->name_tariff = $row['name_tariff'];
             self::$banks[$i]->first_pay = $row['first_pay'];
             self::$banks[$i]->currency = $row['currency'];
             self::$banks[$i]->interest_rate = $row['interest_rate'];
@@ -260,9 +261,9 @@ class FinancialServices extends Finvisor {
 
     public function displayFilterCreditCapital($currency, $interest_rate, $credit_time, $max_credit, $order_by, $page){
 
-        $query = "SELECT * FROM credit_capital LEFT JOIN financial_institution using(id_institution)
+        $query = "SELECT * FROM credit LEFT JOIN financial_institution using(id_institution)
                     WHERE currency LIKE '%$currency%' AND interest_rate <= '$interest_rate'
-                    AND credit_time <= '$credit_time' order by $order_by LIMIT $page";
+                    AND credit_time <= '$credit_time' AND type_credit = 'capital' order by $order_by LIMIT $page";
 
         $result = self::$conn->query($query);
 
@@ -274,6 +275,7 @@ class FinancialServices extends Finvisor {
             self::$banks[$i]->id = $row['id'];
             self::$banks[$i]->name_institution = $row['name_institution'];
             self::$banks[$i]->logo_institution = $row['logo_institution'];
+            self::$banks[$i]->name_tariff = $row['name_tariff'];
             self::$banks[$i]->currency = $row['currency'];
             self::$banks[$i]->interest_rate = $row['interest_rate'];
             self::$banks[$i]->credit_time = $row['credit_time'];
@@ -289,11 +291,10 @@ class FinancialServices extends Finvisor {
 
     }
 
-    public function displayFilterCreditLeasing($first_pay, $interest_rate, $credit_time, $max_credit, $order_by, $page){
+    public function displayFilterCreditLeasing($object, $order_by, $page){
 
         $query = "SELECT * FROM credit_leasing LEFT JOIN financial_institution using(id_institution)
-                    WHERE first_pay <= '$first_pay' AND interest_rate <= '$interest_rate'
-                    AND credit_time <= '$credit_time' order by $order_by LIMIT $page";
+                    WHERE object LIKE '%$object%' LIMIT $page";
 
         $result = self::$conn->query($query);
 
@@ -305,11 +306,8 @@ class FinancialServices extends Finvisor {
             self::$banks[$i]->id = $row['id'];
             self::$banks[$i]->name_institution = $row['name_institution'];
             self::$banks[$i]->logo_institution = $row['logo_institution'];
-            self::$banks[$i]->first_pay = $row['first_pay'];
-            self::$banks[$i]->currency = $row['currency'];
-            self::$banks[$i]->interest_rate = $row['interest_rate'];
-            self::$banks[$i]->credit_time = $row['credit_time'];
-            self::$banks[$i]->max_credit = $row['max_credit'];
+            self::$banks[$i]->site = $row['site_institution'];
+            self::$banks[$i]->rating = $row['rating'];
             self::$banks[$i]->details = $row['details'];
 
             $i++;
@@ -351,10 +349,9 @@ class FinancialServices extends Finvisor {
 
     }
 
-    public function displayFilterFund($type_fund, $directions){
+    public function displayFilterFund($round, $directions){
 
-        $query = "SELECT * FROM fund LEFT JOIN financial_institution using(id_institution)
-                    WHERE type_fund = '$type_fund' AND directions LIKE '%$directions%'";
+        $query = "SELECT * FROM fund LEFT JOIN financial_institution using(id_institution)";
 
         $result = self::$conn->query($query);
 
@@ -366,7 +363,8 @@ class FinancialServices extends Finvisor {
             self::$banks[$i]->id = $row['id'];
             self::$banks[$i]->name_institution = $row['name_institution'];
             self::$banks[$i]->logo_institution = $row['logo_institution'];
-            self::$banks[$i]->type_fund = $row['type_fund'];
+            self::$banks[$i]->site = $row['site_institution'];
+            self::$banks[$i]->round = $row['round'];
             self::$banks[$i]->directions = $row['directions'];
             self::$banks[$i]->volume = $row['volume'];
 
@@ -382,8 +380,8 @@ class FinancialServices extends Finvisor {
     public function displayFilterContest($city_contest, $directions, $volume){
 
         $query = "SELECT * FROM contest LEFT JOIN financial_institution using(id_institution)
-                    WHERE city_contest = '$city_contest' AND  directions LIKE '%$directions%' AND volume >= '$volume' order by date_begin";
-
+                    order by date_begin";
+     //   WHERE city_contest LIKE '%$city_contest%' AND  directions LIKE '%$directions%' AND volume >= '$volume'
         $result = self::$conn->query($query);
 
         $i = 0;
@@ -517,8 +515,8 @@ class Bank_Acquiring {
 class Bank_Deposit {
     public $id;
     public $name_institution;
-    public $name_deposit;
-    public $rate;
+    public $name_tariff;
+    public $interest_rate;
     public $min_time;
     public $currency;
     public $min_balance;
@@ -561,9 +559,9 @@ class CreditLeasing {
     public $id;
     public $name_institution;
     public $logo_institution;
-    public $interest_rate;
-    public $credit_time;
-    public $max_credit;
+    public $site_institution;
+    public $rating;
+    public $object;
     public $details;
 }
 
@@ -580,7 +578,8 @@ class Insurance {
 class Fund {
     public $id;
     public $name_fund;
-    public $type_fund;
+    public $site;
+    public $round;
     public $directions;
     public $volume;
 }

@@ -1,14 +1,14 @@
 <?php
 
-$time = 0;
+$min_time = 0;
 $currency = 'RUB';
 $min_balance = 0;
 $payment = 1;
-$order_by = 'rate';
+$order_by = 'interest_rate';
 $page = 10;
 
-if(isset($_GET["time"])){
-    $time = $_GET["time"];
+if(isset($_GET["min_time"])){
+    $min_time = $_GET["min_time"];
 }
 if(isset($_GET["currency"])){
     $currency = $_GET["currency"];
@@ -26,6 +26,6 @@ if(isset($_GET["page"])){
 include_once('Finvisor.php');
 
 $obj = new FinancialServices();
-$obj->displayFilterDeposits($time, $currency, $min_balance, $payment,$order_by, $page);
+$obj->displayFilterDeposits($min_time, $currency, $min_balance, $payment,$order_by, $page);
 
 ?>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="icon" type="image/png" href="images/favicon.ico">
+        <title>SpaceFinance | Условия сотрудничества</title>
+        <meta name="description" content="Условия сотрудничества с финансовыми организациями и рекламные возможности на сервисе SpaceFinance">
+        <meta name="keywords" content="space, finance, spacefinance, струдничество, реклама">
+        <meta name="author" content="">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/slider.css">
+        <link rel="stylesheet" href="css/owl.carousel.css">
+        <link rel="stylesheet" href="css/owl.theme.css">
+        <link rel="stylesheet" href="css/jquery.fancybox.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/responsive.css">
+
+
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/slider.js"></script>
+        <script src="js/jquery.fancybox.js"></script>
+        <script src="js/main.js"></script>
+
+        <script type="text/javascript">
+            function insert_cash_services(){
+
+                var name_bank = document.Products.name_bank.value;
+                var name_tariff = document.Products.name_tariff.value;
+                var transfer_price = document.Products.transfer_price.value;
+                var subscription_fee = document.Products.subscription_fee.value;
+
+                var myData={
+                    name_bank: name_bank,
+                    name_tariff: name_tariff,
+                    transfer_price: transfer_price,
+                    subscription_fee: subscription_fee
+                };
+
+
+                jQuery.ajax({
+                    type: "POST",
+                    url: "scripts/insert_cash_services.php",
+                    dataType:"text",
+                    data: myData,
+                    success:function(response){
+                        alert(response);
+                    },
+                    error:function (xhr, ajaxOptions, thrownError){
+                        alert("NO");
+                    }
+                });
+            }
+
+        </script>
+    </head>
+    <body>
+        <header id="top-bar" class="navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-brand">
+                        <a href="index.html" >
+                            <img src="images/logo.png" alt="" height="25">
+                        </a>
+                    </div>
+                </div>
+                <nav class="collapse navbar-collapse navbar-right" role="navigation">
+                    <div class="main-menu">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Банковское обслуживание <span class="caret"></span></a>
+                                <div class="dropdown-menu">
+                                    <ul>
+                                        <li><a href="finance/cash_service.php">РКО для бизнеса</a></li>
+                                        <li><a href="gallery.html">Эквайринг</a></li>
+                                        <li><a href="gallery.html">Зарплатный проект</a></li>
+                                        <li><a href="gallery.html">Депозиты для бизнеса</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Кредитование <span class="caret"></span></a>
+                                <div class="dropdown-menu multi-column columns-3">
+                                    <ul class="col-sm-4">
+                                        <li><a href="404.html">Открытие бизнеса</a></li>
+                                        <li><a href="gallery.html">Пополнение оборотного капитала</a></li>
+                                        <li><a href="gallery.html">Коммерческая ипотека</a></li>
+                                        <li><a href="404.html">Лизинг</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Страхование <span class="caret"></span></a>
+                                <div class="dropdown-menu">
+                                    <ul>
+                                        <li><a href="404.html">Транспорт</a></li>
+                                        <li><a href="gallery.html">Недвижимость</a></li>
+                                        <li><a href="gallery.html">Другие виды</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Инвестирование<span class="caret"></span></a>
+                                <div class="dropdown-menu">
+                                    <ul>
+                                        <li><a href="blog-fullwidth.html">Онлайн - брокеры</a></li>
+                                        <li><a href="blog-left-sidebar.html">Венчурные фонды</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a href="contact.html">Войти</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+            <section id="works" class="works">
+                <div class="container">
+                    <div class="section-heading">
+                        <h1 class="title">Добавление организации</h1>
+                        <p>
+                            Добавьте информацию о ваших услуг на нашу финансовую площадку совершенно бесплатно
+                        </p>
+                    </div>
+                    <form class="col-md-8 col-md-offset-2" name="Products">
+                        <div class="form-group">
+                            <select class="custom-select mb-2 mr-sm-2 mb-sm-0 form-control" id="inlineFormCustomSelect">
+                                <option selected>Город</option>
+                                <option value="1">Москва</option>
+                                <option value="2">Ярославль</option>
+                                <option value="3">Тула</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="Наименование организации" id="name_bank" name="name_bank">
+                        </div>
+                        <div class="form-group">
+                            <select class="custom-select mb-2 mr-sm-2 mb-sm-0 form-control" id="inlineFormCustomSelect1">
+                                <option selected>Сфера деятельности</option>
+                                <option value="1">Банковская деятельность</option>
+                                <option value="2">Страхование</option>
+                                <option value="3">Инвестирование</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="custom-select mb-2 mr-sm-2 mb-sm-0 form-control" id="inlineFormCustomSelect2">
+                                <option selected>Продукт</option>
+                                <option value="1">РКО для бизнеса</option>
+                                <option value="2">Страхование</option>
+                                <option value="3">Инвестирование</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="Наименование продукта" id="name_tariff" name="name_tariff">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="number" placeholder="Абонентская плата" id="subscription_fee" name="subscription_fee">
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" type="number" placeholder="Плата за перевод" id="transfer_price" name="transfer_price">
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" type="number" placeholder="Стоимость открытия">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="ФИО контактного лица">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="tel" placeholder="Номер телефона">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="email" placeholder="Email">
+                        </div>
+                        <div class="form-actions">
+
+                        </div>
+                        <button type="button" class="btn btn-lg btn-primary" onclick="insert_cash_services()">Отправить</button>
+                    </form>
+
+                </div>
+            </section>
+            <section id="feature">
+                <div class="container">
+                    <div class="section-heading">
+                        <h1 class="title">Информация для принятия правильных решений</h1>
+                        <p>
+                            Послушайте, что говорят другие. Посмотрите на предложения банков.<br> Мы поможем выбрать!
+                        </p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-lg-4 col-xs-12">
+                            <div class="media">
+                                <div class="media-left">
+                                    <div class="icon">
+                                        <i class="ion-card"></i>
+                                    </div>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">РКО</h4>
+                                    <p>Подбор расчетно-кассового обслуживания из более 500 предложений</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-xs-12">
+                            <div class="media">
+                                <div class="media-left">
+                                    <div class="icon">
+                                        <i class="ion-calculator"></i>
+                                    </div>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Эквайринг</h4>
+                                    <p>Поиск и покупка сервиса эквайринга для ведения бизнеса</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-xs-12">
+                            <div class="media">
+                                <div class="media-left">
+                                    <div class="icon">
+                                        <i class="ion-document-text"></i>
+                                    </div>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Кредитование</h4>
+                                    <p>Получение кредита на ведение бизнеса с вероятностью 95%. Только заполнить документы</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-xs-12">
+                            <div class="media">
+                                <div class="media-left">
+                                    <div class="icon">
+                                        <i class="ion-home"></i>
+                                    </div>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Коммерческая ипотека</h4>
+                                    <p>Получение займа на покупку коммерческой недвижимости, автотранспорта и оборудования</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-xs-12">
+                            <div class="media">
+                                <div class="media-left">
+                                    <div class="icon">
+                                        <i class="ion-ios-person"></i>
+                                    </div>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Страхование</h4>
+                                    <p>Возможность застраховать свой бизнес на лучших условиях</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-xs-12">
+                            <div class="media">
+                                <div class="media-left">
+                                    <div class="icon">
+                                        <i class="ion-ios-lightbulb-outline"></i>
+                                    </div>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Инвестирование</h4>
+                                    <p>Выгодное вложение средств при помощи лучших игроков рынка</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> <!-- /#feature -->
+            <section id="call-to-action">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="block">
+                                <h2 class="title">Подберем лучшее расчетно-кассовое обслуживание</h2>
+                                <p>Введите информацию о вашем бизнесе,<br>и мы поможем открыть расчетный счет в надежном банке!</p>
+                                <a href="finance/cash_service.php" class="btn btn-success btn-lg">Подобрать РКО</a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+            <footer id="footer">
+                <div class="container">
+                    <div class="col-md-8">
+                        <div class="col-md-3">
+                            <a href="">Банкам</a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="">Интеграция</a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="">Оферта</a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="">Контакты</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="social">
+                            <li>
+                                <a href="http://wwww.fb.com/themefisher" class="Facebook">
+                                    <i class="ion-social-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://wwww.twitter.com/themefisher" class="Twitter">
+                                    <i class="ion-social-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="Linkedin">
+                                    <i class="ion-social-linkedin"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://wwww.fb.com/themefisher" class="Google Plus">
+                                    <i class="ion-social-googleplus"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript">
+            (function (d, w, c) {
+                (w[c] = w[c] || []).push(function() {
+                    try {
+                        w.yaCounter44226269 = new Ya.Metrika({
+                            id:44226269,
+                            clickmap:true,
+                            trackLinks:true,
+                            accurateTrackBounce:true,
+                            webvisor:true,
+                            ecommerce:"dataLayer"
+                        });
+                    } catch(e) { }
+                });
+
+                var n = d.getElementsByTagName("script")[0],
+                        s = d.createElement("script"),
+                        f = function () { n.parentNode.insertBefore(s, n); };
+                s.type = "text/javascript";
+                s.async = true;
+                s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+                if (w.opera == "[object Opera]") {
+                    d.addEventListener("DOMContentLoaded", f, false);
+                } else { f(); }
+            })(document, window, "yandex_metrika_callbacks");
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/44226269" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+        </body>
+    </html>

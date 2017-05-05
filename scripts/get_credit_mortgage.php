@@ -1,9 +1,9 @@
 <?php
 
-$first_pay = 20;
+$first_pay = 0;
 $interest_rate = 100;
-$credit_time = 15;
-$max_credit = 100;
+$credit_time = 720;
+$max_credit = 1000;
 $order_by = 'interest_rate';
 $page = 10;
 
